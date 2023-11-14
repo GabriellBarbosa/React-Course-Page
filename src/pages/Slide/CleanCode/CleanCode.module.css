@@ -1,0 +1,71 @@
+.cleanCode {
+    background-color: var(--gray-0);
+    color: var(--gray-8);
+}
+
+.wrapper {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 7.625rem;
+}
+
+.cleanCodeTitle, .title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.25rem;
+    line-height: 2.25rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 2.5rem;
+}
+
+.cleanCodeTitle::after, .title::after {
+    content: "";
+    display: block;
+    width: 1.875rem;
+    height: 0.125rem;
+    background-color: var(--gray-4);
+    margin: 0.625rem 0;
+}
+
+.subtitle {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--gray-5);
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+.subtitle span {
+    color: var(--c-0-light);
+}
+
+.title {
+    margin-top: 0;
+    text-transform: none;
+    font-weight: normal;
+}
+
+.title::after {
+    margin: 0.25rem 0 0 0;
+}
+
+.agileManifestoImg {
+    margin-top: 3rem;
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+.agileManifestoLink {
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+    color: var(--gray-5);
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    margin-top: 0.5rem;
+}
