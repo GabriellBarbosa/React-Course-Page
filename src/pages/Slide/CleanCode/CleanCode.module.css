@@ -14,12 +14,10 @@
     overflow: hidden;
 }
 
-.manifestoLink {
-    display: inline-block;
-    color: var(--gray-5);
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration: underline;
-    font-size: 1.25rem;
-    line-height: 1.625rem;
+.externalLink {
     margin-top: 1.25rem;
+}
+
+.list, .infoSource {
+    margin-top: 3rem;
 }
