@@ -1,23 +1,23 @@
 import styles from './CleanCode.module.css';
-import appStyles from '../../../App.module.css';
+import slideStyles from '../../../assets/css/Slide.module.css';
 
 import { default as logo } from '../../../assets/BookInVideo.svg';
 import { default as agileManifesto } from '../../../assets/agile-manifesto.jpg';
 
 function CleanCode() {
     return (
-        <div className={styles.cleanCode}>
-            <section className={styles.wrapper}>
-                <div className={appStyles.container}>
+        <div className={slideStyles.slide}>
+            <section className={slideStyles.wrapper}>
+                <div className={slideStyles.container}>
                     <span className={styles.logo}><img src={logo} alt="BookInVideo" /></span>
-                    <h1 className={styles.cleanCodeTitle}>Código Limpo</h1>
-                    <p className={styles.subtitle}>Habilidades Práticas do Agile Software<span>.</span></p>
+                    <h1 className={`${slideStyles.title} ${styles.introTitle}`}>Código Limpo</h1>
+                    <p className={slideStyles.subtitle}>Habilidades Práticas do Agile Software<span>.</span></p>
                 </div>
             </section>
 
-            <section className={styles.wrapper}>
-                <div className={appStyles.container}>
-                    <h1 className={styles.title}>Manifesto Ágil</h1>
+            <section className={slideStyles.wrapper}>
+                <div className={slideStyles.container}>
+                    <h1 className={slideStyles.regular_title}>Manifesto Ágil</h1>
                     <div className={styles.agileManifestoImg}>
                         <img src={agileManifesto} alt="Manifesto para Desenvolvimento Ágil de Software" />
                     </div>
