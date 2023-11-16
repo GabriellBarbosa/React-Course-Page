@@ -54,6 +54,15 @@ function CleanCode() {
                     </div>
                 </div>
             </section>
+
+            <section className={slideStyles.wrapper}>
+                <div className={slideStyles.container}>
+                    <h2 className={slideStyles.regular_title}>Código Melhorado</h2>
+                    <div className={styles.codeEditor}>
+                        <CodeEditor code={'const foo = "bar";\nconst foo = "baar";'} />
+                    </div>
+                </div>
+            </section>
         </div>
     )
 }

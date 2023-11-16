@@ -6,13 +6,16 @@ import { javascript } from '@codemirror/lang-javascript';
 
 function CodeEditor(props: { code: string }) {
     return (
-        <CodeMirror
-            height="21.25rem"
-            className={styles.codeEditor}
-            value={props.code}
-            theme={darcula}
-            extensions={[ javascript() ]}
-        />
+        <div>
+            <button className={styles.copyButton}>Copiar</button>
+            <CodeMirror
+                height="21.25rem"
+                className={styles.codeEditor}
+                value={props.code}
+                theme={darcula}
+                extensions={[ javascript() ]}
+            />
+        </div>
     )
 }
 
