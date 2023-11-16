@@ -5,9 +5,16 @@ import { darcula } from '@uiw/codemirror-theme-darcula';
 import { javascript } from '@codemirror/lang-javascript';
 
 function CodeEditor(props: { code: string }) {
+    function clickFeedback() {
+        console.log('clickou')
+    }
+
     return (
         <div>
-            <button className={styles.copyButton}>Copiar</button>
+            <button 
+                className={`${styles.copyButton} ${styles.clicked}`}
+                onClick={clickFeedback}
+            >Copiar</button>
             <CodeMirror
                 height="21.25rem"
                 className={styles.codeEditor}
