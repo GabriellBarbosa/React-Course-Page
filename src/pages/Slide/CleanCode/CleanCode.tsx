@@ -4,9 +4,7 @@ import slideStyles from '../../../assets/css/Slide.module.css';
 import { default as logo } from '../../../assets/BookInVideo.svg';
 import { default as agileManifesto } from '../../../assets/agile-manifesto.jpg';
 
-import CodeMirror from "@uiw/react-codemirror";
-import { darcula } from '@uiw/codemirror-theme-darcula';
-import { javascript } from '@codemirror/lang-javascript';
+import CodeEditor from '../../../components/CodeEditor';
 
 function CleanCode() {
     return (
@@ -51,15 +49,9 @@ function CleanCode() {
             <section className={slideStyles.wrapper}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Código Confuso</h2>
-                    <CodeMirror
-                        height="100px"
-                        className={slideStyles.codeEditor}
-                        value={'const foo = "bar";\nconst foo = "baar";'}
-                        theme={darcula}
-                        extensions={[ javascript() ]}
-                        editable={false}
-                        
-                    />
+                    <div className={styles.codeEditor}>
+                        <CodeEditor code={'const foo = "bar";\nconst foo = "baar";'} />
+                    </div>
                 </div>
             </section>
         </div>
