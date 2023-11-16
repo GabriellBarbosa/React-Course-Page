@@ -18,10 +18,10 @@ function CleanCode() {
             <section className={slideStyles.wrapper}>
                 <div className={slideStyles.container}>
                     <h1 className={slideStyles.regular_title}>Manifesto Ágil</h1>
-                    <div className={styles.agileManifestoImg}>
+                    <div className={styles.manifestoImg}>
                         <img src={agileManifesto} alt="Manifesto para Desenvolvimento Ágil de Software" />
                     </div>
-                    <a className={styles.agileManifestoLink} href="https://agilemanifesto.org/iso/ptbr/manifesto.html" target='_blank'>https://agilemanifesto.org/iso/ptbr/manifesto.html</a>
+                    <a className={styles.manifestoLink} href="https://agilemanifesto.org/iso/ptbr/manifesto.html" target='_blank'>https://agilemanifesto.org/iso/ptbr/manifesto.html</a>
                 </div>
             </section>
         </div>

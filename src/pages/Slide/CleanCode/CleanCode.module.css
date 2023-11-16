@@ -8,13 +8,13 @@
     margin-top: 3rem;
 }
 
-.agileManifestoImg {
+.manifestoImg {
     margin-top: 3rem;
     border-radius: 0.25rem;
     overflow: hidden;
 }
 
-.agileManifestoLink {
+.manifestoLink {
     display: inline-block;
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: underline;

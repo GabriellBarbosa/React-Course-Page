@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Slide from './pages/Slide/Slide';
 import CleanCode from './pages/Slide/CleanCode/CleanCode';
+import './App.css'
 
 function App() {
   return (
