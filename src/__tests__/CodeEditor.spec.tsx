@@ -6,6 +6,10 @@ import { fireEvent, render, screen } from '@testing-library/react';
 describe('CodeEditor', () => {
     beforeEach(() => {
         render(<CodeEditor code={'console.log("hello world!")'} />);
+
+        Object.assign(navigator, {
+          clipboard: { writeText: jest.fn() },
+        });
     })
 
     it('add "copied" class on click', () => {

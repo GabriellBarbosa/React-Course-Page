@@ -1,13 +1,17 @@
 import styles from './CodeEditor.module.css';
-
 import CodeMirror from "@uiw/react-codemirror";
 import { darcula } from '@uiw/codemirror-theme-darcula';
 import { javascript } from '@codemirror/lang-javascript';
+import { MouseEvent } from 'react';
 
 function CodeEditor(props: { code: string }) {
 
-    function clickFeedback(event: React.MouseEvent<HTMLElement>) {
-        const copyButton = event.currentTarget;
+    function copyCode(event: MouseEvent<HTMLElement>) {
+        navigator.clipboard.writeText(props.code);
+        copiedFeedback(event.currentTarget);
+    }
+
+    function copiedFeedback(copyButton: HTMLElement) {
         copyButton.classList.add(styles.copied);
         setTimeout(() => {
             copyButton.classList.remove(styles.copied);
@@ -19,7 +23,7 @@ function CodeEditor(props: { code: string }) {
             <button
                 data-testid="copyButton"
                 className={`${styles.copyButton}`}
-                onClick={clickFeedback}
+                onClick={copyCode}
             >Copiar</button>
             <CodeMirror
                 height="21.25rem"
