@@ -30,6 +30,6 @@
     margin-right: 0.313rem;
 }
 
-.copyButton.clicked::before {
+.copyButton.copied::before {
     background-image: url('../assets/correct-icon.svg');
 }

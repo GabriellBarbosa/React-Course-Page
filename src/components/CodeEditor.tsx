@@ -5,14 +5,20 @@ import { darcula } from '@uiw/codemirror-theme-darcula';
 import { javascript } from '@codemirror/lang-javascript';
 
 function CodeEditor(props: { code: string }) {
-    function clickFeedback() {
-        console.log('clickou')
+
+    function clickFeedback(event: React.MouseEvent<HTMLElement>) {
+        const copyButton = event.currentTarget;
+        copyButton.classList.add(styles.copied);
+        setTimeout(() => {
+            copyButton.classList.remove(styles.copied);
+        }, 500);
     }
 
     return (
         <div>
-            <button 
-                className={`${styles.copyButton} ${styles.clicked}`}
+            <button
+                data-testid="copyButton"
+                className={`${styles.copyButton}`}
                 onClick={clickFeedback}
             >Copiar</button>
             <CodeMirror
