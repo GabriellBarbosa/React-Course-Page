@@ -9,30 +9,37 @@ import CodeEditor from '../../../components/CodeEditor';
 import React from 'react';
 
 function CleanCode() {
-    const [slideIndex, setSlideIndex] = React.useState(1);
     const slidePages = React.useRef<Array<HTMLElement | null>>([]);
+    const [slideIndex, setSlideIndex] = React.useState(1);
 
     React.useEffect(() => {
-        window.addEventListener('keydown', incrementSlideIndex);
+        window.addEventListener('keydown', changeSlideIndex);
         return () => {
-            window.removeEventListener('keydown', incrementSlideIndex);
+            window.removeEventListener('keydown', changeSlideIndex);
         }
     }, [slideIndex]);
 
-    function incrementSlideIndex(event: KeyboardEvent) {
+    function changeSlideIndex(event: KeyboardEvent) {
         if (event.key == 'ArrowRight') {
-            if (slidePages.current.length == slideIndex) {
-                setSlideIndex(1);
-            } else {
-                setSlideIndex(slideIndex + 1);
-            }
+            incrementSlideIndex();
+        } else if (event.key == 'ArrowLeft') {
+            decrementSlideIndex();
         }
-        if (event.key == 'ArrowLeft') {
-            if (slideIndex == 1) {
-                setSlideIndex(slidePages.current.length)
-            } else {
-                setSlideIndex(slideIndex - 1);
-            }
+    }
+
+    function incrementSlideIndex() {
+        if (slideIndex == slidePages.current.length) {
+            setSlideIndex(1);
+        } else {
+            setSlideIndex(slideIndex + 1);
+        }
+    }
+
+    function decrementSlideIndex() {
+        if (slideIndex == 1) {
+            setSlideIndex(slidePages.current.length);
+        } else {
+            setSlideIndex(slideIndex - 1);
         }
     }
 
@@ -42,7 +49,6 @@ function CleanCode() {
             data-testid="slidesWrapper" 
             data-slide-index={slideIndex}
         >
-            { slideIndex }
             <section className={slideStyles.wrapper} data-testid="slidePage" id='1' ref={el => slidePages.current[0] = el}>
                 <div className={slideStyles.container}>
                     <span className={styles.logo}><img src={logo} alt="BookInVideo" /></span>
