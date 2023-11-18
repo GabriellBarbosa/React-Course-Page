@@ -1,24 +1,31 @@
 import CleanCode from "../pages/Slide/CleanCode/CleanCode";
-import styles from "../components/CodeEditor.module.css";
 
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 
 describe('CleanCode', () => {
     beforeEach(() => {
         render(<CleanCode />);
     })
 
-    it('add active class when KEYDOWN right arrow', () => {
-        const firstSection = screen.getByTestId('first-one');
+    it('increment slide index on keypress ArrowRight', async () => {
+        const slidesWrapper = await screen.findByTestId('slidesWrapper');
 
-        const event = new KeyboardEvent('keydown', {
-            key: 'ArrowRight',
-            code: 'ArrowRight',
-            which: 39,
-            keyCode: 39,
-          });
-        window.dispatchEvent(event)
+        expect(slidesWrapper.dataset.slideIndex).toBe('1');
 
-        expect([...firstSection.classList]).toContain(styles.active);
+        dispatchKeydownEvent('ArrowRight');
+        await waitFor(() => {
+            expect(slidesWrapper.dataset.slideIndex).toBe('2');
+        })
+
+        dispatchKeydownEvent('ArrowRight');
+        await waitFor(() => {
+            expect(slidesWrapper.dataset.slideIndex).toBe('3');
+        })
+
     });
+
+    function dispatchKeydownEvent(key: string) {
+        const event = new KeyboardEvent('keydown', { key });
+        window.dispatchEvent(event);
+    }
 });
