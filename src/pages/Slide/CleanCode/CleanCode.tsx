@@ -10,17 +10,16 @@ import React from 'react';
 
 function CleanCode() {
     const [slideIndex, setSlideIndex] = React.useState(1);
-    const slidesWrapper = React.useRef<HTMLDivElement>(null);
 
     React.useEffect(() => {
-        window.addEventListener('keydown', addActiveClass);
+        window.addEventListener('keydown', incrementSlideIndex);
         return () => {
-            window.removeEventListener('keydown', addActiveClass);
+            window.removeEventListener('keydown', incrementSlideIndex);
         }
     }, [slideIndex]);
 
-    function addActiveClass(event: KeyboardEvent) {
-        if (event.key == 'ArrowRight' && slidesWrapper.current) {
+    function incrementSlideIndex(event: KeyboardEvent) {
+        if (event.key == 'ArrowRight') {
             setSlideIndex(slideIndex + 1);
         }
     }
@@ -28,7 +27,6 @@ function CleanCode() {
     return (
         <div 
             className={`${slideStyles.slide}`} 
-            ref={slidesWrapper}
             data-testid="slidesWrapper" 
             data-slide-index={slideIndex}
         >
