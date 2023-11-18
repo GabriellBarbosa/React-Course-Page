@@ -32,6 +32,20 @@ describe('CleanCode', () => {
         expect(slidesWrapper.dataset.slideIndex).toBe('1');
     });
 
+    it('return to 1 if the increment would exceed the number of slide pages', () => {
+        const slidesWrapper = screen.getByTestId('slidesWrapper');
+
+        act(() => dispatchKeydownEvent('ArrowRight'));
+        act(() => dispatchKeydownEvent('ArrowRight'));
+        act(() => dispatchKeydownEvent('ArrowRight'));
+        act(() => dispatchKeydownEvent('ArrowRight'));
+        act(() => dispatchKeydownEvent('ArrowRight'));
+        act(() => dispatchKeydownEvent('ArrowRight'));
+        act(() => dispatchKeydownEvent('ArrowRight'));
+
+        expect(slidesWrapper.dataset.slideIndex).toBe('1');
+    });
+
     function dispatchKeydownEvent(key: string) {
         const event = new KeyboardEvent('keydown', { key });
         window.dispatchEvent(event);

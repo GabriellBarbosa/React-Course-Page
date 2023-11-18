@@ -10,6 +10,7 @@ import React from 'react';
 
 function CleanCode() {
     const [slideIndex, setSlideIndex] = React.useState(1);
+    const slidePages = React.useRef<Array<HTMLElement | null>>([]);
 
     React.useEffect(() => {
         window.addEventListener('keydown', incrementSlideIndex);
@@ -20,7 +21,11 @@ function CleanCode() {
 
     function incrementSlideIndex(event: KeyboardEvent) {
         if (event.key == 'ArrowRight') {
-            setSlideIndex(slideIndex + 1);
+            if (slidePages.current.length == slideIndex) {
+                setSlideIndex(1);
+            } else {
+                setSlideIndex(slideIndex + 1);
+            }
         }
         if (event.key == 'ArrowLeft') {
             setSlideIndex(slideIndex - 1);
@@ -33,8 +38,8 @@ function CleanCode() {
             data-testid="slidesWrapper" 
             data-slide-index={slideIndex}
         >
-            <section className={slideStyles.wrapper} data-testid="slidePage" id='1'>
-                { slideIndex }
+            { slideIndex }
+            <section className={slideStyles.wrapper} data-testid="slidePage" id='1' ref={el => slidePages.current[0] = el}>
                 <div className={slideStyles.container}>
                     <span className={styles.logo}><img src={logo} alt="BookInVideo" /></span>
                     <h1 className={`${slideStyles.title} ${styles.introTitle}`}>Código Limpo</h1>
@@ -42,7 +47,7 @@ function CleanCode() {
                 </div>
             </section>
 
-            <section className={slideStyles.wrapper} data-testid="slidePage" id='2'>
+            <section className={slideStyles.wrapper} data-testid="slidePage" id='2' ref={el => slidePages.current[1] = el}>
                 <div className={slideStyles.container}>
                     <h1 className={slideStyles.regular_title}>Manifesto Ágil</h1>
                     <div className={styles.imageWrapper}>
@@ -58,7 +63,7 @@ function CleanCode() {
                 </div>
             </section>
 
-            <section className={slideStyles.wrapper} data-testid="slidePage" id='3'>
+            <section className={slideStyles.wrapper} data-testid="slidePage" id='3' ref={el => slidePages.current[2] = el}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Agile Software</h2>
                     <h3 className={slideStyles.subtitle}>Práticas Técnicas<span>.</span></h3>
@@ -71,7 +76,7 @@ function CleanCode() {
                 </div>
             </section>
 
-            <section className={slideStyles.wrapper} data-testid="slidePage" id='4'>
+            <section className={slideStyles.wrapper} data-testid="slidePage" id='4' ref={el => slidePages.current[3] = el}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Código Confuso</h2>
                     <div className={styles.codeEditor}>
@@ -80,7 +85,7 @@ function CleanCode() {
                 </div>
             </section>
 
-            <section className={slideStyles.wrapper} data-testid="slidePage" id='5'>
+            <section className={slideStyles.wrapper} data-testid="slidePage" id='5' ref={el => slidePages.current[4] = el}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Código Melhorado</h2>
                     <div className={styles.codeEditor}>
@@ -89,7 +94,7 @@ function CleanCode() {
                 </div>
             </section>
 
-            <section className={slideStyles.wrapper} data-testid="slidePage" id='6'>
+            <section className={slideStyles.wrapper} data-testid="slidePage" id='6' ref={el => slidePages.current[5] = el}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Fundamentos</h2>
                     <h3 className={slideStyles.subtitle}>O que faz um código ser limpo<span>.</span></h3>
@@ -104,7 +109,7 @@ function CleanCode() {
                 </div>
             </section>
 
-            <section className={slideStyles.wrapper} data-testid="slidePage" id='7'>
+            <section className={slideStyles.wrapper} data-testid="slidePage" id='7' ref={el => slidePages.current[6] = el}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Aprendizagem</h2>
                     <h3 className={slideStyles.subtitle}>É como aprender a tocar violão<span>.</span></h3>
