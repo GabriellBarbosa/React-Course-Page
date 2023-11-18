@@ -46,6 +46,23 @@ describe('CleanCode', () => {
         expect(slidesWrapper.dataset.slideIndex).toBe('1');
     });
 
+    it('go to the last index if the decrement would be less than 1', () => {
+        const slidesWrapper = screen.getByTestId('slidesWrapper');
+        const slidePages = screen.getAllByTestId('slidePage');
+
+        act(() => dispatchKeydownEvent('ArrowRight'));
+        act(() => dispatchKeydownEvent('ArrowRight'));
+
+        expect(slidesWrapper.dataset.slideIndex).toBe('3');
+
+        act(() => dispatchKeydownEvent('ArrowLeft'));
+        act(() => dispatchKeydownEvent('ArrowLeft'));
+        act(() => dispatchKeydownEvent('ArrowLeft'));
+
+        expect(slidesWrapper.dataset.slideIndex).toBe(slidePages.length.toString());
+    });
+
+
     function dispatchKeydownEvent(key: string) {
         const event = new KeyboardEvent('keydown', { key });
         window.dispatchEvent(event);

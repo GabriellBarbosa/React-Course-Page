@@ -28,7 +28,11 @@ function CleanCode() {
             }
         }
         if (event.key == 'ArrowLeft') {
-            setSlideIndex(slideIndex - 1);
+            if (slideIndex == 1) {
+                setSlideIndex(slidePages.current.length)
+            } else {
+                setSlideIndex(slideIndex - 1);
+            }
         }
     }
 
