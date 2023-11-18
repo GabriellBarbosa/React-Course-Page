@@ -22,6 +22,9 @@ function CleanCode() {
         if (event.key == 'ArrowRight') {
             setSlideIndex(slideIndex + 1);
         }
+        if (event.key == 'ArrowLeft') {
+            setSlideIndex(slideIndex - 1);
+        }
     }
 
     return (
