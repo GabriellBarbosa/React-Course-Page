@@ -11,16 +11,11 @@ import React from 'react';
 
 function CleanCode() {
     const slides = React.useRef<Array<HTMLElement | null>>([]).current;
-    const [slideNumber] = useSlide(slides);
-
+    const { slideNumber, getCurrentSlideOffsetTop } = useSlide(slides);
+    
     React.useEffect(() => {
-        window.scrollTo(0, getCurrentSlideTop());
+        window.scrollTo(0, getCurrentSlideOffsetTop());
     }, [slideNumber])
-
-    function getCurrentSlideTop() {
-        const currentSlide = slides[slideNumber - 1];
-        return currentSlide ? currentSlide.offsetTop : 0;
-    }
 
     const addSlidePage = React.useCallback((element: HTMLElement | null) => {
         slides[slides.length] = element;

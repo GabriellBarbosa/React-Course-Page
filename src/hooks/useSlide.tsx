@@ -34,7 +34,12 @@ function useSlide(slides: (HTMLElement | null)[]) {
         }
     }
 
-    return [slideNumber];
+    function getCurrentSlideOffsetTop() {
+        const currentSlide = slides[slideNumber - 1];
+        return currentSlide ? currentSlide.offsetTop : 0;
+    }
+
+    return { slideNumber, getCurrentSlideOffsetTop };
 }
 
 export default useSlide;
