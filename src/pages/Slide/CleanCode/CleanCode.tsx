@@ -19,12 +19,6 @@ function CleanCode() {
         }
     }, [slideNumber]);
 
-    React.useEffect(() => {
-        const currentSlide = slides[slideNumber - 1];
-        const top = currentSlide ? currentSlide.offsetTop : 0;
-        window.scrollTo(0, top);
-    }, [slideNumber])
-
     function changeSlideIndex(event: KeyboardEvent) {
         if (event.key == 'ArrowRight') {
             incrementSlideIndex();
@@ -47,6 +41,15 @@ function CleanCode() {
         } else {
             setSlideNumber(slideNumber - 1);
         }
+    }
+
+    React.useEffect(() => {
+        window.scrollTo(0, getCurrentSlideTop());
+    }, [slideNumber])
+
+    function getCurrentSlideTop() {
+        const currentSlide = slides[slideNumber - 1];
+        return currentSlide ? currentSlide.offsetTop : 0;
     }
 
     const addSlidePage = React.useCallback((element: HTMLElement | null) => {
