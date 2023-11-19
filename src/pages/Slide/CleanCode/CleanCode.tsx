@@ -10,20 +10,21 @@ import React from 'react';
 
 function CleanCode() {
     const slidePages = React.useRef<Array<HTMLElement | null>>([]).current;
-    const [slideIndex, setSlideIndex] = React.useState(1);
+    // number of the current slide active
+    const [slideNumber, setSlideNumber] = React.useState(1);
 
     React.useEffect(() => {
         window.addEventListener('keydown', changeSlideIndex);
         return () => {
             window.removeEventListener('keydown', changeSlideIndex);
         }
-    }, [slideIndex]);
+    }, [slideNumber]);
 
     React.useEffect(() => {
-        const currentSlide = slidePages[slideIndex - 1];
+        const currentSlide = slidePages[slideNumber - 1];
         const top = currentSlide ? currentSlide.offsetTop : 0;
         window.scrollTo(0, top);
-    }, [slideIndex])
+    }, [slideNumber])
 
     function changeSlideIndex(event: KeyboardEvent) {
         if (event.key == 'ArrowRight') {
@@ -34,18 +35,18 @@ function CleanCode() {
     }
 
     function incrementSlideIndex() {
-        if (slideIndex == slidePages.length) {
-            setSlideIndex(1);
+        if (slideNumber == slidePages.length) {
+            setSlideNumber(1);
         } else {
-            setSlideIndex(slideIndex + 1);
+            setSlideNumber(slideNumber + 1);
         }
     }
 
     function decrementSlideIndex() {
-        if (slideIndex == 1) {
-            setSlideIndex(slidePages.length);
+        if (slideNumber == 1) {
+            setSlideNumber(slidePages.length);
         } else {
-            setSlideIndex(slideIndex - 1);
+            setSlideNumber(slideNumber - 1);
         }
     }
 
@@ -57,7 +58,7 @@ function CleanCode() {
         <div 
             className={`${slideStyles.slide}`} 
             data-testid="slidesWrapper" 
-            data-slide-index={slideIndex}
+            data-slide-index={slideNumber}
         >
             <section className={slideStyles.wrapper} data-testid="slidePage" ref={addSlidePage}>
                 <div className={slideStyles.container}>
