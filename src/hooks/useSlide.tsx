@@ -1,14 +1,14 @@
 import React from 'react';
 
 function useSlide(slides: (HTMLElement | null)[]) {
-    const [slideNumber, setSlideNumber] = React.useState(1);
+    const [currentSlideNumber, setCurrentSlideNumber] = React.useState(1);
 
     React.useEffect(() => {
         window.addEventListener('keydown', changeSlideNumber);
         return () => {
             window.removeEventListener('keydown', changeSlideNumber);
         }
-    }, [slideNumber]);
+    }, [currentSlideNumber]);
 
     function changeSlideNumber(event: KeyboardEvent) {
         if (event.key == 'ArrowRight') {
@@ -19,27 +19,27 @@ function useSlide(slides: (HTMLElement | null)[]) {
     }
 
     function incrementSlideNumber() {
-        if (slideNumber == slides.length) {
-            setSlideNumber(1);
+        if (currentSlideNumber == slides.length) {
+            setCurrentSlideNumber(1);
         } else {
-            setSlideNumber(slideNumber + 1);
+            setCurrentSlideNumber(currentSlideNumber + 1);
         }
     }
 
     function decrementSlideNumber() {
-        if (slideNumber == 1) {
-            setSlideNumber(slides.length);
+        if (currentSlideNumber == 1) {
+            setCurrentSlideNumber(slides.length);
         } else {
-            setSlideNumber(slideNumber - 1);
+            setCurrentSlideNumber(currentSlideNumber - 1);
         }
     }
 
     function getCurrentSlideOffsetTop() {
-        const currentSlide = slides[slideNumber - 1];
+        const currentSlide = slides[currentSlideNumber - 1];
         return currentSlide ? currentSlide.offsetTop : 0;
     }
 
-    return { slideNumber, getCurrentSlideOffsetTop };
+    return { currentSlideNumber, getCurrentSlideOffsetTop };
 }
 
 export default useSlide;

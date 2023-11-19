@@ -11,11 +11,11 @@ import React from 'react';
 
 function CleanCode() {
     const slides = React.useRef<Array<HTMLElement | null>>([]).current;
-    const { slideNumber, getCurrentSlideOffsetTop } = useSlide(slides);
+    const { currentSlideNumber, getCurrentSlideOffsetTop } = useSlide(slides);
     
     React.useEffect(() => {
         window.scrollTo(0, getCurrentSlideOffsetTop());
-    }, [slideNumber])
+    }, [currentSlideNumber])
 
     const addSlidePage = React.useCallback((element: HTMLElement | null) => {
         slides[slides.length] = element;
@@ -25,7 +25,7 @@ function CleanCode() {
         <div 
             className={`${slideStyles.slide}`} 
             data-testid="slidesWrapper" 
-            data-slide-number={slideNumber}
+            data-slide-number={currentSlideNumber}
         >
             <section className={slideStyles.wrapper} data-testid="slidePage" ref={addSlidePage}>
                 <div className={slideStyles.container}>
