@@ -2,9 +2,9 @@ import CleanCode from "../pages/Slide/CleanCode/CleanCode";
 import { render, screen, act } from '@testing-library/react';
 
 
-describe('CleanCode', () => {
+describe('Slide', () => {
     let slidesWrapper: HTMLElement;
-    let slidePages: HTMLElement[];
+    let slides: HTMLElement[];
     window.scrollTo = jest.fn();
 
     afterEach(() => {
@@ -19,9 +19,9 @@ describe('CleanCode', () => {
         render(<CleanCode />);
 
         slidesWrapper = screen.getByTestId('slidesWrapper');
-        slidePages = screen.getAllByTestId('slidePage');
+        slides = screen.getAllByTestId('slide');
 
-        slidePages.forEach((slide, index) => {
+        slides.forEach((slide, index) => {
             Object.defineProperty(slide, 'offsetTop', { value: index })
         })
     })
@@ -69,7 +69,7 @@ describe('CleanCode', () => {
         act(() => dispatchKeydownEvent('ArrowLeft'));
         act(() => dispatchKeydownEvent('ArrowLeft'));
 
-        expect(slidesWrapper.dataset.slideNumber).toBe(slidePages.length.toString());
+        expect(slidesWrapper.dataset.slideNumber).toBe(slides.length.toString());
     });
 
     it('scroll to respective section when slide number change', () => {
@@ -77,15 +77,15 @@ describe('CleanCode', () => {
 
         act(() => dispatchKeydownEvent('ArrowRight'));
         
-        expect(window.scrollTo).toHaveBeenCalledWith(0, slidePages[1].offsetTop);
+        expect(window.scrollTo).toHaveBeenCalledWith(0, slides[1].offsetTop);
 
         act(() => dispatchKeydownEvent('ArrowRight'));
 
-        expect(window.scrollTo).toHaveBeenCalledWith(0, slidePages[2].offsetTop);
+        expect(window.scrollTo).toHaveBeenCalledWith(0, slides[2].offsetTop);
 
         act(() => dispatchKeydownEvent('ArrowLeft'));
 
-        expect(window.scrollTo).toHaveBeenCalledWith(0, slidePages[1].offsetTop);
+        expect(window.scrollTo).toHaveBeenCalledWith(0, slides[1].offsetTop);
     })
 
 
