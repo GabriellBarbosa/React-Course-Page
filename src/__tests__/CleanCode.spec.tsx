@@ -27,24 +27,24 @@ describe('CleanCode', () => {
     })
 
     it('increment slide number on keypress ArrowRight', () => {
-        expect(slidesWrapper.dataset.slideIndex).toBe('1');
+        expect(slidesWrapper.dataset.slideNumber).toBe('1');
 
         act(() => dispatchKeydownEvent('ArrowRight'));
         act(() => dispatchKeydownEvent('ArrowRight'));
 
-        expect(slidesWrapper.dataset.slideIndex).toBe('3');
+        expect(slidesWrapper.dataset.slideNumber).toBe('3');
     });
 
     it('decrement slide number on keypress ArrowLeft', () => {
         act(() => dispatchKeydownEvent('ArrowRight'));
         act(() => dispatchKeydownEvent('ArrowRight'));
 
-        expect(slidesWrapper.dataset.slideIndex).toBe('3');
+        expect(slidesWrapper.dataset.slideNumber).toBe('3');
 
         act(() => dispatchKeydownEvent('ArrowLeft'));
         act(() => dispatchKeydownEvent('ArrowLeft'));
 
-        expect(slidesWrapper.dataset.slideIndex).toBe('1');
+        expect(slidesWrapper.dataset.slideNumber).toBe('1');
     });
 
     it('return to 1 if the increment would exceed the number of slides', () => {
@@ -56,20 +56,20 @@ describe('CleanCode', () => {
         act(() => dispatchKeydownEvent('ArrowRight'));
         act(() => dispatchKeydownEvent('ArrowRight'));
 
-        expect(slidesWrapper.dataset.slideIndex).toBe('1');
+        expect(slidesWrapper.dataset.slideNumber).toBe('1');
     });
 
     it('go to the last index if the decrement would be less than 1', () => {
         act(() => dispatchKeydownEvent('ArrowRight'));
         act(() => dispatchKeydownEvent('ArrowRight'));
 
-        expect(slidesWrapper.dataset.slideIndex).toBe('3');
+        expect(slidesWrapper.dataset.slideNumber).toBe('3');
 
         act(() => dispatchKeydownEvent('ArrowLeft'));
         act(() => dispatchKeydownEvent('ArrowLeft'));
         act(() => dispatchKeydownEvent('ArrowLeft'));
 
-        expect(slidesWrapper.dataset.slideIndex).toBe(slidePages.length.toString());
+        expect(slidesWrapper.dataset.slideNumber).toBe(slidePages.length.toString());
     });
 
     it('scroll to respective section when slide number change', () => {

@@ -57,7 +57,7 @@ function CleanCode() {
         <div 
             className={`${slideStyles.slide}`} 
             data-testid="slidesWrapper" 
-            data-slide-index={slideNumber}
+            data-slide-number={slideNumber}
         >
             <section className={slideStyles.wrapper} data-testid="slidePage" ref={addSlidePage}>
                 <div className={slideStyles.container}>
