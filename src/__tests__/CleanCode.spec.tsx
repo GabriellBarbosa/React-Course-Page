@@ -26,7 +26,7 @@ describe('CleanCode', () => {
         })
     })
 
-    it('increment slide index on keypress ArrowRight', () => {
+    it('increment slide number on keypress ArrowRight', () => {
         expect(slidesWrapper.dataset.slideIndex).toBe('1');
 
         act(() => dispatchKeydownEvent('ArrowRight'));
@@ -35,7 +35,7 @@ describe('CleanCode', () => {
         expect(slidesWrapper.dataset.slideIndex).toBe('3');
     });
 
-    it('decrement slide index on keypress ArrowLeft', () => {
+    it('decrement slide number on keypress ArrowLeft', () => {
         act(() => dispatchKeydownEvent('ArrowRight'));
         act(() => dispatchKeydownEvent('ArrowRight'));
 
@@ -47,7 +47,7 @@ describe('CleanCode', () => {
         expect(slidesWrapper.dataset.slideIndex).toBe('1');
     });
 
-    it('return to 1 if the increment would exceed the number of slide pages', () => {
+    it('return to 1 if the increment would exceed the number of slides', () => {
         act(() => dispatchKeydownEvent('ArrowRight'));
         act(() => dispatchKeydownEvent('ArrowRight'));
         act(() => dispatchKeydownEvent('ArrowRight'));
@@ -72,7 +72,7 @@ describe('CleanCode', () => {
         expect(slidesWrapper.dataset.slideIndex).toBe(slidePages.length.toString());
     });
 
-    it('scroll to respective section when slideIndex change', () => {
+    it('scroll to respective section when slide number change', () => {
         expect(window.scrollY).toBe(0);
 
         act(() => dispatchKeydownEvent('ArrowRight'));

@@ -9,8 +9,7 @@ import CodeEditor from '../../../components/CodeEditor';
 import React from 'react';
 
 function CleanCode() {
-    const slidePages = React.useRef<Array<HTMLElement | null>>([]).current;
-    // number of the current slide active
+    const slides = React.useRef<Array<HTMLElement | null>>([]).current;
     const [slideNumber, setSlideNumber] = React.useState(1);
 
     React.useEffect(() => {
@@ -21,7 +20,7 @@ function CleanCode() {
     }, [slideNumber]);
 
     React.useEffect(() => {
-        const currentSlide = slidePages[slideNumber - 1];
+        const currentSlide = slides[slideNumber - 1];
         const top = currentSlide ? currentSlide.offsetTop : 0;
         window.scrollTo(0, top);
     }, [slideNumber])
@@ -35,7 +34,7 @@ function CleanCode() {
     }
 
     function incrementSlideIndex() {
-        if (slideNumber == slidePages.length) {
+        if (slideNumber == slides.length) {
             setSlideNumber(1);
         } else {
             setSlideNumber(slideNumber + 1);
@@ -44,14 +43,14 @@ function CleanCode() {
 
     function decrementSlideIndex() {
         if (slideNumber == 1) {
-            setSlideNumber(slidePages.length);
+            setSlideNumber(slides.length);
         } else {
             setSlideNumber(slideNumber - 1);
         }
     }
 
     const addSlidePage = React.useCallback((element: HTMLElement | null) => {
-        slidePages[slidePages.length] = element;
+        slides[slides.length] = element;
     }, []);
 
     return (
