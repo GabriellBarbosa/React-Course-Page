@@ -13,21 +13,21 @@ function CleanCode() {
     const [slideNumber, setSlideNumber] = React.useState(1);
 
     React.useEffect(() => {
-        window.addEventListener('keydown', changeSlideIndex);
+        window.addEventListener('keydown', changeSlideNumber);
         return () => {
-            window.removeEventListener('keydown', changeSlideIndex);
+            window.removeEventListener('keydown', changeSlideNumber);
         }
     }, [slideNumber]);
 
-    function changeSlideIndex(event: KeyboardEvent) {
+    function changeSlideNumber(event: KeyboardEvent) {
         if (event.key == 'ArrowRight') {
-            incrementSlideIndex();
+            incrementSlideNumber();
         } else if (event.key == 'ArrowLeft') {
-            decrementSlideIndex();
+            decrementSlideNumber();
         }
     }
 
-    function incrementSlideIndex() {
+    function incrementSlideNumber() {
         if (slideNumber == slides.length) {
             setSlideNumber(1);
         } else {
@@ -35,7 +35,7 @@ function CleanCode() {
         }
     }
 
-    function decrementSlideIndex() {
+    function decrementSlideNumber() {
         if (slideNumber == 1) {
             setSlideNumber(slides.length);
         } else {
