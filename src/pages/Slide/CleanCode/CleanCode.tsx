@@ -17,7 +17,7 @@ function CleanCode() {
         window.scrollTo(0, getCurrentSlideOffsetTop());
     }, [currentSlideNumber])
 
-    const addSlidePage = React.useCallback((element: HTMLElement | null) => {
+    const addSlide = React.useCallback((element: HTMLElement | null) => {
         slides[slides.length] = element;
     }, []);
 
@@ -27,7 +27,7 @@ function CleanCode() {
             data-testid="slidesWrapper" 
             data-slide-number={currentSlideNumber}
         >
-            <section className={slideStyles.wrapper} data-testid="slidePage" ref={addSlidePage}>
+            <section className={slideStyles.wrapper} data-testid="slidePage" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <span className={styles.logo}><img src={logo} alt="BookInVideo" /></span>
                     <h1 className={`${slideStyles.title} ${styles.introTitle}`}>Código Limpo</h1>
@@ -35,7 +35,7 @@ function CleanCode() {
                 </div>
             </section>
 
-            <section className={slideStyles.wrapper} data-testid="slidePage" ref={addSlidePage}>
+            <section className={slideStyles.wrapper} data-testid="slidePage" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h1 className={slideStyles.regular_title}>Manifesto Ágil</h1>
                     <div className={styles.imageWrapper}>
@@ -51,7 +51,7 @@ function CleanCode() {
                 </div>
             </section>
 
-            <section className={slideStyles.wrapper} data-testid="slidePage" ref={addSlidePage}>
+            <section className={slideStyles.wrapper} data-testid="slidePage" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Agile Software</h2>
                     <h3 className={slideStyles.subtitle}>Práticas Técnicas<span>.</span></h3>
@@ -64,7 +64,7 @@ function CleanCode() {
                 </div>
             </section>
 
-            <section className={slideStyles.wrapper} data-testid="slidePage" ref={addSlidePage}>
+            <section className={slideStyles.wrapper} data-testid="slidePage" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Código Confuso</h2>
                     <div className={styles.codeEditor}>
@@ -73,7 +73,7 @@ function CleanCode() {
                 </div>
             </section>
 
-            <section className={slideStyles.wrapper} data-testid="slidePage" ref={addSlidePage}>
+            <section className={slideStyles.wrapper} data-testid="slidePage" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Código Melhorado</h2>
                     <div className={styles.codeEditor}>
@@ -82,7 +82,7 @@ function CleanCode() {
                 </div>
             </section>
 
-            <section className={slideStyles.wrapper} data-testid="slidePage" ref={addSlidePage}>
+            <section className={slideStyles.wrapper} data-testid="slidePage" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Fundamentos</h2>
                     <h3 className={slideStyles.subtitle}>O que faz um código ser limpo<span>.</span></h3>
@@ -97,7 +97,7 @@ function CleanCode() {
                 </div>
             </section>
 
-            <section className={slideStyles.wrapper} data-testid="slidePage" ref={addSlidePage}>
+            <section className={slideStyles.wrapper} data-testid="slidePage" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Aprendizagem</h2>
                     <h3 className={slideStyles.subtitle}>É como aprender a tocar violão<span>.</span></h3>
