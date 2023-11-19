@@ -19,6 +19,12 @@ function CleanCode() {
         }
     }, [slideIndex]);
 
+    React.useEffect(() => {
+        const currentSlide = slidePages[slideIndex - 1];
+        const top = currentSlide ? currentSlide.offsetTop : 0;
+        window.scrollTo(0, top);
+    }, [slideIndex])
+
     function changeSlideIndex(event: KeyboardEvent) {
         if (event.key == 'ArrowRight') {
             incrementSlideIndex();
