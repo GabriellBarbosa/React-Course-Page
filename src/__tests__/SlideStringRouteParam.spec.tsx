@@ -11,9 +11,8 @@ jest.mock('react-router-dom', () => {
     }
 });
 
-describe('Slide Invalid Route', () => {
+describe('Slide string route param', () => {
     let slidesWrapper: HTMLElement;
-    let slides: HTMLElement[];
 
     beforeAll(() => {
         window.scrollTo = jest.fn();
@@ -21,13 +20,7 @@ describe('Slide Invalid Route', () => {
 
     beforeEach(() => {
         render(<CleanCode />, {wrapper: BrowserRouter});
-
         slidesWrapper = screen.getByTestId('slidesWrapper');
-        slides = screen.getAllByTestId('slide');
-
-        slides.forEach((slide, index) => {
-            Object.defineProperty(slide, 'offsetTop', { value: index })
-        });
     });
 
     it('set slideNumber to 1 if the url parameter is not a number', () => {
