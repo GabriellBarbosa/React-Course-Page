@@ -15,6 +15,7 @@ jest.mock('react-router-dom', () => {
 describe('Valid Slide Router', () => {
     let slidesWrapper: HTMLElement;
     let slides: HTMLElement[];
+    const urlParam = '5';
 
     beforeAll(() => {
         window.scrollTo = jest.fn();
@@ -31,20 +32,22 @@ describe('Valid Slide Router', () => {
         });
     });
 
-    it('get slideNumber from window location href', () => {
-        expect(slidesWrapper.dataset.slideNumber).toBe('5');
+    it('get slideNumber from url param when component mount', () => {
+        expect(slidesWrapper.dataset.slideNumber).toBe(urlParam);
     });
 
-    it('change the sub route when slide number change', () => {
-
+    it('change the url param when slide number change', () => {
         slidesWrapper = screen.getByTestId('slidesWrapper');
 
-        act(() => dispatchKeydownEvent('ArrowRight'));
-        act(() => dispatchKeydownEvent('ArrowRight'));
-        act(() => dispatchKeydownEvent('ArrowRight'));
+        act(() => dispatchKeydownEvent('ArrowLeft'));
+        act(() => dispatchKeydownEvent('ArrowLeft'));
 
-        const hrefParts = window.location.href.split('/');
-        const slideNumber = hrefParts[hrefParts.length - 1];
-        expect(slideNumber).toBe(slidesWrapper.dataset.slideNumber);
+        expect(getUrlParam()).toBe(slidesWrapper.dataset.slideNumber);
     });
+
+    function getUrlParam() {
+        const hrefParts = window.location.href.split('/');
+        const urlParam = hrefParts[hrefParts.length - 1];
+        return urlParam;
+    }
 });
