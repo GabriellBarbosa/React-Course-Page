@@ -47,13 +47,14 @@ function useSlide() {
     }
 
     React.useEffect(() => {
-        if (isValid(urlParams.slideNumber)) {
-            setCurrentSlideNumber(Number(urlParams.slideNumber));
+        const numberUrlParam = Number(urlParams.slideNumber)
+        if (isValid(numberUrlParam)) {
+            setCurrentSlideNumber(numberUrlParam);
         }
     }, [])
 
-    function isValid(urlParam: unknown) {
-        return Number.isInteger(Number(urlParam)) && isInRange(Number(urlParam));
+    function isValid(urlParam: number) {
+        return Number.isInteger(urlParam) && isInRange(urlParam);
     }
 
     function isInRange(urlParam: number) {
