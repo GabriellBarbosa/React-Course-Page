@@ -48,7 +48,7 @@ function useSlide() {
         slides[slides.length] = element;
     }, []);
 
-    return { currentSlideNumber, setCurrentSlideNumber, getCurrentSlideOffsetTop, addSlide };
+    return { currentSlideNumber, setCurrentSlideNumber, getCurrentSlideOffsetTop, addSlide, slides };
 }
 
 export default useSlide;

@@ -14,7 +14,7 @@ import { useNavigate, useParams } from "react-router-dom";
 function CleanCode() {
     const navigate = useNavigate();
     const urlParams = useParams();
-    const { currentSlideNumber, setCurrentSlideNumber, getCurrentSlideOffsetTop, addSlide } = useSlide();
+    const { currentSlideNumber, setCurrentSlideNumber, getCurrentSlideOffsetTop, addSlide, slides } = useSlide();
     const { hideScrollbar, showScrollbar } = useScrollbar();
     
     React.useEffect(() => {
@@ -29,7 +29,8 @@ function CleanCode() {
     }, [])
 
     function isValid(urlParam: any) {
-        return urlParam && !isNaN(Number(urlParam));
+        const urlParamNumber = Number(urlParam);
+        return !isNaN(urlParamNumber) && urlParam >= 1 && urlParamNumber <= slides.length;
     }
 
     React.useEffect(() => {
