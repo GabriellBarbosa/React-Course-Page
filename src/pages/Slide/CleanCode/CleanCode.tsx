@@ -13,7 +13,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function CleanCode() {
     const navigate = useNavigate();
-    const { slideNumber } = useParams();
+    const urlParams = useParams();
     const { currentSlideNumber, setCurrentSlideNumber, getCurrentSlideOffsetTop, addSlide } = useSlide();
     const { hideScrollbar, showScrollbar } = useScrollbar();
     
@@ -23,10 +23,14 @@ function CleanCode() {
     }, []);
 
     React.useEffect(() => {
-        if (slideNumber) {
-            setCurrentSlideNumber(Number(slideNumber));
+        if (isValid(urlParams.slideNumber)) {
+            setCurrentSlideNumber(Number(urlParams.slideNumber));
         }
-    }, [slideNumber])
+    }, [])
+
+    function isValid(urlParam: any) {
+        return urlParam && !isNaN(Number(urlParam));
+    }
 
     React.useEffect(() => {
         navigate(`/slide/clean-code/${currentSlideNumber}`);

@@ -12,7 +12,7 @@ jest.mock('react-router-dom', () => {
     }
 });
 
-describe('Valid Slide Router', () => {
+describe('Slide Valid Route', () => {
     let slidesWrapper: HTMLElement;
     let slides: HTMLElement[];
     const urlParam = '5';
