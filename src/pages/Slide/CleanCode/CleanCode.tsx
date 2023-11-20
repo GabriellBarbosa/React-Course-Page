@@ -12,10 +12,22 @@ import React from 'react';
 function CleanCode() {
     const slides = React.useRef<Array<HTMLElement | null>>([]).current;
     const { currentSlideNumber, getCurrentSlideOffsetTop } = useSlide(slides);
+    const bodyElement = document.querySelector('body')
     
     React.useEffect(() => {
+        if (bodyElement) {
+            bodyElement.classList.add('hide_scrollbar')
+        }
+        return () => {
+            if (bodyElement) {
+                bodyElement.classList.remove('hide_scrollbar')
+             }
+        }
+    }, [])
+
+    React.useEffect(() => {
         window.scrollTo(0, getCurrentSlideOffsetTop());
-    }, [currentSlideNumber])
+    }, [currentSlideNumber]);
 
     const addSlide = React.useCallback((element: HTMLElement | null) => {
         slides[slides.length] = element;
