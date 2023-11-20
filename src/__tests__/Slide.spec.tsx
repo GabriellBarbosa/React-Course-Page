@@ -1,11 +1,15 @@
 import CleanCode from "../pages/Slide/CleanCode/CleanCode";
+import dispatchKeydownEvent from "../utils/functions/dispatchKeydownEvent";
 import { render, screen, act } from '@testing-library/react';
-
+import { BrowserRouter } from "react-router-dom";
 
 describe('Slide', () => {
     let slidesWrapper: HTMLElement;
     let slides: HTMLElement[];
-    window.scrollTo = jest.fn();
+
+    beforeAll(() => {
+        window.scrollTo = jest.fn();
+    })
 
     afterEach(() => {
         jest.resetAllMocks();
@@ -16,14 +20,14 @@ describe('Slide', () => {
     })
 
     beforeEach(() => {
-        render(<CleanCode />);
+        render(<CleanCode />, {wrapper: BrowserRouter});
 
         slidesWrapper = screen.getByTestId('slidesWrapper');
         slides = screen.getAllByTestId('slide');
 
         slides.forEach((slide, index) => {
             Object.defineProperty(slide, 'offsetTop', { value: index })
-        })
+        });
     })
 
     it('increment slide number on keypress ArrowRight', () => {
@@ -86,11 +90,5 @@ describe('Slide', () => {
         act(() => dispatchKeydownEvent('ArrowLeft'));
 
         expect(window.scrollTo).toHaveBeenCalledWith(0, slides[1].offsetTop);
-    })
-
-
-    function dispatchKeydownEvent(key: string) {
-        const event = new KeyboardEvent('keydown', { key });
-        window.dispatchEvent(event);
-    }
+    });
 });

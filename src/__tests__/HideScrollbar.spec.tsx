@@ -1,5 +1,6 @@
 import CleanCode from "../pages/Slide/CleanCode/CleanCode";
 import { render } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 
 describe('HideScrollbar', () => {
     let bodyElement: HTMLElement;
@@ -21,13 +22,13 @@ describe('HideScrollbar', () => {
     it('add hide_scrollbar class when the component render', () => {
         expect(bodyElement.classList).not.toContain('hide_scrollbar');
 
-        render(<CleanCode />);
+        render(<CleanCode />, {wrapper: BrowserRouter});
 
         expect(bodyElement.classList).toContain('hide_scrollbar');
     });
 
     it('remove hide_scrollbar class after component destroy', () => {
-        const component = render(<CleanCode />);
+        const component = render(<CleanCode />, {wrapper: BrowserRouter});
 
         expect(bodyElement.classList).toContain('hide_scrollbar');
 
