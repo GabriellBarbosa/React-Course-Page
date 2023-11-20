@@ -9,15 +9,28 @@ import CodeEditor from '../../../components/CodeEditor';
 import useSlide from '../../../hooks/useSlide';
 import React from 'react';
 import useScrollbar from '../../../hooks/useScrollbar';
+import { useNavigate, useParams } from "react-router-dom";
 
 function CleanCode() {
-    const { currentSlideNumber, getCurrentSlideOffsetTop, addSlide } = useSlide();
+    const navigate = useNavigate();
+    const { slideNumber } = useParams();
+    const { currentSlideNumber, setCurrentSlideNumber, getCurrentSlideOffsetTop, addSlide } = useSlide();
     const { hideScrollbar, showScrollbar } = useScrollbar();
     
     React.useEffect(() => {
         hideScrollbar();
         return () => showScrollbar();
     }, []);
+
+    React.useEffect(() => {
+        if (slideNumber) {
+            setCurrentSlideNumber(Number(slideNumber));
+        }
+    }, [slideNumber])
+
+    React.useEffect(() => {
+        navigate(`/slide/clean-code/${currentSlideNumber}`);
+    }, [currentSlideNumber]);
 
     React.useEffect(() => {
         try {
