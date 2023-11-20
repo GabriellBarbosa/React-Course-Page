@@ -20,7 +20,11 @@ function CleanCode() {
     }, []);
 
     React.useEffect(() => {
-        window.scrollTo(0, getCurrentSlideOffsetTop());
+        try {
+            window.scrollTo(0, getCurrentSlideOffsetTop());
+        } catch (err) {
+            console.error(err);
+        }
     }, [currentSlideNumber]);
 
     return (

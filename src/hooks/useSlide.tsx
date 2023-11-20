@@ -37,7 +37,11 @@ function useSlide() {
 
     function getCurrentSlideOffsetTop() {
         const currentSlide = slides[currentSlideNumber - 1];
-        return currentSlide ? currentSlide.offsetTop : 0;
+        if (currentSlide) {
+            return currentSlide.offsetTop;
+        } else {
+            throw new Error('Slide not found');
+        }
     }
 
     const addSlide = React.useCallback((element: HTMLElement | null) => {
