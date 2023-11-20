@@ -21,6 +21,8 @@ function CodeEditor(props: { code: string }) {
     return (
         <div>
             <button
+                title="Copiar o código"
+                type="button"
                 data-testid="copyButton"
                 className={`${styles.copyButton}`}
                 onClick={copyCode}
