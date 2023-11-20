@@ -11,8 +11,7 @@ import React from 'react';
 import useScrollbar from '../../../hooks/useScrollbar';
 
 function CleanCode() {
-    const slides = React.useRef<Array<HTMLElement | null>>([]).current;
-    const { currentSlideNumber, getCurrentSlideOffsetTop } = useSlide(slides);
+    const { currentSlideNumber, getCurrentSlideOffsetTop, addSlide } = useSlide();
     const { hideScrollbar, showScrollbar } = useScrollbar();
     
     React.useEffect(() => {
@@ -23,10 +22,6 @@ function CleanCode() {
     React.useEffect(() => {
         window.scrollTo(0, getCurrentSlideOffsetTop());
     }, [currentSlideNumber]);
-
-    const addSlide = React.useCallback((element: HTMLElement | null) => {
-        slides[slides.length] = element;
-    }, []);
 
     return (
         <div 

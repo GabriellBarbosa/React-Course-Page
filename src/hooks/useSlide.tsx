@@ -1,7 +1,8 @@
 import React from 'react';
 
-function useSlide(slides: (HTMLElement | null)[]) {
+function useSlide() {
     const [currentSlideNumber, setCurrentSlideNumber] = React.useState(1);
+    const slides = React.useRef<Array<HTMLElement | null>>([]).current;
 
     React.useEffect(() => {
         window.addEventListener('keydown', changeSlideNumber);
@@ -39,7 +40,11 @@ function useSlide(slides: (HTMLElement | null)[]) {
         return currentSlide ? currentSlide.offsetTop : 0;
     }
 
-    return { currentSlideNumber, getCurrentSlideOffsetTop };
+    const addSlide = React.useCallback((element: HTMLElement | null) => {
+        slides[slides.length] = element;
+    }, []);
+
+    return { currentSlideNumber, getCurrentSlideOffsetTop, addSlide };
 }
 
 export default useSlide;
