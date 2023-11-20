@@ -1,8 +1,10 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 function useSlide() {
     const [currentSlideNumber, setCurrentSlideNumber] = React.useState(1);
     const slides = React.useRef<Array<HTMLElement | null>>([]).current;
+    const urlParams = useParams();
 
     React.useEffect(() => {
         window.addEventListener('keydown', changeSlideNumber);
@@ -44,11 +46,25 @@ function useSlide() {
         }
     }
 
+    React.useEffect(() => {
+        if (isValid(urlParams.slideNumber)) {
+            setCurrentSlideNumber(Number(urlParams.slideNumber));
+        }
+    }, [])
+
+    function isValid(urlParam: unknown) {
+        return Number.isInteger(Number(urlParam)) && isInRange(Number(urlParam));
+    }
+
+    function isInRange(urlParam: number) {
+        return urlParam >= 1 && urlParam <= slides.length;
+    }
+
     const addSlide = React.useCallback((element: HTMLElement | null) => {
         slides[slides.length] = element;
     }, []);
 
-    return { currentSlideNumber, setCurrentSlideNumber, getCurrentSlideOffsetTop, addSlide, slides };
+    return { currentSlideNumber, getCurrentSlideOffsetTop, addSlide };
 }
 
 export default useSlide;
