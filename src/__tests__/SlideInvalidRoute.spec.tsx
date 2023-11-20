@@ -1,6 +1,5 @@
 import CleanCode from "../pages/Slide/CleanCode/CleanCode";
-import dispatchKeydownEvent from "../utils/functions/dispatchKeydownEvent";
-import { act, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 
 jest.mock('react-router-dom', () => {
