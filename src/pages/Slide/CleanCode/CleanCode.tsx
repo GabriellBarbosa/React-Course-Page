@@ -8,22 +8,17 @@ import { default as guitar } from '../../../assets/guitar.png';
 import CodeEditor from '../../../components/CodeEditor';
 import useSlide from '../../../hooks/useSlide';
 import React from 'react';
+import useScrollbar from '../../../hooks/useScrollbar';
 
 function CleanCode() {
     const slides = React.useRef<Array<HTMLElement | null>>([]).current;
     const { currentSlideNumber, getCurrentSlideOffsetTop } = useSlide(slides);
-    const bodyElement = document.querySelector('body')
+    const { hideScrollbar, showScrollbar } = useScrollbar();
     
     React.useEffect(() => {
-        if (bodyElement) {
-            bodyElement.classList.add('hide_scrollbar')
-        }
-        return () => {
-            if (bodyElement) {
-                bodyElement.classList.remove('hide_scrollbar')
-             }
-        }
-    }, [])
+        hideScrollbar();
+        return () => showScrollbar();
+    }, []);
 
     React.useEffect(() => {
         window.scrollTo(0, getCurrentSlideOffsetTop());
