@@ -29,8 +29,15 @@ function CleanCode() {
     }, [])
 
     function isValid(urlParam: any) {
-        const urlParamNumber = Number(urlParam);
-        return !isNaN(urlParamNumber) && urlParam >= 1 && urlParamNumber <= slides.length;
+        return isNumber(urlParam) && isInRange(Number(urlParam));
+    }
+
+    function isNumber(arg: any) {
+        return !isNaN(Number(arg));
+    }
+
+    function isInRange(urlParam: number) {
+        return urlParam >= 1 && urlParam <= slides.length;
     }
 
     React.useEffect(() => {
