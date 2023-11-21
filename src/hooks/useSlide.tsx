@@ -5,12 +5,12 @@ function useSlide() {
     const urlParams = useParams();
     const navigate = useNavigate();
     const slides = React.useRef<Array<HTMLElement | null>>([]).current;
-    const [slideNumber, setCurrentSlideNumber] = React.useState(1);
+    const [slideNumber, setSlideNumber] = React.useState(1);
 
     React.useEffect(() => {
         const urlParam = Number(urlParams.slideNumber)
         if (isValid(urlParam)) {
-            setCurrentSlideNumber(urlParam);
+            setSlideNumber(urlParam);
         }
     }, []);
 
@@ -43,17 +43,17 @@ function useSlide() {
 
     function incrementSlideNumber() {
         if (slideNumber == slides.length) {
-            setCurrentSlideNumber(1);
+            setSlideNumber(1);
         } else {
-            setCurrentSlideNumber(slideNumber + 1);
+            setSlideNumber(slideNumber + 1);
         }
     }
 
     function decrementSlideNumber() {
         if (slideNumber == 1) {
-            setCurrentSlideNumber(slides.length);
+            setSlideNumber(slides.length);
         } else {
-            setCurrentSlideNumber(slideNumber - 1);
+            setSlideNumber(slideNumber - 1);
         }
     }
 
