@@ -11,7 +11,7 @@ import React from 'react';
 import useScrollbar from '../../../hooks/useScrollbar';
 
 function CleanCode() {
-    const { currentSlideNumber, addSlide } = useSlide();
+    const { slideNumber, addSlide } = useSlide();
     const { hideScrollbar, showScrollbar } = useScrollbar();
     
     React.useEffect(() => {
@@ -23,7 +23,7 @@ function CleanCode() {
         <div 
             className={`${slideStyles.slidesWrapper}`} 
             data-testid="slidesWrapper" 
-            data-slide-number={currentSlideNumber}
+            data-slide-number={slideNumber}
         >
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>

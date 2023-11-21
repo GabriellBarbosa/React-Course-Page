@@ -5,7 +5,7 @@ function useSlide() {
     const urlParams = useParams();
     const navigate = useNavigate();
     const slides = React.useRef<Array<HTMLElement | null>>([]).current;
-    const [currentSlideNumber, setCurrentSlideNumber] = React.useState(1);
+    const [slideNumber, setCurrentSlideNumber] = React.useState(1);
 
     React.useEffect(() => {
         const urlParam = Number(urlParams.slideNumber)
@@ -23,15 +23,15 @@ function useSlide() {
     }
 
     React.useEffect(() => {
-        navigate(`/slide/clean-code/${currentSlideNumber}`);
-    }, [currentSlideNumber]);
+        navigate(`/slide/clean-code/${slideNumber}`);
+    }, [slideNumber]);
 
     React.useEffect(() => {
         window.addEventListener('keydown', changeSlideNumber);
         return () => {
             window.removeEventListener('keydown', changeSlideNumber);
         }
-    }, [currentSlideNumber]);
+    }, [slideNumber]);
 
     function changeSlideNumber(event: KeyboardEvent) {
         if (event.key == 'ArrowRight') {
@@ -42,18 +42,18 @@ function useSlide() {
     }
 
     function incrementSlideNumber() {
-        if (currentSlideNumber == slides.length) {
+        if (slideNumber == slides.length) {
             setCurrentSlideNumber(1);
         } else {
-            setCurrentSlideNumber(currentSlideNumber + 1);
+            setCurrentSlideNumber(slideNumber + 1);
         }
     }
 
     function decrementSlideNumber() {
-        if (currentSlideNumber == 1) {
+        if (slideNumber == 1) {
             setCurrentSlideNumber(slides.length);
         } else {
-            setCurrentSlideNumber(currentSlideNumber - 1);
+            setCurrentSlideNumber(slideNumber - 1);
         }
     }
 
@@ -63,22 +63,22 @@ function useSlide() {
         } catch (err) {
             console.error(err);
         }
-    }, [currentSlideNumber]);
+    }, [slideNumber]);
 
     function getCurrentSlideOffsetTop() {
-        const currentSlide = slides[currentSlideNumber - 1];
+        const currentSlide = slides[slideNumber - 1];
         if (currentSlide) {
             return currentSlide.offsetTop;
         } else {
             throw new Error('Slide not found');
         }
     }
-    
+
     const addSlide = React.useCallback((element: HTMLElement | null) => {
         slides[slides.length] = element;
     }, []);
 
-    return { currentSlideNumber, addSlide };
+    return { slideNumber, addSlide };
 }
 
 export default useSlide;
