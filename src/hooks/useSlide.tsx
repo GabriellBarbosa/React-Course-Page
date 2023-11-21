@@ -1,10 +1,30 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function useSlide() {
-    const [currentSlideNumber, setCurrentSlideNumber] = React.useState(1);
-    const slides = React.useRef<Array<HTMLElement | null>>([]).current;
     const urlParams = useParams();
+    const navigate = useNavigate();
+    const slides = React.useRef<Array<HTMLElement | null>>([]).current;
+    const [currentSlideNumber, setCurrentSlideNumber] = React.useState(1);
+
+    React.useEffect(() => {
+        const urlParam = Number(urlParams.slideNumber)
+        if (isValid(urlParam)) {
+            setCurrentSlideNumber(urlParam);
+        }
+    }, []);
+
+    function isValid(urlParam: number) {
+        return Number.isInteger(urlParam) && isInRange(urlParam);
+    }
+
+    function isInRange(urlParam: number) {
+        return urlParam >= 1 && urlParam <= slides.length;
+    }
+
+    React.useEffect(() => {
+        navigate(`/slide/clean-code/${currentSlideNumber}`);
+    }, [currentSlideNumber]);
 
     React.useEffect(() => {
         window.addEventListener('keydown', changeSlideNumber);
@@ -37,6 +57,14 @@ function useSlide() {
         }
     }
 
+    React.useEffect(() => {
+        try {
+            window.scrollTo(0, getCurrentSlideOffsetTop());
+        } catch (err) {
+            console.error(err);
+        }
+    }, [currentSlideNumber]);
+
     function getCurrentSlideOffsetTop() {
         const currentSlide = slides[currentSlideNumber - 1];
         if (currentSlide) {
@@ -45,27 +73,12 @@ function useSlide() {
             throw new Error('Slide not found');
         }
     }
-
-    React.useEffect(() => {
-        const numberUrlParam = Number(urlParams.slideNumber)
-        if (isValid(numberUrlParam)) {
-            setCurrentSlideNumber(numberUrlParam);
-        }
-    }, [])
-
-    function isValid(urlParam: number) {
-        return Number.isInteger(urlParam) && isInRange(urlParam);
-    }
-
-    function isInRange(urlParam: number) {
-        return urlParam >= 1 && urlParam <= slides.length;
-    }
-
+    
     const addSlide = React.useCallback((element: HTMLElement | null) => {
         slides[slides.length] = element;
     }, []);
 
-    return { currentSlideNumber, getCurrentSlideOffsetTop, addSlide };
+    return { currentSlideNumber, addSlide };
 }
 
 export default useSlide;
