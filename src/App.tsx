@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route path='slide' element={<Slide />} >
-        <Route path="clean-code/:slideNumber?" element={<CleanCode />} />
+        <Route path="clean-code" element={<CleanCode />} />
       </Route>
     </Routes>
   )
