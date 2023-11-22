@@ -10,7 +10,7 @@ import useSlide from '../../../hooks/useSlide';
 import React from 'react';
 import useScrollbar from '../../../hooks/useScrollbar';
 
-import { badCode } from './CleanCodeExamples';
+import { badCode, cleanCode } from './CleanCodeExamples';
 
 function CleanCode() {
     const { slideNumber, addSlide } = useSlide();
@@ -77,7 +77,7 @@ function CleanCode() {
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Código Melhorado</h2>
                     <div className={styles.codeEditor}>
-                        <CodeEditor code={'const foo = "bar";\nconst foo = "baar";'} />
+                        <CodeEditor code={cleanCode} />
                     </div>
                 </div>
             </section>
