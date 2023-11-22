@@ -1,13 +1,5 @@
 const badCode =
-`const list = [
-    { right: 'A', chosen: 'B' },
-    { right: 'D', chosen: 'D' },
-    { right: 'B', chosen: 'B' },
-    { right: 'C', chosen: 'A' },
-    { right: 'C', chosen: 'C' }
-];
-  
-function getTotal() {
+`function getTotal() {
     let total = 0;
     for (const item of list) {
         if (item.right == item.chosen) {
@@ -18,15 +10,7 @@ function getTotal() {
 }`;
 
 const cleanCode = 
-`const answerSheet = [
-    { right: 'A', chosen: 'B' },
-    { right: 'D', chosen: 'D' },
-    { right: 'B', chosen: 'B' },
-    { right: 'C', chosen: 'A' },
-    { right: 'C', chosen: 'C' }
-];
-  
-function getPercentageOfCorrectAnswers() {
+`function getPercentageOfCorrectAnswers() {
     return (getTotalOfCorrectAnswers() * 100) / answerSheet.length;
 }
 
