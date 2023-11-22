@@ -28,11 +28,18 @@ function CodeEditor(props: { code: string }) {
                 onClick={copyCode}
             >Copiar</button>
             <CodeMirror
-                height={'fit-content'}
-                className={styles.codeEditor}
                 value={props.code}
+                className={styles.codeEditor}
+                height={'fit-content'}
                 theme={darcula}
                 extensions={[ javascript() ]}
+                readOnly={true}
+                editable={false}
+                basicSetup={{
+                    lineNumbers: false,
+                    foldGutter: false,
+                    highlightActiveLine: false
+                }}
             />
         </div>
     )
