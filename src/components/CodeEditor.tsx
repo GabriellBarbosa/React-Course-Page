@@ -28,7 +28,7 @@ function CodeEditor(props: { code: string }) {
                 onClick={copyCode}
             >Copiar</button>
             <CodeMirror
-                height="21.25rem"
+                height={'fit-content'}
                 className={styles.codeEditor}
                 value={props.code}
                 theme={darcula}
