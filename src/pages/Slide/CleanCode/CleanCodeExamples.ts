@@ -17,7 +17,7 @@ const cleanCode =
 function getTotalOfCorrectAnswers() {
     let result = 0;
     for (const answer of answerSheet) {
-        if (answer.chosen == answer.right) {
+        if (answer.isCorrect()) {
             result += 1;
         }
     }

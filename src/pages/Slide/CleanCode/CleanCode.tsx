@@ -66,7 +66,7 @@ function CleanCode() {
 
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
-                    <h2 className={slideStyles.regular_title}>Código Confuso</h2>
+                    <h2 className={slideStyles.regular_title}>Código Obscuro</h2>
                     <div className={styles.codeEditor}>
                         <CodeEditor code={badCode} />
                     </div>
