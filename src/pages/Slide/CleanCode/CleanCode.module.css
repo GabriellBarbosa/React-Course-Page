@@ -10,8 +10,10 @@
 
 .imageWrapper {
     margin-top: 3rem;
+}
+
+.imageWrapper img {
     border-radius: 0.25rem;
-    overflow: hidden;
 }
 
 .externalLink {
