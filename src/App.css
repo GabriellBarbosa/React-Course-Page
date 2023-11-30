@@ -6,3 +6,9 @@
 .hide_scrollbar::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
 }
+
+body {
+    color: var(--gray-8);
+    background-color: var(--gray-2);
+    font-family: Arial, Helvetica, sans-serif;
+}

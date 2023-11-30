@@ -1,5 +1,10 @@
+import CourseNavBar from '../../../components/CourseNavBar';
+
 function CleanCode() {
-    return <div>Its my course!!</div>
+    CourseNavBar
+    return (
+        <CourseNavBar />
+    )
 }
 
 export default CleanCode;
