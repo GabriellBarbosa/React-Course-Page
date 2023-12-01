@@ -1,9 +1,14 @@
+import styles from './CleanCode.module.css';
 import CourseNavBar from '../../../components/CourseNavBar';
+import Header from '../../../components/Header';
 
 function CleanCode() {
-    CourseNavBar
+    
     return (
-        <CourseNavBar />
+        <div className={styles.wrapper}>
+            <CourseNavBar />
+            <Header />
+        </div>
     )
 }
 
