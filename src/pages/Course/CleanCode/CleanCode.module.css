@@ -1,3 +1,47 @@
 .wrapper {
     margin-left: 1.875rem;
 }
+
+.container {
+    max-width: 76.25rem;
+    width: 100%;
+    padding: 0 1.25rem 0 2.5rem;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 760px) {
+    .container {
+        padding: 0 1.25rem;
+    }
+}
+
+.video_section {
+    margin-top: 2.5rem;
+
+}
+
+.wrapper_title_slide {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.video_number {
+    font-size: 0.75rem;
+    color: var(--gray-5);
+    line-height: 1.063rem;
+}
+
+.video_name {
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 1.938rem;
+}
+
+.slide_link {
+    text-decoration: underline;
+}
+
+.slide_link:hover {
+    color: var(--c-0-light);
+}
