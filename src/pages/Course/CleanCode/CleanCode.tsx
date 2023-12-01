@@ -15,7 +15,10 @@ function CleanCode() {
                     <a href="/slide/clean-code" className={styles.slide_link}>Slide</a>
                 </div>
 
-                <div></div>
+                <div className={styles.change_video_button_wrapper}>
+                    <button className={styles.prev}>Anterior</button>
+                    <button className={styles.next}>Próximo</button>
+                </div>
             </div>
         </div>
     )
