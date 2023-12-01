@@ -1,6 +1,13 @@
 import styles from './Header.module.css';
+import React from 'react';
 
 function Header() {
+    const [mobileMenueActive, setMobileMenuActive] = React.useState(false);
+
+    function toggleMobileMenuActive() {
+        setMobileMenuActive(!mobileMenueActive);
+    }
+
     return (
         <header className={styles.header}>
             <nav className={styles.navigation}>
@@ -11,17 +18,27 @@ function Header() {
                     </svg>
                 </a>
 
-                <div className={`${styles.header_menu} ${styles.active}`}>
-                    <div className={styles.hamburguer_menu}>
+                <div 
+                    data-testid="header_menu"
+                    className={`
+                        ${styles.header_menu} 
+                        ${mobileMenueActive ? styles.active : ''}
+                    `}
+                >
+                    <div 
+                        className={styles.hamburguer_menu} 
+                        onClick={toggleMobileMenuActive}
+                        data-testid="mobile_menu_button"
+                    >
                         <span className={styles.line}></span>
                     </div>
 
                     <div className={styles.links_container}>
                         <div className={styles.links_wrapper}>
-                            <a href="cursos" className={styles.link}>Curso</a>
-                            <a href="plano" className={styles.link}>Inscreva-se</a>
-                            <a href="contato" className={`${styles.link} ${styles.contact}`}>Contato</a>
-                            <a href="entrar" className={`${styles.link} ${styles.login}`}>Login</a>
+                            <a href="/cursos" className={styles.link}>Curso</a>
+                            <a href="/plano" className={styles.link}>Inscreva-se</a>
+                            <a href="/contato" className={`${styles.link} ${styles.contact}`}>Contato</a>
+                            <a href="/entrar" className={`${styles.link} ${styles.login}`}>Login</a>
                         </div>
                     </div>
                 </div>
