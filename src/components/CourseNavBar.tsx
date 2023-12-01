@@ -1,11 +1,26 @@
 import styles from './CourseNavBar.module.css';
+import React from 'react';
 
 function CourseNavBar() {
+    const [navbarActive, setNavbarActive] = React.useState(false);
+
+    function toggleNavbarActive() {
+        setNavbarActive(!navbarActive);
+    }
+
     return (
-        <div className={`${styles.wrapper} ${styles.active}`}>
+        <div 
+            className={`${styles.navbar} ${navbarActive ? styles.active : ''}`} 
+            data-testid="navbar"
+        >
             <div className={styles.header}>
                 <h1 className={styles.title}>Código Limpo</h1>
-                <span className={styles.toggle_navbar_btn} aria-label="mostrar ou esconder o menu"></span>
+                <span 
+                    className={styles.toggle_navbar_btn} 
+                    aria-label="mostrar ou esconder o menu" 
+                    data-testid="toggleActive"
+                    onClick={toggleNavbarActive}
+                ></span>
             </div>
             <div className={styles.charpter}>
                 <h2 className={styles.title}>01 Introdução</h2>
