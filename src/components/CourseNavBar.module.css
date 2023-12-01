@@ -4,6 +4,15 @@
     width: 18.75rem;
     background-color: var(--gray-2);
     box-shadow: 0 0 2px 0 var(--gray-0);
+    transition: left .2s ease;
+}
+
+.wrapper.active {
+    left: 0;
+}
+
+.wrapper {
+    left: calc(-18.75rem + 2rem);
 }
 
 .header {
@@ -83,6 +92,14 @@
 }
 
 .charpter .video_duration_wrapper .video_watched_feedback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+}
+
+.charpter .video_duration_wrapper .video_watched_feedback::after {
+    content: '';
     display: block;
     width: 0.375rem;
     height: 0.375rem;

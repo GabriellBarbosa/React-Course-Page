@@ -2,7 +2,7 @@ import styles from './CourseNavBar.module.css';
 
 function CourseNavBar() {
     return (
-        <div className={styles.wrapper}>
+        <div className={`${styles.wrapper} ${styles.active}`}>
             <div className={styles.header}>
                 <h1 className={styles.title}>Código Limpo</h1>
                 <span className={styles.toggle_navbar_btn} aria-label="mostrar ou esconder o menu"></span>
