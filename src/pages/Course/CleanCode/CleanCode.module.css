@@ -90,3 +90,17 @@
     background-position: center;
     margin-left: 2.25rem;
 }
+
+.video_player {
+    margin-top: 1.5rem;
+    padding: 56.25% 0 0 0;
+    position: relative;
+}
+
+.iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
