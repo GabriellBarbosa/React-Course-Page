@@ -2,14 +2,46 @@ import styles from './Header.module.css';
 import React from 'react';
 
 function Header() {
-    const [mobileMenueActive, setMobileMenuActive] = React.useState(false);
+    const [mobileMenuActive, setMobileMenuActive] = React.useState(false);
+    const mobileMenu = React.useRef<HTMLDivElement>(null);
+    const menuButton = React.useRef<HTMLDivElement>(null);
 
     function toggleMobileMenuActive() {
-        setMobileMenuActive(!mobileMenueActive);
+        setMobileMenuActive(!mobileMenuActive);
+    }
+
+    React.useEffect(() => {
+        window.addEventListener('click', deactiveMobileMenu);
+        return () => {
+            window.removeEventListener('click', deactiveMobileMenu);
+        }
+    }, [mobileMenuActive]);
+
+    function deactiveMobileMenu(event: MouseEvent) {    
+        if (shouldDeactiveMobileMenu(event)) {
+            setMobileMenuActive(false);
+        }
+    }
+
+    function shouldDeactiveMobileMenu(event: MouseEvent) {
+        return (
+            mobileMenuActive &&
+            event.target instanceof Element &&
+            isOutOfMobileMenu(event.target)
+        );
+    }
+
+    function isOutOfMobileMenu(element: Element) {
+        return (
+            mobileMenu.current &&
+            menuButton.current &&
+            ! menuButton.current.contains(element) &&
+            ! mobileMenu.current.contains(element)
+        );
     }
 
     return (
-        <header className={styles.header}>
+        <header className={styles.header} data-testid="header">
             <nav className={styles.navigation}>
                 <a href="/" className={styles.logo}>
                     <svg id="bookinvideo-svg" xmlns="http://www.w3.org/2000/svg" width="145" height="17" fill="none">
@@ -22,18 +54,19 @@ function Header() {
                     data-testid="header_menu"
                     className={`
                         ${styles.header_menu} 
-                        ${mobileMenueActive ? styles.active : ''}
+                        ${mobileMenuActive ? styles.active : ''}
                     `}
                 >
                     <div 
                         className={styles.hamburguer_menu} 
                         onClick={toggleMobileMenuActive}
                         data-testid="mobile_menu_button"
+                        ref={menuButton}
                     >
                         <span className={styles.line}></span>
                     </div>
 
-                    <div className={styles.links_container}>
+                    <div className={styles.links_container} ref={mobileMenu}>
                         <div className={styles.links_wrapper}>
                             <a href="/cursos" className={styles.link}>Curso</a>
                             <a href="/plano" className={styles.link}>Inscreva-se</a>
