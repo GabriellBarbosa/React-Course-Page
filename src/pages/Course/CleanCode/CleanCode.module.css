@@ -16,8 +16,8 @@
 }
 
 .video_section {
-    margin-top: 2.5rem;
-
+    margin-top: 1.5rem;
+    min-height: calc(100vh - 12.5rem);
 }
 
 .wrapper_title_slide {
@@ -103,4 +103,8 @@
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.footer_wrapper {
+    margin-top: 6.25rem;
 }

@@ -1,6 +1,7 @@
 import styles from './CleanCode.module.css';
 import CourseNavBar from '../../../components/CourseNavBar';
 import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
 
 function CleanCode() {
     
@@ -8,6 +9,7 @@ function CleanCode() {
         <div className={styles.wrapper}>
             <CourseNavBar />
             <Header />
+
             <div className={`${styles.container} ${styles.video_section}`}>
                 <span className={styles.video_number}>0102</span>
                 <div className={styles.wrapper_title_slide}>
@@ -27,6 +29,10 @@ function CleanCode() {
                     <button className={styles.prev}>Anterior</button>
                     <button className={styles.next}>Próximo</button>
                 </div>
+            </div>
+
+            <div className={styles.footer_wrapper}>
+                <Footer />
             </div>
         </div>
     )

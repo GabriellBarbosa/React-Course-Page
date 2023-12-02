@@ -1,0 +1,13 @@
+.footer {
+    height: 6.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--gray-0);
+}
+
+.footer p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    color: var(--gray-7);
+}
