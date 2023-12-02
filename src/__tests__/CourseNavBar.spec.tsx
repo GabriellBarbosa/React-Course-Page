@@ -11,7 +11,7 @@ describe('CourseNavBar', () => {
         });
     });
 
-    it('active navbar', () => {
+    it('active navbar on button click', () => {
         const navbar = screen.getByTestId('navbar');
         const navbarButton = screen.getByTestId('toggleActive');
 
@@ -22,7 +22,7 @@ describe('CourseNavBar', () => {
         expect([...navbar.classList]).toContain(styles.active);
     });
 
-    it('deactive navbar', () => {
+    it('deactive navbar on button click', () => {
         const navbar = screen.getByTestId('navbar');
         const navbarButton = screen.getByTestId('toggleActive');
 
@@ -32,6 +32,18 @@ describe('CourseNavBar', () => {
 
         fireEvent.click(navbarButton);
 
+        expect([...navbar.classList]).not.toContain(styles.active);
+    });
+
+    it('deactive navbar on background click', () => {
+        const navbar = screen.getByTestId('navbar');
+        const navbarButton = screen.getByTestId('toggleActive');
+        const background = screen.getByTestId('background');
+
+        fireEvent.click(navbarButton);
+        expect([...navbar.classList]).toContain(styles.active);
+
+        fireEvent.click(background);
         expect([...navbar.classList]).not.toContain(styles.active);
     });
 })
