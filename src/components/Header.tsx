@@ -68,7 +68,6 @@ function Header() {
 
                     <div className={styles.links_container} ref={mobileMenu}>
                         <div className={styles.links_wrapper}>
-                            <a href="/cursos" className={styles.link}>Curso</a>
                             <a href="/plano" className={styles.link}>Inscreva-se</a>
                             <a href="/contato" className={`${styles.link} ${styles.contact}`}>Contato</a>
                             <a href="/entrar" className={`${styles.link} ${styles.login}`}>Login</a>
