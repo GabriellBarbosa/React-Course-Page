@@ -14,7 +14,7 @@ function CleanCode() {
                 <span className={styles.video_number}>0102</span>
                 <div className={styles.wrapper_title_slide}>
                     <h2 className={styles.video_name}>O que é código limpo</h2>
-                    <a href="/slide/clean-code" className={styles.slide_link}>Slide</a>
+                    <a href="/slide/codigo-limpo" target="_blank" className={styles.slide_link}>Slide</a>
                 </div>
 
                 <div className={styles.video_player}>

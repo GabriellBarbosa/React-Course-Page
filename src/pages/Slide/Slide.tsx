@@ -5,7 +5,7 @@ function Slide() {
     return (
         <>
             <Routes>
-                <Route path="clean-code" element={<CleanCode />} />
+                <Route path="codigo-limpo" element={<CleanCode />} />
             </Routes>
             <Outlet />
         </>
