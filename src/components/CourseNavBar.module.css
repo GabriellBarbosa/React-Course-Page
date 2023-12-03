@@ -21,10 +21,12 @@
     box-shadow: 0 0 2px 1px var(--gray-0);
     transition: left .2s ease;
     z-index: 2;
+    cursor: pointer;
 }
 
 .navbar.active {
     left: 0;
+    cursor: default;
 }
 
 .navbar {
@@ -88,7 +90,7 @@
 
 .charpter .video {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
     cursor: pointer;
 }
@@ -97,7 +99,7 @@
     background-color: var(--gray-3);
 }
 
-.charpter .video:hover {
+.navbar.active .charpter .video:hover {
     background-color: var(--gray-1);
 }
 

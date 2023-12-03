@@ -8,8 +8,16 @@ function CourseNavBar() {
         setNavbarActive(!navbarActive);
     }
 
+    function activeNavbar() {
+        if (!navbarActive) {
+            setNavbarActive(true);
+        }
+    }
+
     function deactiveNavbar() {
-        setNavbarActive(false);
+        if (navbarActive) {
+            setNavbarActive(false);
+        }
     }
 
     return (
@@ -22,6 +30,7 @@ function CourseNavBar() {
             <div 
                 className={`${styles.navbar} ${navbarActive ? styles.active : ''}`} 
                 data-testid="navbar"
+                onClick={activeNavbar} 
             >
                 <div className={styles.header}>
                     <h1 className={styles.title}>Código Limpo</h1>

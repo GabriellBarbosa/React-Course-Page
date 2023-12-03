@@ -46,4 +46,11 @@ describe('CourseNavBar', () => {
         fireEvent.click(background);
         expect([...navbar.classList]).not.toContain(styles.active);
     });
+
+    it('active navbar on click when it is deactive', () => {
+        const navbar = screen.getByTestId('navbar');
+
+        fireEvent.click(navbar);
+        expect([...navbar.classList]).toContain(styles.active);
+    });
 })
