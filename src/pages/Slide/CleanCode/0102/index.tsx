@@ -10,7 +10,7 @@ import useSlide from '../../../../hooks/useSlide';
 import React from 'react';
 import useScrollbar from '../../../../hooks/useScrollbar';
 
-import { badCode, cleanCode } from './CleanCodeExamples';
+import { badCode, cleanCode } from './Example';
 
 function CleanCode() {
     const { slideNumber, addSlide } = useSlide();
