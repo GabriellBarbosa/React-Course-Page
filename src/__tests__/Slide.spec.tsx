@@ -1,4 +1,4 @@
-import CleanCode from "../pages/Slide/CleanCode/0102/CleanCode";
+import CleanCode from "../pages/Slide/CleanCode/0102";
 import dispatchKeydownEvent from "../utils/functions/dispatchKeydownEvent";
 import { render, screen, act } from '@testing-library/react';
 import { BrowserRouter } from "react-router-dom";
