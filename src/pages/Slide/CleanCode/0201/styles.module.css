@@ -1,0 +1,29 @@
+.logo img {
+    width: 9.125rem;
+}
+
+.introTitle {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 3rem;
+}
+
+.imageWrapper {
+    margin-top: 3rem;
+}
+
+.imageWrapper img {
+    border-radius: 0.25rem;
+}
+
+.externalLink {
+    margin-top: 1.25rem;
+}
+
+.list, .infoSource {
+    margin-top: 3rem;
+}
+
+.codeEditor {
+    margin-top: 3rem;
+}

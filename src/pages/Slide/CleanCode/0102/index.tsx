@@ -12,7 +12,7 @@ import useScrollbar from '../../../../hooks/useScrollbar';
 
 import { badCode, cleanCode } from './Example';
 
-function CleanCode() {
+function _0102() {
     const { slideNumber, addSlide } = useSlide();
     const { hideScrollbar, showScrollbar } = useScrollbar();
     
@@ -110,4 +110,4 @@ function CleanCode() {
     )
 }
 
-export default CleanCode;
+export default _0102;
