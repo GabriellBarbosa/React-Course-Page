@@ -7,7 +7,7 @@ function CleanCode() {
         <>
             <Routes>
                 <Route path="0102-codigo-limpo" element={<_0102 />} />
-                <Route path="0201-codigo-limpo" element={<_0201 />} />
+                <Route path="0201-nomes-significativos" element={<_0201 />} />
             </Routes>
             <Outlet />
         </>
