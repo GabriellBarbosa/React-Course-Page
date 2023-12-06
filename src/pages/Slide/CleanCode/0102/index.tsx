@@ -1,4 +1,4 @@
-import styles from './CleanCode.module.css';
+import styles from './styles.module.css';
 import slideStyles from '../../../../assets/css/Slide.module.css';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
