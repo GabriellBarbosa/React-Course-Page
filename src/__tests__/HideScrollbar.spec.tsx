@@ -1,4 +1,4 @@
-import CleanCode from "../pages/Slide/CleanCode/CleanCode";
+import CleanCode from "../pages/Slide/CleanCode/0102/CleanCode";
 import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 

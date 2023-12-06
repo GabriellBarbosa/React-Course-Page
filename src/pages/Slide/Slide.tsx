@@ -1,5 +1,5 @@
 import { Routes, Route, Outlet } from 'react-router-dom'
-import CleanCode from './CleanCode/CleanCode';
+import CleanCode from './CleanCode/0102/CleanCode';
 
 function Slide() {
     return (
