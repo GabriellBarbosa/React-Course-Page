@@ -30,7 +30,7 @@ function _0102() {
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <span className={styles.logo}><img src={logo} alt="BookInVideo" /></span>
-                    <h1 className={`${slideStyles.title} ${styles.introTitle}`}>Código Limpo</h1>
+                    <h1 className={`${slideStyles.title} ${slideStyles.introTitle}`}>Código Limpo</h1>
                     <h3 className={slideStyles.subtitle}>Habilidades Práticas do Agile Software<span>.</span></h3>
                 </div>
             </section>

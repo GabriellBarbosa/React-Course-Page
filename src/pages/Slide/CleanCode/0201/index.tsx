@@ -25,7 +25,7 @@ function _0201() {
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <span className={styles.logo}><img src={logo} alt="BookInVideo" /></span>
-                    <h1 className={`${slideStyles.title} ${styles.introTitle}`}>NOMES SIGNIFICATIVOS</h1>
+                    <h1 className={`${slideStyles.title} ${slideStyles.introTitle}`}>Nomes Significativos</h1>
                     <h3 className={slideStyles.subtitle}>0201 Capítulo: Nomes<span>.</span></h3>
                 </div>
             </section>
