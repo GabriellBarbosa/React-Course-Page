@@ -24,7 +24,7 @@ function _0202() {
         >
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
-                    <span className={styles.logo}><img src={logo} alt="BookInVideo" /></span>
+                    <span className={slideStyles.logo}><img src={logo} alt="BookInVideo" /></span>
                     <h1 className={`${slideStyles.title} ${slideStyles.introTitle}`}>Motivos das Decisões</h1>
                     <h3 className={slideStyles.subtitle}>0202 Capítulo: Nomes<span>.</span></h3>
                 </div>
