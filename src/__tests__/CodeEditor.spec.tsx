@@ -5,7 +5,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 describe('CodeEditor', () => {
     beforeEach(() => {
-        render(<CodeEditor code={'console.log("hello world!")'} />);
+        render(<CodeEditor code={'console.log("hello world!")'} showCopyButton={true} />);
 
         Object.assign(navigator, {
           clipboard: { writeText: jest.fn() },

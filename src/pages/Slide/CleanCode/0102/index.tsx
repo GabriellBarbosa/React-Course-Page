@@ -68,7 +68,7 @@ function _0102() {
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Código Obscuro</h2>
                     <div className={styles.codeEditor}>
-                        <CodeEditor code={badCode} />
+                        <CodeEditor code={badCode} showCopyButton={true}/>
                     </div>
                 </div>
             </section>
@@ -77,7 +77,7 @@ function _0102() {
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Código Melhorado</h2>
                     <div className={styles.codeEditor}>
-                        <CodeEditor code={cleanCode} />
+                        <CodeEditor code={cleanCode} showCopyButton={true}/>
                     </div>
                 </div>
             </section>

@@ -1,1 +1,6 @@
-
+.text {
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+    margin-top: 0.625rem;
+    color: var(--gray-5);
+}

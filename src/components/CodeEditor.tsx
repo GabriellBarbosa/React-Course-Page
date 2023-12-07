@@ -4,7 +4,7 @@ import { darcula } from '@uiw/codemirror-theme-darcula';
 import { javascript } from '@codemirror/lang-javascript';
 import { MouseEvent } from 'react';
 
-function CodeEditor(props: { code: string }) {
+function CodeEditor(props: { code: string, showCopyButton?: boolean }) {
 
     function copyCode(event: MouseEvent<HTMLElement>) {
         navigator.clipboard.writeText(props.code);
@@ -20,13 +20,18 @@ function CodeEditor(props: { code: string }) {
 
     return (
         <div>
-            <button
-                title="Copiar o código"
-                type="button"
-                data-testid="copyButton"
-                className={`${styles.copyButton}`}
-                onClick={copyCode}
-            >Copiar</button>
+            {   
+                props.showCopyButton && (
+                    <button
+                        title="Copiar o código"
+                        type="button"
+                        data-testid="copyButton"
+                        className={`${styles.copyButton}`}
+                        onClick={copyCode}
+                    >Copiar</button> 
+                )
+            }
+
             <CodeMirror
                 value={props.code}
                 className={styles.codeEditor}
