@@ -36,14 +36,26 @@ function _0202() {
             </section>
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
-                    <h2 className={slideStyles.regular_title}>Tamanho Relativo ao Escopo</h2>
+                    <h2 className={styles.title}>Tamanho Relativo ao Escopo</h2>
                     <p className={styles.text}>
                         Escopos maiores requerem nomes de variáveis mais explicativas enquanto 
                         escopos menores podem ter nomes de variáveis menores. No caso das 
                         funções é o inverso.
                     </p>
-                    <CodeEditor code={example1} showCopyButton={false} />
-                    <CodeEditor code={example1Resolved} showCopyButton={false} />
+                    <div className={styles.code_examples_wrapper}>
+                        <div className={styles.code_example}>
+                            <p className={styles.code_description}>
+                                “<span className={styles.code_hightlight}>i</span>” estava sendo usado em um escopo grande.
+                            </p>
+                            <CodeEditor code={example1} />
+                        </div>
+                        <div className={styles.code_example}>
+                            <p className={styles.code_description}>
+                                Então mudamos para “<span className={styles.code_hightlight}>client</span>”.
+                            </p>
+                            <CodeEditor code={example1Resolved} />
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
