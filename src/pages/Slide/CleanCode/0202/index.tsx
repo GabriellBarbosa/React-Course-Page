@@ -4,6 +4,7 @@ import slideStyles from '../../../../assets/css/Slide.module.css';
 import useSlide from '../../../../hooks/useSlide';
 import React from 'react';
 import useScrollbar from '../../../../hooks/useScrollbar';
+import TopicComponent from '../../../../components/TopicComponent';
 
 import { 
     example1, 
@@ -21,7 +22,6 @@ import {
 } from './Example';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
-import TopicComponent from '../../../../components/TopicSlide';
 
 function _0202() {
     const { slideNumber, addSlide } = useSlide();
