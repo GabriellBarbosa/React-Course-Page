@@ -4,7 +4,7 @@ import slideStyles from '../../../../assets/css/Slide.module.css';
 import useSlide from '../../../../hooks/useSlide';
 import React from 'react';
 import useScrollbar from '../../../../hooks/useScrollbar';
-import CodeEditor from '../../../../components/CodeEditor';
+
 import { 
     example1, 
     example1Resolved, 
@@ -21,6 +21,7 @@ import {
 } from './Example';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
+import TopicComponent from '../../../../components/TopicSlide';
 
 function _0202() {
     const { slideNumber, addSlide } = useSlide();
@@ -30,6 +31,81 @@ function _0202() {
         hideScrollbar();
         return () => showScrollbar();
     }, []);
+
+    const topics = [
+        {
+            title: 'Tamanho Relativo ao Escopo',
+            description: 'Escopos maiores requerem nomes de variáveis mais explicativas enquanto escopos menores podem ter nomes de variáveis menores. No caso das funções é o inverso.',
+            codeBefore: {
+                description: <>“<span className={styles.hightlight}>i</span>” estava sendo usado em um escopo grande.</>,
+                value: example1
+            },
+            codeAfter: {
+                description: <>Então mudamos para “<span className={styles.hightlight}>client</span></>,
+                value: example1Resolved
+            },
+        },
+        {
+            title: 'Distinções Significativas',
+            description: 'Variáveis de loop i, j. Ter essas variáveis em um escopo grande faz com que seja cansativo ter que lembrar o que essas variáveis são.',
+            codeBefore: {
+                description: <>E também “<span className={styles.hightlight}>j</span>” não fazia mais sentido para nós.</>,
+                value: example2
+            },
+            codeAfter: {
+                description: <>Então mudamos para “<span className={styles.hightlight}>enterprise</span>”.</>,
+                value: example2Resolved
+            },
+        },
+        {
+            title: 'Adicione Contexto',
+            description: 'Adicione contexto em nomes genéricos. Quando tivermos os contextos bem definidos podemos agrupar os elementos e remover contextos desnecessários.',
+            codeBefore: {
+                description: <>A variável “<span className={styles.hightlight}>sum</span>” não informava o contexto.</>,
+                value: example3
+            },
+            codeAfter: {
+                description: <>Então mudamos para “<span className={styles.hightlight}>sumOfRealties</span>”.</>,
+                value: example3Resolved
+            },
+        },
+        {
+            title: 'Remova Contexto',
+            description: 'Removendo os contextos desnecessários.',
+            codeBefore: {
+                description: <>A variável “<span className={styles.hightlight}>sumOfRealties</span>” já estava dentro da função “<span className={styles.hightlight}>getTotalOfRealties</span>”.</>,
+                value: example4
+            },
+            codeAfter: {
+                description: <>Então renomeamos a variável para “<span className={styles.hightlight}>result</span>”.</>,
+                value: example4Resolved
+            },
+        },
+        {
+            title: 'Revele o Propósito',
+            description: 'Não deixe o propósito em comentários. Deixe-o nos nomes das classes, funções e variáveis.',
+            codeBefore: {
+                description: <>A condicional estava bem difícil de ler.</>,
+                value: example5
+            },
+            codeAfter: {
+                description: <>Dando pequenos passos conseguimos extraí-la para um função com um nome mais descritivo.</>,
+                value: example5Resolved
+            },
+        },
+        {
+            title: 'Evite Informações Erradas',
+            description: 'Nomes errados desviam o propósito que você gostaria de revelar no código.',
+            codeBefore: {
+                description: <>Percebemos que o nome da função não dizia o que ela realmente fazia.</>,
+                value: example6
+            },
+            codeAfter: {
+                description: <>Então renomeamos a função para o nome correto.</>,
+                value: example6Resolved
+            },
+        },
+    ]
 
     return (
         <div 
@@ -44,138 +120,27 @@ function _0202() {
                     <h3 className={slideStyles.subtitle}>0202 Capítulo: Nomes<span>.</span></h3>
                 </div>
             </section>
-            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
-                <div className={slideStyles.container}>
-                    <h2 className={styles.title}>Tamanho Relativo ao Escopo</h2>
-                    <p className={styles.text}>
-                        Escopos maiores requerem nomes de variáveis mais explicativas enquanto 
-                        escopos menores podem ter nomes de variáveis menores. No caso das 
-                        funções é o inverso.
-                    </p>
-                    <div className={styles.code_examples_wrapper}>
-                        <div className={styles.code_example}>
-                            <p className={styles.code_description}>
-                                “<span className={styles.code_hightlight}>i</span>” estava sendo usado em um escopo grande.
-                            </p>
-                            <CodeEditor code={example1} />
+
+            {topics.map((topic) => {
+                return (
+                    <section className={slideStyles.slide} data-testid="slide" ref={addSlide} key={topic.title}>
+                        <div className={slideStyles.container}>
+                            <TopicComponent 
+                                title={topic.title}
+                                description={topic.description}
+                                codeBefore={{
+                                    description: topic.codeBefore.description,
+                                    value: topic.codeBefore.value
+                                }}
+                                codeAfter={{
+                                    description: topic.codeAfter.description,
+                                    value: topic.codeAfter.value
+                                }}
+                            />
                         </div>
-                        <div className={styles.code_example}>
-                            <p className={styles.code_description}>
-                                Então mudamos para “<span className={styles.code_hightlight}>client</span>”.
-                            </p>
-                            <CodeEditor code={example1Resolved} />
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
-                <div className={slideStyles.container}>
-                    <h2 className={styles.title}>Distinções Significativas</h2>
-                    <p className={styles.text}>
-                        Variáveis de loop i, j. Ter essas variáveis em um escopo grande faz 
-                        com que seja cansativo ter que lembrar o que essas variáveis são.
-                    </p>
-                    <div className={styles.code_examples_wrapper}>
-                        <div className={styles.code_example}>
-                            <p className={styles.code_description}>
-                                E também “<span className={styles.code_hightlight}>j</span>” não fazia mais sentido para nós.
-                            </p>
-                            <CodeEditor code={example2} />
-                        </div>
-                        <div className={styles.code_example}>
-                            <p className={styles.code_description}>
-                                Então mudamos para “<span className={styles.code_hightlight}>enterprise</span>”.
-                            </p>
-                            <CodeEditor code={example2Resolved} />
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
-                <div className={slideStyles.container}>
-                    <h2 className={styles.title}>Adicione Contexto</h2>
-                    <p className={styles.text}>
-                        Adicione contexto em nomes genéricos. Quando tivermos os contextos bem definidos 
-                        podemos agrupar os elementos e remover contextos desnecessários.
-                    </p>
-                    <div className={styles.code_examples_wrapper}>
-                        <div className={styles.code_example}>
-                            <p className={styles.code_description}>
-                                A variável “<span className={styles.code_hightlight}>sum</span>” não informava o contexto.
-                            </p>
-                            <CodeEditor code={example3} />
-                        </div>
-                        <div className={styles.code_example}>
-                            <p className={styles.code_description}>
-                                Então mudamos para “<span className={styles.code_hightlight}>sumOfRealties</span>”.
-                            </p>
-                            <CodeEditor code={example3Resolved} />
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
-                <div className={slideStyles.container}>
-                    <h2 className={styles.title}>Remova Contexto</h2>
-                    <p className={styles.text}>
-                        Removendo os contextos desnecessários.
-                    </p>
-                    <div className={styles.code_examples_wrapper}>
-                        <div className={styles.code_example}>
-                            <p className={styles.code_description}>
-                                A variável “<span className={styles.code_hightlight}>sumOfRealties</span>” já estava dentro da função “<span className={styles.code_hightlight}>getTotalOfRealties</span>”.
-                            </p>
-                            <CodeEditor code={example4} />
-                        </div>
-                        <div className={styles.code_example}>
-                            <p className={styles.code_description}>
-                                Então renomeamos a variável para “<span className={styles.code_hightlight}>result</span>”.
-                            </p>
-                            <CodeEditor code={example4Resolved} />
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
-                <div className={slideStyles.container}>
-                    <h2 className={styles.title}>Revele o Propósito</h2>
-                    <p className={styles.text}>
-                        Não deixe o propósito em comentários. Deixe-o nos nomes das classes, funções e variáveis.
-                    </p>
-                    <div className={styles.code_examples_wrapper}>
-                        <div className={styles.code_example}>
-                            <p className={styles.code_description}>A condicional estava bem difícil de ler.</p>
-                            <CodeEditor code={example5} />
-                        </div>
-                        <div className={styles.code_example}>
-                            <p className={styles.code_description}>
-                                Dando pequenos passos conseguimos extraí-la para um função com um nome mais descritivo.
-                            </p>
-                            <CodeEditor code={example5Resolved} />
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
-                <div className={slideStyles.container}>
-                    <h2 className={styles.title}>Evite Informações Erradas</h2>
-                    <p className={styles.text}>
-                        Nomes errados desviam o propósito que você gostaria de revelar no código.
-                    </p>
-                    <div className={styles.code_examples_wrapper}>
-                        <div className={styles.code_example}>
-                            <p className={styles.code_description}>Percebemos que o nome da função não dizia o que ela realmente fazia.</p>
-                            <CodeEditor code={example6} />
-                        </div>
-                        <div className={styles.code_example}>
-                            <p className={styles.code_description}>
-                                Então renomeamos a função para o nome correto.
-                            </p>
-                            <CodeEditor code={example6Resolved} />
-                        </div>
-                    </div>
-                </div>
-            </section>
+                    </section>
+                )
+            })}
         </div>
     )   
 }
