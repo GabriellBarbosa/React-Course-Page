@@ -1,4 +1,4 @@
-import styles from './TopicSlide.module.css';
+import styles from './TopicComponent.module.css';
 import CodeEditor from './CodeEditor';
 import { ReactElement } from 'react';
 
