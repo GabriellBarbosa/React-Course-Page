@@ -11,7 +11,13 @@ import {
     example2,
     example2Resolved,
     example3,
-    example3Resolved
+    example3Resolved,
+    example4,
+    example4Resolved,
+    example5,
+    example5Resolved,
+    example6,
+    example6Resolved
 } from './Example';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
@@ -104,6 +110,68 @@ function _0202() {
                                 Então mudamos para “<span className={styles.code_hightlight}>sumOfRealties</span>”.
                             </p>
                             <CodeEditor code={example3Resolved} />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
+                <div className={slideStyles.container}>
+                    <h2 className={styles.title}>Remova Contexto</h2>
+                    <p className={styles.text}>
+                        Removendo os contextos desnecessários.
+                    </p>
+                    <div className={styles.code_examples_wrapper}>
+                        <div className={styles.code_example}>
+                            <p className={styles.code_description}>
+                                A variável “<span className={styles.code_hightlight}>sumOfRealties</span>” já estava dentro da função “<span className={styles.code_hightlight}>getTotalOfRealties</span>”.
+                            </p>
+                            <CodeEditor code={example4} />
+                        </div>
+                        <div className={styles.code_example}>
+                            <p className={styles.code_description}>
+                                Então renomeamos a variável para “<span className={styles.code_hightlight}>result</span>”.
+                            </p>
+                            <CodeEditor code={example4Resolved} />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
+                <div className={slideStyles.container}>
+                    <h2 className={styles.title}>Revele o Propósito</h2>
+                    <p className={styles.text}>
+                        Não deixe o propósito em comentários. Deixe-o nos nomes das classes, funções e variáveis.
+                    </p>
+                    <div className={styles.code_examples_wrapper}>
+                        <div className={styles.code_example}>
+                            <p className={styles.code_description}>A condicional estava bem difícil de ler.</p>
+                            <CodeEditor code={example5} />
+                        </div>
+                        <div className={styles.code_example}>
+                            <p className={styles.code_description}>
+                                Dando pequenos passos conseguimos extraí-la para um função com um nome mais descritivo.
+                            </p>
+                            <CodeEditor code={example5Resolved} />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
+                <div className={slideStyles.container}>
+                    <h2 className={styles.title}>Evite Informações Erradas</h2>
+                    <p className={styles.text}>
+                        Nomes errados desviam o propósito que você gostaria de revelar no código.
+                    </p>
+                    <div className={styles.code_examples_wrapper}>
+                        <div className={styles.code_example}>
+                            <p className={styles.code_description}>Percebemos que o nome da função não dizia o que ela realmente fazia.</p>
+                            <CodeEditor code={example6} />
+                        </div>
+                        <div className={styles.code_example}>
+                            <p className={styles.code_description}>
+                                Então renomeamos a função para o nome correto.
+                            </p>
+                            <CodeEditor code={example6Resolved} />
                         </div>
                     </div>
                 </div>
