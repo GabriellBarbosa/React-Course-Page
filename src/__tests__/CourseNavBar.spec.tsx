@@ -97,13 +97,13 @@ describe('CourseNavBar', () => {
         expect([...navbar.classList]).toContain(styles.active);
     });
 
-    it('should render all charpters from courseContent', () => {
+    it('should render all chapters from courseContent', () => {
         const element = render(<CourseNavBar data={courseContent} />);
-        const charpters = element.getAllByTestId('charpter');
-        expect(charpters.length).toBe(courseContent.length);
+        const chapters = element.getAllByTestId('charpter');
+        expect(chapters.length).toBe(courseContent.length);
     });
 
-    it('should contain all videos from all charpters', () => {
+    it('should contain all videos from all chapters', () => {
         const element = render(<CourseNavBar data={courseContent} />);
         const videos = element.getAllByTestId('video');
         const videosPerCharpter = courseContent.map((charpter) => charpter.videos.length);

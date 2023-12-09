@@ -1,7 +1,7 @@
 import styles from './CourseNavBar.module.css';
 import React from 'react';
 
-interface Charpter {
+interface Chapter {
     id: string;
     title: string;
     videos: Video[];
@@ -15,7 +15,7 @@ interface Video {
     completed: boolean;
 }
 
-function CourseNavBar(props: { data?: Charpter[] }) {
+function CourseNavBar(props: { data?: Chapter[] }) {
     const [navbarActive, setNavbarActive] = React.useState(false);
 
     function toggleNavbarActive() {
