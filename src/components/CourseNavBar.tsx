@@ -1,9 +1,23 @@
 import styles from './CourseNavBar.module.css';
 import React from 'react';
 
-function CourseNavBar() {
+interface Charpter {
+    id: string;
+    title: string;
+    videos: Video[];
+}
+
+interface Video {
+    id: string;
+    title: string;
+    slug: string;
+    duration: string;
+    completed: boolean;
+}
+
+function CourseNavBar(props: { data?: Charpter[] }) {
     const [navbarActive, setNavbarActive] = React.useState(false);
-    
+
     function toggleNavbarActive() {
         setNavbarActive(!navbarActive);
     }
@@ -41,6 +55,18 @@ function CourseNavBar() {
                         onClick={toggleNavbarActive}
                     ></span>
                 </div>
+
+                {props.data && props.data.map((item) => {
+                    return (
+                        <div className={styles.charpter} key={item.id} data-testid='charpter'>
+                            <h2 className={styles.title}>{`${item.id} ${item.title}`}</h2>
+                            <ul className={styles.video_list}>
+                            
+                            </ul>
+                        </div>
+                    )
+                })}
+
                 <div className={styles.charpter}>
                     <h2 className={styles.title}>01 Introdução</h2>
                     <ul className={styles.video_list}>
