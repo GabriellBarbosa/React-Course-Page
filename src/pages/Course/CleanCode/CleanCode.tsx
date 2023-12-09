@@ -4,10 +4,53 @@ import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 
 function CleanCode() {
+
+    const courseContent = [
+        {
+            id: '01',
+            title: 'Introdução',
+            videos: [
+                {
+                    id: '01',
+                    title: 'Introdução',
+                    slug: 'introducao',
+                    duration: '13:44',
+                    completed: false
+                },
+                {
+                    id: '02',
+                    title: 'Código Limpo',
+                    slug: 'codigo-limpo',
+                    duration: '19:54',
+                    completed: false
+                },
+            ]
+        },
+        {
+            id: '02',
+            title: 'Nomes',
+            videos: [
+                {
+                    id: '01',
+                    title: 'Nomes Significativos',
+                    slug: 'nomes-significativos',
+                    duration: '13:44',
+                    completed: false
+                },
+                {
+                    id: '02',
+                    title: 'Motivos das Decisões',
+                    slug: 'motivos-das-decisoes',
+                    duration: '19:54',
+                    completed: false
+                },
+            ]
+        }
+    ];
     
     return (
         <div className={styles.wrapper}>
-            <CourseNavBar />
+            <CourseNavBar data={courseContent} />
             <Header />
 
             <div className={`${styles.container} ${styles.video_section}`}>

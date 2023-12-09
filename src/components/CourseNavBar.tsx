@@ -1,21 +1,8 @@
 import styles from './CourseNavBar.module.css';
+import Chapter from '../interfaces/Chapter';
 import React from 'react';
 
-interface Chapter {
-    id: string;
-    title: string;
-    videos: Video[];
-}
-
-interface Video {
-    id: string;
-    title: string;
-    slug: string;
-    duration: string;
-    completed: boolean;
-}
-
-function CourseNavBar(props: { data?: Chapter[] }) {
+function CourseNavBar(props: { data: Chapter[] }) {
     const [navbarActive, setNavbarActive] = React.useState(false);
 
     function toggleNavbarActive() {
@@ -63,39 +50,22 @@ function CourseNavBar(props: { data?: Chapter[] }) {
                             <ul className={styles.video_list}>
                                 {item.videos.map((video) => {
                                     return (
-                                        <li className={styles.video} data-testid='video' key={video.id}></li>
+                                        <li className={styles.video} data-testid='video' key={video.id}>
+                                            <div className={styles.video_name_wrapper}>
+                                                <span className={styles.video_number}>{`${item.id + video.id}`}</span>
+                                                <p className={styles.video_name}>{video.title}</p>
+                                            </div>
+                                            <div className={styles.video_duration_wrapper}>
+                                                <p className={styles.video_duration}>{video.duration}</p>
+                                                <span className={styles.video_watched_feedback} aria-label='vídeo já assistido'></span>
+                                            </div>
+                                        </li>
                                     );
                                 })}
                             </ul>
                         </div>
                     )
                 })}
-
-                <div className={styles.chapter}>
-                    <h2 className={styles.title}>01 Introdução</h2>
-                    <ul className={styles.video_list}>
-                        <li className={styles.video}>
-                            <div className={styles.video_name_wrapper}>
-                                <span className={styles.video_number}>0102</span>
-                                <p className={styles.video_name}>O que é código limpo</p>
-                            </div>
-                            <div className={styles.video_duration_wrapper}>
-                                <p className={styles.video_duration}>19:55</p>
-                                <span className={styles.video_watched_feedback} aria-label='vídeo já assistido'></span>
-                            </div>
-                        </li>
-                        <li className={styles.video}>
-                            <div className={styles.video_name_wrapper}>
-                                <span className={styles.video_number}>0102</span>
-                                <p className={styles.video_name}>O que é código limpo</p>
-                            </div>
-                            <div className={styles.video_duration_wrapper}>
-                                <p className={styles.video_duration}>19:55</p>
-                                <span className={styles.video_watched_feedback} aria-label='vídeo já assistido'></span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </>
     );

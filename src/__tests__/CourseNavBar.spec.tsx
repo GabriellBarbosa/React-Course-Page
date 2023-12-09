@@ -47,7 +47,7 @@ const courseContent = [
 
 describe('CourseNavBar', () => {
     beforeEach(() => {
-        render(<CourseNavBar />);
+        render(<CourseNavBar data={courseContent} />);
 
         Object.assign(navigator, {
           clipboard: { writeText: jest.fn() },
@@ -98,14 +98,12 @@ describe('CourseNavBar', () => {
     });
 
     it('should render all chapters from courseContent', () => {
-        const element = render(<CourseNavBar data={courseContent} />);
-        const chapters = element.getAllByTestId('chapter');
+        const chapters = screen.getAllByTestId('chapter');
         expect(chapters.length).toBe(courseContent.length);
     });
 
     it('should contain all videos from all chapters', () => {
-        const element = render(<CourseNavBar data={courseContent} />);
-        const videos = element.getAllByTestId('video');
+        const videos = screen.getAllByTestId('video');
         const videosPerChapter = courseContent.map((chapter) => chapter.videos.length);
         const totalVideos = videosPerChapter.reduce((prev, cur) => prev + cur);
         expect(videos.length).toBe(totalVideos);
