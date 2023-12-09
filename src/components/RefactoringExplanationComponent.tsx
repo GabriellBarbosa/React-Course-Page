@@ -1,8 +1,8 @@
-import styles from './TopicComponent.module.css';
+import styles from './RefactoringExplanationComponent.module.css';
 import CodeEditor from './CodeEditor';
 import RefactoringExplanation from '../interfaces/RefactoringExplanation';
 
-function TopicComponent(props: RefactoringExplanation) {
+function RefactoringExplanationComponent(props: RefactoringExplanation) {
     return (
         <div>
             <h2 className={styles.title}>{props.title}</h2>
@@ -21,4 +21,4 @@ function TopicComponent(props: RefactoringExplanation) {
     )
 }
 
-export default TopicComponent;
+export default RefactoringExplanationComponent;

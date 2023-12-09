@@ -4,7 +4,7 @@ import slideStyles from '../../../../assets/css/Slide.module.css';
 import useSlide from '../../../../hooks/useSlide';
 import React from 'react';
 import useScrollbar from '../../../../hooks/useScrollbar';
-import TopicComponent from '../../../../components/TopicComponent';
+import RefactoringExplanationComponent from '../../../../components/RefactoringExplanationComponent';
 
 import { 
     example1, 
@@ -32,7 +32,7 @@ function _0202() {
         return () => showScrollbar();
     }, []);
 
-    const topics = [
+    const refactoringReasons = [
         {
             title: 'Tamanho Relativo ao Escopo',
             description: 'Escopos maiores requerem nomes de variáveis mais explicativas enquanto escopos menores podem ter nomes de variáveis menores. No caso das funções é o inverso.',
@@ -121,20 +121,25 @@ function _0202() {
                 </div>
             </section>
 
-            {topics.map((topic) => {
+            {refactoringReasons.map((refactoring) => {
                 return (
-                    <section className={slideStyles.slide} data-testid="slide" ref={addSlide} key={topic.title}>
+                    <section 
+                        className={slideStyles.slide} 
+                        data-testid="slide" 
+                        ref={addSlide}
+                        key={refactoring.title}
+                    >
                         <div className={slideStyles.container}>
-                            <TopicComponent 
-                                title={topic.title}
-                                description={topic.description}
+                            <RefactoringExplanationComponent 
+                                title={refactoring.title}
+                                description={refactoring.description}
                                 codeBefore={{
-                                    description: topic.codeBefore.description,
-                                    value: topic.codeBefore.value
+                                    description: refactoring.codeBefore.description,
+                                    value: refactoring.codeBefore.value,
                                 }}
                                 codeAfter={{
-                                    description: topic.codeAfter.description,
-                                    value: topic.codeAfter.value
+                                    description: refactoring.codeAfter.description,
+                                    value: refactoring.codeAfter.value,
                                 }}
                             />
                         </div>
