@@ -1,20 +1,8 @@
 import styles from './TopicComponent.module.css';
 import CodeEditor from './CodeEditor';
-import { ReactElement } from 'react';
+import RefactoringExplanation from '../interfaces/RefactoringExplanation';
 
-interface CodeExample {
-    description: ReactElement;
-    value: string
-}
-
-interface Topic {
-    title: string; 
-    description: string;
-    codeBefore: CodeExample,
-    codeAfter: CodeExample
-}
-
-function TopicComponent(props: Topic) {
+function TopicComponent(props: RefactoringExplanation) {
     return (
         <div>
             <h2 className={styles.title}>{props.title}</h2>
