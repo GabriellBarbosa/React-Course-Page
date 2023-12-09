@@ -58,7 +58,7 @@ function CourseNavBar(props: { data?: Chapter[] }) {
 
                 {props.data && props.data.map((item) => {
                     return (
-                        <div className={styles.charpter} key={item.id} data-testid='charpter'>
+                        <div className={styles.chapter} key={item.id} data-testid='chapter'>
                             <h2 className={styles.title}>{`${item.id} ${item.title}`}</h2>
                             <ul className={styles.video_list}>
                                 {item.videos.map((video) => {
@@ -71,7 +71,7 @@ function CourseNavBar(props: { data?: Chapter[] }) {
                     )
                 })}
 
-                <div className={styles.charpter}>
+                <div className={styles.chapter}>
                     <h2 className={styles.title}>01 Introdução</h2>
                     <ul className={styles.video_list}>
                         <li className={styles.video}>
