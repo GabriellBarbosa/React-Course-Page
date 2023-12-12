@@ -62,11 +62,3 @@ export {
     example5,
     example5Resolved,
 }
-
-interface ICustomer {
-
-}
-
-class Customer implements ICustomer {
-
-}
