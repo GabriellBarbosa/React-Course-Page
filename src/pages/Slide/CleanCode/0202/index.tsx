@@ -47,9 +47,9 @@ function _0202() {
         },
         {
             title: 'Distinções Significativas',
-            description: 'Variáveis de loop i, j. Ter essas variáveis em um escopo grande faz com que seja cansativo ter que lembrar o que essas variáveis são.',
+            description: 'Duas coisas não podem ter o mesmo nome dentro do mesmo escopo. Deixe essa diferença clara.',
             codeBefore: {
-                description: <>E também “<span className={styles.hightlight}>j</span>” não fazia mais sentido para nós.</>,
+                description: <>“<span className={styles.hightlight}>j</span>” não tem expressividade.</>,
                 value: example2
             },
             codeAfter: {
