@@ -41,7 +41,7 @@ function _0202() {
                 value: example1
             },
             codeAfter: {
-                description: <>Então mudamos para “<span className={styles.hightlight}>client</span></>,
+                description: <>Então mudamos para “<span className={styles.hightlight}>client</span>"</>,
                 value: example1Resolved
             },
         },
