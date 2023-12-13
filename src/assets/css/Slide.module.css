@@ -102,3 +102,8 @@
 .logo img {
     width: 9.125rem;
 }
+
+.hightlight {
+    color: var(--c-0-light);
+    font-weight: bold;
+}
