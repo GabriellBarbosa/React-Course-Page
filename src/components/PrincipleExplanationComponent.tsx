@@ -1,8 +1,8 @@
 import slideStyles from '../assets/css/Slide.module.css'
 import CodeEditor from './CodeEditor';
-import CodeExplanation from '../interfaces/CodeExplanation';
+import PrincipleExplanation from '../interfaces/PrincipleExplanation';
 
-function CodeExplanationComponent(props: CodeExplanation) {
+function PrincipleExplanationComponent(props: PrincipleExplanation) {
     return (
         <>
             <h2 className={slideStyles.principleTitle}>{props.title}</h2>
@@ -15,4 +15,4 @@ function CodeExplanationComponent(props: CodeExplanation) {
     )
 }
 
-export default CodeExplanationComponent;
+export default PrincipleExplanationComponent;

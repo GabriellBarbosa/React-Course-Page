@@ -1,7 +1,7 @@
 import slideStyles from '../../../../assets/css/Slide.module.css';
 import useSlide from '../../../../hooks/useSlide';
 import RefactoringExplanationComponent from '../../../../components/RefactoringExplanationComponent';
-import CodeExplanationComponent from '../../../../components/CodeExplanationComponent';
+import PrincipleExplanationComponent from '../../../../components/PrincipleExplanationComponent';
 import {
     example1,
     example1Resolved,
@@ -153,7 +153,7 @@ function _0203() {
                         key={codeExample.title}
                     >
                         <div className={slideStyles.container}>
-                            <CodeExplanationComponent
+                            <PrincipleExplanationComponent
                                 title={codeExample.title}
                                 description={codeExample.description}
                                 code={{
