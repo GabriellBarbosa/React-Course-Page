@@ -1,35 +1,3 @@
-.title {
-    font-size: 1.75rem;
-    line-height: 2.063rem;
-}
-
-.title::after {
-    content: "";
-    display: block;
-    width: 3.75rem;
-    height: 0.125rem;
-    background-color: var(--gray-plus);
-    margin-top: 0.625rem;
-}
-
-.text {
-    font-size: 1.25rem;
-    line-height: 1.625rem;
-    margin-top: 0.625rem;
-    color: var(--gray-plus);
-}
-
-.code_examples_wrapper {
-    margin-top: 2.5rem;
-}
-
 .code_example:last-child {
     margin-top: 2rem;
-}
-
-.code_description {
-    font-size: 1rem;
-    line-height: 1.313rem;
-    color: var(--gray-5);
-    margin-bottom: 1rem;
 }

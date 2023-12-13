@@ -107,3 +107,35 @@
     color: var(--c-0-light);
     font-weight: bold;
 }
+
+.principleTitle {
+    font-size: 1.75rem;
+    line-height: 2.063rem;
+}
+
+.principleTitle::after {
+    content: "";
+    display: block;
+    width: 3.75rem;
+    height: 0.125rem;
+    background-color: var(--gray-plus);
+    margin-top: 0.625rem;
+}
+
+.principleDescription {
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+    margin-top: 0.625rem;
+    color: var(--gray-plus);
+}
+
+.principleCodeDescription {
+    font-size: 1rem;
+    line-height: 1.313rem;
+    color: var(--gray-5);
+    margin-bottom: 1rem;
+}
+
+.principleCodeExamples {
+    margin-top: 2.5rem;
+}
