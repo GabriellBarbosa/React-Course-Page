@@ -48,7 +48,7 @@ function _0203() {
             },
         },
         {
-            title: 'Uma palavra por conceito.',
+            title: 'Uma palavra por conceito',
             description: 'Escolha uma palavra por conceito e use ela consistentemente.',
             codeBefore: {
                 description: <>Palavras diferente para o mesmo contexto:</>,
@@ -81,6 +81,30 @@ function _0203() {
             codeAfter: {
                 description: <>Interface sem prefixo:</>,
                 value: example5Resolved
+            },
+        },
+        {
+            title: 'Evite Números mágicos',
+            description: 'É difícil de entender o que números soltos no código significam e de acha-los quando precisamos altera-los.',
+            codeBefore: {
+                description: <></>,
+                value: ''
+            },
+            codeAfter: {
+                description: <></>,
+                value: ''
+            },
+        },
+        {
+            title: 'Evite Prefixos',
+            description: 'Prefixos são no mínimo caracteres desnecessários ou um indício de que você deveria melhor o contexto do código.',
+            codeBefore: {
+                description: <></>,
+                value: ''
+            },
+            codeAfter: {
+                description: <></>,
+                value: ''
             },
         },
     ];
