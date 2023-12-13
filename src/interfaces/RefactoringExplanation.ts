@@ -1,15 +1,10 @@
-import { ReactElement } from "react";
+import CodeExample from "./CodeExample";
 
 interface RefactoringExplanation {
     title: string; 
     description: string;
     codeBefore: CodeExample;
     codeAfter: CodeExample;
-}
-
-interface CodeExample {
-    description: ReactElement;
-    value: string;
 }
 
 export default RefactoringExplanation;
