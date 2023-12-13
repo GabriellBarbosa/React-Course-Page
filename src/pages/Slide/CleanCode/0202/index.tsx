@@ -1,4 +1,3 @@
-import styles from './styles.module.css';
 import slideStyles from '../../../../assets/css/Slide.module.css';
 
 import useSlide from '../../../../hooks/useSlide';
@@ -35,13 +34,13 @@ function _0202() {
     const refactoringReasons = [
         {
             title: 'Tamanho Relativo ao Escopo',
-            description: 'Escopos maiores requerem nomes de variáveis mais explicativas enquanto escopos menores podem ter nomes de variáveis menores. No caso das funções é o inverso.',
+            description: 'Escopos maiores requerem nomes de variáveis mais explicativas, enquanto escopos menores podem ter nomes de variáveis menores. No caso das funções é o inverso.',
             codeBefore: {
-                description: <>“<span className={styles.hightlight}>i</span>” estava sendo usado em um escopo grande.</>,
+                description: <>“<span className={slideStyles.hightlight}>i</span>” estava sendo usado em um escopo grande.</>,
                 value: example1
             },
             codeAfter: {
-                description: <>Então mudamos para “<span className={styles.hightlight}>client</span>"</>,
+                description: <>Então mudamos para “<span className={slideStyles.hightlight}>client</span>"</>,
                 value: example1Resolved
             },
         },
@@ -49,11 +48,11 @@ function _0202() {
             title: 'Distinções Significativas',
             description: 'Duas coisas não podem ter o mesmo nome dentro do mesmo escopo. Deixe essa diferença clara.',
             codeBefore: {
-                description: <>“<span className={styles.hightlight}>j</span>” não tem expressividade.</>,
+                description: <>“<span className={slideStyles.hightlight}>j</span>” não tem expressividade.</>,
                 value: example2
             },
             codeAfter: {
-                description: <>Então mudamos para “<span className={styles.hightlight}>enterprise</span>”.</>,
+                description: <>Então mudamos para “<span className={slideStyles.hightlight}>enterprise</span>”.</>,
                 value: example2Resolved
             },
         },
@@ -61,11 +60,11 @@ function _0202() {
             title: 'Adicione Contexto',
             description: 'Adicione contexto em nomes genéricos. Quando tivermos os contextos bem definidos podemos agrupar os elementos e remover contextos desnecessários.',
             codeBefore: {
-                description: <>A variável “<span className={styles.hightlight}>sum</span>” não informava o contexto.</>,
+                description: <>A variável “<span className={slideStyles.hightlight}>sum</span>” não informava o contexto.</>,
                 value: example3
             },
             codeAfter: {
-                description: <>Então mudamos para “<span className={styles.hightlight}>sumOfRealties</span>”.</>,
+                description: <>Então mudamos para “<span className={slideStyles.hightlight}>sumOfRealties</span>”.</>,
                 value: example3Resolved
             },
         },
@@ -73,11 +72,11 @@ function _0202() {
             title: 'Remova Contexto',
             description: 'Removendo os contextos desnecessários.',
             codeBefore: {
-                description: <>A variável “<span className={styles.hightlight}>sumOfRealties</span>” já estava dentro da função “<span className={styles.hightlight}>getTotalOfRealties</span>”.</>,
+                description: <>A variável “<span className={slideStyles.hightlight}>sumOfRealties</span>” já estava dentro da função “<span className={slideStyles.hightlight}>getTotalOfRealties</span>”.</>,
                 value: example4
             },
             codeAfter: {
-                description: <>Então renomeamos a variável para “<span className={styles.hightlight}>result</span>”.</>,
+                description: <>Então renomeamos a variável para “<span className={slideStyles.hightlight}>result</span>”.</>,
                 value: example4Resolved
             },
         },
@@ -89,7 +88,7 @@ function _0202() {
                 value: example5
             },
             codeAfter: {
-                description: <>Dando pequenos passos conseguimos extraí-la para um função com um nome mais descritivo.</>,
+                description: <>Dando pequenos passos conseguimos extraí-la para uma função com um nome mais descritivo.</>,
                 value: example5Resolved
             },
         },
