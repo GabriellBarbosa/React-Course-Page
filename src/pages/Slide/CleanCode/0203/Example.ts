@@ -50,6 +50,17 @@ const example5Resolved =
     // implementation...
 }`;
 
+const example6 = 
+`new ExportVisitor();
+new CustomerFactory();
+new SpellCheckerDelagate();`;
+
+
+const example7 = 
+`new Order();
+new Customer();
+new Checkout();`;
+
 export {
     example1,
     example1Resolved,
@@ -61,4 +72,6 @@ export {
     example4Resolved,
     example5,
     example5Resolved,
+    example6,
+    example7,
 }

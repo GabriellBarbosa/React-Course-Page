@@ -1,6 +1,7 @@
 import slideStyles from '../../../../assets/css/Slide.module.css';
 import useSlide from '../../../../hooks/useSlide';
 import RefactoringExplanationComponent from '../../../../components/RefactoringExplanationComponent';
+import CodeExplanationComponent from '../../../../components/CodeExplanationComponent';
 import {
     example1,
     example1Resolved,
@@ -11,7 +12,9 @@ import {
     example4,
     example4Resolved,
     example5,
-    example5Resolved
+    example5Resolved,
+    example6,
+    example7,
 } from './Example';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
@@ -60,51 +63,46 @@ function _0203() {
             title: 'Nomes passíveis de busca',
             description: 'Tente buscar "e" em um projeto na sua IDE/Editor',
             codeBefore: {
-                description: <>Nome difícil de encontrar</>,
+                description: <>Nome difícil de encontrar:</>,
                 value: example4
             },
             codeAfter: {
-                description: <>Nome fácil de encontrar</>,
+                description: <>Nome fácil de encontrar:</>,
                 value: example4Resolved
             },
         },
         {
-            title: 'interfaces e implementações',
+            title: 'Interfaces e Implementações',
             description: 'Não enfeite as interfaces.',
             codeBefore: {
-                description: <>Interface com prefixo</>,
+                description: <>Interface com prefixo:</>,
                 value: example5
             },
             codeAfter: {
-                description: <>Interface sem prefixo</>,
+                description: <>Interface sem prefixo:</>,
                 value: example5Resolved
             },
         },
+    ];
+
+    const codeExamples = [
         {
-            title: 'Domínio solução',
-            description: 'São nomes que revelem como o problema é resolvido. Exemplo: Visitor, Delegate, Controller...',
-            codeBefore: {
-                description: <></>,
-                value: ''
-            },
-            codeAfter: {
-                description: <></>,
-                value: ''
+            title: 'Domínio da Solução',
+            description: 'São termos conhecidos por programadores e que revelam como o problema é resolvido. Exemplo: Visitor, Delegate, Factory...',
+            code: {
+                description: <>Aqui estamos usando três <span className={slideStyles.hightlight}>Design Patterns</span>: Visitor, AbstractFactory e Delegation.</>,
+                value: example6
             },
         },
         {
-            title: 'Domínio problema',
+            title: 'Domínio do Problema',
             description: 'São nomes relativo ao negócio. Exemplo: Order, Customer, Checkout...',
-            codeBefore: {
-                description: <></>,
-                value: ''
+            code: {
+                description: <>Alguns exemplos de classes com nome relativo ao negócio</>,
+                value: example7
             },
-            codeAfter: {
-                description: <></>,
-                value: ''
-            },
-        },
-    ]
+        }
+    ];
 
     return (
         <div 
@@ -139,6 +137,28 @@ function _0203() {
                                 codeAfter={{
                                     description: refactoring.codeAfter.description,
                                     value: refactoring.codeAfter.value,
+                                }}
+                            />
+                        </div>
+                    </section>
+                )
+            })}
+
+            {codeExamples.map((codeExample) => {
+                return (
+                    <section 
+                        className={slideStyles.slide} 
+                        data-testid="slide" 
+                        ref={addSlide}
+                        key={codeExample.title}
+                    >
+                        <div className={slideStyles.container}>
+                            <CodeExplanationComponent
+                                title={codeExample.title}
+                                description={codeExample.description}
+                                code={{
+                                    description: codeExample.code.description,
+                                    value: codeExample.code.value,
                                 }}
                             />
                         </div>
