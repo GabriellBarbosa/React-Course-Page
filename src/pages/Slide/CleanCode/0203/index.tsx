@@ -1,7 +1,11 @@
 import slideStyles from '../../../../assets/css/Slide.module.css';
 import useSlide from '../../../../hooks/useSlide';
+import useScrollbar from '../../../../hooks/useScrollbar';
+import React from 'react';
+
 import RefactoringExplanationComponent from '../../../../components/RefactoringExplanationComponent';
 import PrincipleExplanationComponent from '../../../../components/PrincipleExplanationComponent';
+
 import {
     example1,
     example1Resolved,
@@ -25,6 +29,12 @@ import { default as logo } from '../../../../assets/BookInVideo.svg';
 
 function _0203() {
     const { slideNumber, addSlide } = useSlide();
+    const { hideScrollbar, showScrollbar } = useScrollbar();
+
+    React.useEffect(() => {
+        hideScrollbar();
+        return () => showScrollbar();
+    }, []);
 
     const refactorings = [
         {
