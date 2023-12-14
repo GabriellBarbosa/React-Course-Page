@@ -14,11 +14,14 @@ body {
 }
 
 .cm-scroller::-webkit-scrollbar {
-    height: 8px;
+    height: 0.5rem;
+    width: 0.5rem;
+    background-color: var(--gray-2);
+
 }
 
 .cm-scroller::-webkit-scrollbar-thumb {
     background-color: var(--gray-4);
-    border-radius: 20px;
-    border: 6px solid transparent;
+    border-radius: 1.25rem;
+    border: 0.375rem solid transparent;
 }

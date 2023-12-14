@@ -35,6 +35,7 @@ function CodeEditor(props: { code: string, showCopyButton?: boolean }) {
             <CodeMirror
                 value={props.code}
                 className={styles.codeEditor}
+                maxHeight='37.5rem'
                 height={'fit-content'}
                 theme={darcula}
                 extensions={[ javascript() ]}
