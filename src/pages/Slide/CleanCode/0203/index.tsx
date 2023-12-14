@@ -151,7 +151,7 @@ function _0203() {
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <span className={slideStyles.logo}><img src={logo} alt="BookInVideo" /></span>
-                    <h1 className={`${slideStyles.title} ${slideStyles.introTitle}`}>Mais Recomendações</h1>
+                    <h1 className={`${slideStyles.title} ${slideStyles.introTitle}`}>Mais Regras</h1>
                     <h3 className={slideStyles.subtitle}>0203 Capítulo: Nomes<span>.</span></h3>
                 </div>
             </section>
