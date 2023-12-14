@@ -91,11 +91,11 @@ function _0203() {
             title: 'Evite Números Mágicos',
             description: 'É difícil de entender o que números soltos no código significam e de achá-los quando precisamos alterá-los.',
             codeBefore: {
-                description: <></>,
+                description: <>Números soltos no cálculo do custo total de um produto:</>,
                 value: example6
             },
             codeAfter: {
-                description: <></>,
+                description: <>Descrevendo o significado desses números usando variáveis:</>,
                 value: example6Resolved
             },
         },
@@ -103,11 +103,11 @@ function _0203() {
             title: 'Evite Prefixos',
             description: 'Prefixos são no mínimo caracteres desnecessários ou um indício de que você deveria oferecer um contexto melhor para o código.',
             codeBefore: {
-                description: <></>,
+                description: <>Uso do prefixo "addr" para indicar que as variáveis estão relacionadas a um endereço:</>,
                 value: example7
             },
             codeAfter: {
-                description: <></>,
+                description: <>Oferecendo um contexto melhor para as variáveis através da classe Address:</>,
                 value: example7Resolved
             },
         },
