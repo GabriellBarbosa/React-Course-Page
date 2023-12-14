@@ -51,12 +51,33 @@ const example5Resolved =
 }`;
 
 const example6 = 
+`function calculateTotalCost(basePrice, quantity) {
+    return basePrice * quantity * 1.08 * 0.95;
+}`;
+
+const example6Resolved = 
+`function calculateTotalCost(basePrice, quantity) {
+    return basePrice * quantity * TAX_RATE * DISCOUNT_RATE;
+}`;
+
+const example7 = 
+`let addrState;
+let addrCity;
+let addrZipCode;`;
+
+const example7Resolved = 
+`class Address {
+    state;
+    city;
+    zipCode;
+}`;
+
+const example8 = 
 `new ExportVisitor();
 new CustomerFactory();
 new SpellCheckerDelagate();`;
 
-
-const example7 = 
+const example9 = 
 `new Order();
 new Customer();
 new Checkout();`;
@@ -73,5 +94,9 @@ export {
     example5,
     example5Resolved,
     example6,
+    example6Resolved,
     example7,
+    example7Resolved,
+    example8,
+    example9
 }

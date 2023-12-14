@@ -14,7 +14,11 @@ import {
     example5,
     example5Resolved,
     example6,
+    example6Resolved,
     example7,
+    example7Resolved,
+    example8,
+    example9,
 } from './Example';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
@@ -37,7 +41,7 @@ function _0203() {
         },
         {
             title: 'Classes: Substantivos',
-            description: 'Classes são representações de objetos do mundo real. Deve ter um substantivo no nome da classe para mostrar o que ela representa.',
+            description: 'Classes são representações de objetos no mundo real. Ela deve ter um substantivo em seu nome para ficar claro o que representa.',
             codeBefore: {
                 description: <>Sem substantivo direto:</>,
                 value: example2,
@@ -48,8 +52,8 @@ function _0203() {
             },
         },
         {
-            title: 'Uma palavra por conceito',
-            description: 'Escolha uma palavra por conceito e use ela consistentemente.',
+            title: 'Uma Palavra por Conceito',
+            description: 'Escolha uma palavra por conceito e use-a consistentemente.',
             codeBefore: {
                 description: <>Palavras diferente para o mesmo contexto:</>,
                 value: example3
@@ -60,8 +64,8 @@ function _0203() {
             },
         },
         {
-            title: 'Nomes passíveis de busca',
-            description: 'Tente buscar "e" em um projeto na sua IDE/Editor',
+            title: 'Nomes Passíveis de Busca',
+            description: 'Tente buscar "e" em algum projeto na sua IDE ou editor de código.',
             codeBefore: {
                 description: <>Nome difícil de encontrar:</>,
                 value: example4
@@ -84,46 +88,46 @@ function _0203() {
             },
         },
         {
-            title: 'Evite Números mágicos',
-            description: 'É difícil de entender o que números soltos no código significam e de acha-los quando precisamos altera-los.',
+            title: 'Evite Números Mágicos',
+            description: 'É difícil de entender o que números soltos no código significam e de achá-los quando precisamos alterá-los.',
             codeBefore: {
                 description: <></>,
-                value: ''
+                value: example6
             },
             codeAfter: {
                 description: <></>,
-                value: ''
+                value: example6Resolved
             },
         },
         {
             title: 'Evite Prefixos',
-            description: 'Prefixos são no mínimo caracteres desnecessários ou um indício de que você deveria melhor o contexto do código.',
+            description: 'Prefixos são no mínimo caracteres desnecessários ou um indício de que você deveria oferecer um contexto melhor para o código.',
             codeBefore: {
                 description: <></>,
-                value: ''
+                value: example7
             },
             codeAfter: {
                 description: <></>,
-                value: ''
+                value: example7Resolved
             },
         },
     ];
 
     const codeExamples = [
         {
-            title: 'Domínio da Solução',
-            description: 'São termos conhecidos por programadores e que revelam como o problema é resolvido. Exemplo: Visitor, Delegate, Factory...',
+            title: 'Nomes do Domínio da Solução',
+            description: 'São termos conhecidos por programadores que revelam como o problema é resolvido. Exemplo: Visitor, Delegate, Factory...',
             code: {
                 description: <>Aqui estamos usando três <span className={slideStyles.hightlight}>Design Patterns</span>: Visitor, AbstractFactory e Delegation.</>,
-                value: example6
+                value: example8
             },
         },
         {
-            title: 'Domínio do Problema',
+            title: 'Nomes do Domínio do Problema',
             description: 'São nomes relativo ao negócio. Exemplo: Order, Customer, Checkout...',
             code: {
-                description: <>Alguns exemplos de classes com nome relativo ao negócio</>,
-                value: example7
+                description: <>Aqui temos exemplos de classes com nome relativo ao negócio</>,
+                value: example9
             },
         }
     ];
