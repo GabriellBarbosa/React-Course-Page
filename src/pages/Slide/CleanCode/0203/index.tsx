@@ -23,9 +23,11 @@ import {
     example7Resolved,
     example8,
     example9,
+    exercise,
 } from './Example';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
+import CodeEditor from '../../../../components/CodeEditor';
 
 function _0203() {
     const { slideNumber, addSlide } = useSlide();
@@ -203,6 +205,25 @@ function _0203() {
                     </section>
                 )
             })}
+
+            <section 
+                className={slideStyles.slide} 
+                data-testid="slide" 
+                ref={addSlide}
+            >
+                <div className={slideStyles.container}>
+                    <h2 className={slideStyles.principleTitle}>Exercício</h2>
+                    <p className={slideStyles.principleDescription}>
+                        Esse código simula o jogo Pedra, Papel e Tesoura. 
+                        Renomeie as partes do código que você achar que não está 
+                        tão claro e faça alterações se você achar necessário para 
+                        deixar o código mais legível.
+                    </p>
+                    <div className={slideStyles.principleCodeExamples}>
+                        <CodeEditor code={exercise} showCopyButton={true} />
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }
