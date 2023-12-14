@@ -12,3 +12,13 @@ body {
     background-color: var(--gray-2);
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.cm-scroller::-webkit-scrollbar {
+    height: 8px;
+}
+
+.cm-scroller::-webkit-scrollbar-thumb {
+    background-color: var(--gray-4);
+    border-radius: 20px;
+    border: 6px solid transparent;
+}

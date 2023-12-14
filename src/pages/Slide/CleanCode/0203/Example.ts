@@ -105,20 +105,17 @@ function jogandoOJogo(jogador, maquina) {
     console.log(\`Jogador: \${jogador} | Máquina: \${maquina}\`);
 
     if (jogador === maquina){
-        numeroPlacarJogadorUm++;
-        numeroPlacarMaquina++;
         console.log('Rodada Empatada!');
-
     } else if (
         jogador === 'pedra' && maquina === 'tesoura' ||
         jogador === 'tesoura' && maquina === 'papel' ||
         jogador === 'papel' && maquina === "pedra"   ){
         numeroPlacarJogadorUm++;
-        console.log('O jogador ganhou a rodada!');
+        console.log(\`O jogador ganhou a rodada! Jogador: \${numeroPlacarJogadorUm} | \${numeroPlacarMaquina}\`);
 
     } else {
         numeroPlacarMaquina++;
-        console.log(\`A Máquina ganhou a rodada! Jogador: \${numeroPlacarJogadorUm} | \${numeroPlacarJogadorUm}\`);
+        console.log(\`A Máquina ganhou a rodada! Jogador: \${numeroPlacarJogadorUm} | \${numeroPlacarMaquina}\`);
     }
 
     if (numeroPlacarJogadorUm >= placarVitoria) {
@@ -132,7 +129,9 @@ function jogandoOJogo(jogador, maquina) {
     }
 }
 
-jogandoOJogo('tesoura', 'papel');`
+jogadorClicou('pedra');
+jogadorClicou('papel');
+jogadorClicou('tesoura');`;
 
 export {
     example1,
