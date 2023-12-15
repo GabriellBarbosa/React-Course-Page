@@ -55,11 +55,11 @@ function _0203() {
             title: 'Classes: Substantivos',
             description: 'Classes são representações de objetos no mundo real. Ela deve ter um substantivo em seu nome para ficar claro o que representa.',
             codeBefore: {
-                description: <>Sem substantivo direto:</>,
+                description: <>Nome ruim para uma classe(utilizando verbo):</>,
                 value: example2,
             },
             codeAfter: {
-                description: <>Com substantivo direto:</>,
+                description: <>Bom nome para uma classe:</>,
                 value: example2Resolved
             },
         },
@@ -138,7 +138,7 @@ function _0203() {
             title: 'Nomes do Domínio do Problema',
             description: 'São nomes relativo ao negócio. Exemplo: Order, Customer, Checkout...',
             code: {
-                description: <>Aqui temos exemplos de classes com nome relativo ao negócio</>,
+                description: <>Aqui temos exemplos de classes com nome relativo ao negócio:</>,
                 value: example9
             },
         }

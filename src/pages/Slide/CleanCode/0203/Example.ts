@@ -41,12 +41,12 @@ const example4Resolved =
 `const elapsedTimeInDays = 90;`;
 
 const example5 = 
-`class Customer implements ICustomer {
+`function createCustomerReport(customer: ICustomer) {
     // implementation...
 }`;
 
 const example5Resolved = 
-`class CustomerImpl implements Customer {
+`function createCustomerReport(customer: Customer) {
     // implementation...
 }`;
 
