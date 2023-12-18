@@ -125,7 +125,7 @@ function _0203() {
         },
     ];
 
-    const codeExamples = [
+    const principles = [
         {
             title: 'Nomes do Domínio da Solução',
             description: 'São termos conhecidos por programadores que revelam como o problema é resolvido. Exemplo: Visitor, Delegate, Factory...',
@@ -184,21 +184,21 @@ function _0203() {
                 )
             })}
 
-            {codeExamples.map((codeExample) => {
+            {principles.map((principle) => {
                 return (
                     <section 
                         className={slideStyles.slide} 
                         data-testid="slide" 
                         ref={addSlide}
-                        key={codeExample.title}
+                        key={principle.title}
                     >
                         <div className={slideStyles.container}>
                             <PrincipleExplanationComponent
-                                title={codeExample.title}
-                                description={codeExample.description}
+                                title={principle.title}
+                                description={principle.description}
                                 code={{
-                                    description: codeExample.code.description,
-                                    value: codeExample.code.value,
+                                    description: principle.code.description,
+                                    value: principle.code.value,
                                 }}
                             />
                         </div>
