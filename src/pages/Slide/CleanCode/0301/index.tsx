@@ -41,7 +41,7 @@ function _0301() {
             title: 'Uma Tarefa',
             description: 'Quando a função está fazendo apenas uma coisa, não é possível extrair outra a partir dela e o seu corpo está um nível de abstração abaixo do seu nome.',
             code: {
-                description: <></>,
+                description: <>Exemplo de função que faz apenas uma tarefa:</>,
                 value: example2
             },
         },
@@ -49,7 +49,7 @@ function _0301() {
             title: 'Um Nível de Abstração',
             description: 'O corpo da função deve estar um nível abaixo do nome da função.',
             code: {
-                description: <></>,
+                description: <>O corpo dessa função está um nível de abstração abaixo do seu nome.</>,
                 value: example2
             },
         },
@@ -57,7 +57,7 @@ function _0301() {
             title: 'Um Bom Nome',
             description: 'Funções pequenas que fazem uma apenas coisa só tem valor se elas tiverem um bom nome.',
             code: {
-                description: <></>,
+                description: <>Função pequena com nome descritivo:</>,
                 value: example3
             },
         },
@@ -65,7 +65,7 @@ function _0301() {
             title: 'Regra Decrescente',
             description: 'Ler textos de cima para baixo é algo natural para nós. Nosso código deve seguir essa mesma regra.',
             code: {
-                description: <></>,
+                description: <>Exemplo de código seguindo a regra decrescente:</>,
                 value: example4
             },
         },
