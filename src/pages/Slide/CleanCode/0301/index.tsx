@@ -47,7 +47,7 @@ function _0301() {
         },
         {
             title: 'Um Nível de Abstração',
-            description: 'O corpo da função deve estar um nível abaixo do nome da função.',
+            description: 'O corpo da função deve estar um nível de abstração abaixo do seu nome.',
             code: {
                 description: <>O corpo dessa função está um nível de abstração abaixo do seu nome.</>,
                 value: example2
