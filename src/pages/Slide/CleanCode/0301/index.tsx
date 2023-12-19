@@ -2,7 +2,15 @@ import slideStyles from '../../../../assets/css/Slide.module.css';
 import useSlide from '../../../../hooks/useSlide';
 import useScrollbar from '../../../../hooks/useScrollbar';
 import PrincipleExplanationComponent from '../../../../components/PrincipleExplanationComponent';
+import RefactoringExplanationComponent from '../../../../components/RefactoringExplanationComponent';
 import React from 'react';
+import {
+    example1,
+    example1Resolved,
+    example2,
+    example3,
+    example4
+} from './Example';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
 
@@ -15,21 +23,26 @@ function _0301() {
         return () => showScrollbar();
     }, []);
 
+    const refactoring = {
+        title: 'Extrair Função',
+        description: 'Extrair um fragmento de código para sua própria função e dar um nome bem descritivo.',
+        codeBefore: {
+            description: <>Antes da extração:</>,
+            value: example1
+        },
+        codeAfter: {
+            description: <>Depois da extração:</>,
+            value: example1Resolved
+        },
+    }
+
     const principles = [
         {
             title: 'Uma Tarefa',
             description: 'Quando a função está fazendo apenas uma coisa, não é possível extrair outra a partir dela e o seu corpo está um nível de abstração abaixo do seu nome.',
             code: {
                 description: <></>,
-                value: ''
-            },
-        },
-        {
-            title: 'Extrair Função',
-            description: 'Extrair um fragmento de código para sua própria função e dar um nome bem descritivo.',
-            code: {
-                description: <></>,
-                value: ''
+                value: example2
             },
         },
         {
@@ -37,15 +50,15 @@ function _0301() {
             description: 'O corpo da função deve estar um nível abaixo do nome da função.',
             code: {
                 description: <></>,
-                value: ''
+                value: example2
             },
         },
         {
             title: 'Um Bom Nome',
-            description: 'Funções pequenas que fazem uma apenas coisa só tem valor se tiverem um bom nome.',
+            description: 'Funções pequenas que fazem uma apenas coisa só tem valor se elas tiverem um bom nome.',
             code: {
                 description: <></>,
-                value: ''
+                value: example3
             },
         },
         {
@@ -53,7 +66,7 @@ function _0301() {
             description: 'Ler textos de cima para baixo é algo natural para nós. Nosso código deve seguir essa mesma regra.',
             code: {
                 description: <></>,
-                value: ''
+                value: example4
             },
         },
     ];
@@ -69,6 +82,28 @@ function _0301() {
                     <span className={slideStyles.logo}><img src={logo} alt="BookInVideo" /></span>
                     <h1 className={`${slideStyles.title} ${slideStyles.introTitle}`}>Funções</h1>
                     <h3 className={slideStyles.subtitle}>0301 Capítulo: Funções<span>.</span></h3>
+                </div>
+            </section>
+
+            <section 
+                className={slideStyles.slide} 
+                data-testid="slide" 
+                ref={addSlide}
+                key={refactoring.title}
+            >
+                <div className={slideStyles.container}>
+                    <RefactoringExplanationComponent
+                        title={refactoring.title}
+                        description={refactoring.description}
+                        codeBefore={{
+                            description: refactoring.codeBefore.description,
+                            value: refactoring.codeBefore.value,
+                        }}
+                        codeAfter={{
+                            description: refactoring.codeAfter.description,
+                            value: refactoring.codeAfter.value,
+                        }}
+                    />
                 </div>
             </section>
 
