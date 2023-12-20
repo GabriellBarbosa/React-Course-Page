@@ -41,7 +41,7 @@ function _0301() {
             title: 'Funções Pequenas',
             description: 'Funções pequenas que fazem apenas uma coisa são mais fáceis de nomear do que uma função grande que faz diversas coisas.',
             code: {
-                description: <>Exemplo de uma função pequena com nome descritivo:</>,
+                description: <>Exemplo de uma função pequena com um nome descritivo:</>,
                 value: example3
             },
         },
