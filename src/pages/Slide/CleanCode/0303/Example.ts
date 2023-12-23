@@ -36,7 +36,7 @@ const example4 =
 }`;
 
 const example5 =
-`setPosition(x, y, z) {...}`;
+`setPosition(x, y, z);`;
 
 const example6 =
 `registrarEndereco(estado, cidade, cep, numero);`;
