@@ -16,6 +16,8 @@ import {
     example7,
     example8,
     example9,
+    example10,
+    example10Resolved
 } from './Example';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
@@ -119,6 +121,18 @@ function _0301() {
             codeAfter: {
                 description: <>A função foi quebrada em duas:</>,
                 value: example1Resolved
+            },
+        },
+        {
+            title: 'Reduzir Acoplamento',
+            description: 'Acoplamentos desnecessários geram dependências inconvenientes na base de código.',
+            codeBefore: {
+                description: <>Acoplamento desnecessário com o parâmetro "<span className={slideStyles.hightlight}>client</span>":</>,
+                value: example10
+            },
+            codeAfter: {
+                description: <>Acoplamento reduzido quando passamos "<span className={slideStyles.hightlight}>enterprises</span>" diretamente como parâmetro:</>,
+                value: example10Resolved
             },
         },
     ];

@@ -43,7 +43,7 @@ const example6 =
 
 const example6Resolved =
 `const endereco = new Endereco(estado, cidade, cep, numero);
-registrarEndereco(enderco);`;
+registrarEndereco(endereco);`;
 
 const example7 =
 `console.log("José", "Silva", 45, 180, true);`;
@@ -62,6 +62,23 @@ const example9 =
     order.taxableCharge = calculateTaxableCharge(order);
 }`;
 
+const example10 =
+`function getTotalOfRealties(client) {
+    let result = 0;
+    client.enterprises.map((enterprise) => {
+        result = result + parseInt(enterprise.realties);
+    });
+    return result;
+}`;
+
+const example10Resolved =
+`function getTotalOfRealties(enterprises) {
+    let result = 0;
+    enterprises.map((enterprise) => {
+        result = result + parseInt(enterprise.realties);
+    });
+    return result;
+}`;
 
 export {
     example1,
@@ -74,5 +91,7 @@ export {
     example6Resolved,
     example7,
     example8,
-    example9
+    example9,
+    example10,
+    example10Resolved
 }
