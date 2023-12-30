@@ -14,7 +14,7 @@ import {
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
 
-function _0301() {
+function _0302() {
     const { slideNumber, addSlide } = useSlide();
     const { hideScrollbar, showScrollbar } = useScrollbar();
 
@@ -132,4 +132,4 @@ function _0301() {
     );
 }
 
-export default _0301;
+export default _0302;
