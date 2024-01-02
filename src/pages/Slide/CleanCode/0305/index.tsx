@@ -23,7 +23,7 @@ function _0303() {
 
     const refactorings = [
         {
-            title: 'Evite Códigos de Erro',
+            title: 'Evite Retornar Códigos de Erro',
             description: 'Retornar código de erro faz com que você tenha que fazer uma verificação sempre que a função é chamada.',
             codeBefore: {
                 description: <>Todas as funções dentro de "<span className={slideStyles.hightlight}>deletePageAndAllReferences</span>" retornam um código de erro:</>,
