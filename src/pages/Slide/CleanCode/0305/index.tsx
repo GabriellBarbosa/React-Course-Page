@@ -12,7 +12,7 @@ import {
 import { default as logo } from '../../../../assets/BookInVideo.svg';
 import RefactoringExplanationComponent from '../../../../components/RefactoringExplanationComponent';
 
-function _0303() {
+function _0305() {
     const { slideNumber, addSlide } = useSlide();
     const { hideScrollbar, showScrollbar } = useScrollbar();
 
@@ -91,4 +91,4 @@ function _0303() {
     );
 }
 
-export default _0303;
+export default _0305;
