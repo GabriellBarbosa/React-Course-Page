@@ -23,18 +23,6 @@ function _0303() {
 
     const refactorings = [
         {
-            title: 'Extraia Blocos try catch',
-            description: 'Blocos try catch devem estar sozinhos na função, pois o tratamento de erro já é considerado como uma coisa.',
-            codeBefore: {
-                description: <>Muito código dentro do bloco "<span className={slideStyles.hightlight}>try</span>":</>,
-                value: example1
-            },
-            codeAfter: {
-                description: <>Código do bloco "<span className={slideStyles.hightlight}>try</span>" extraído para uma função:</>,
-                value: example1Resolved 
-            },
-        },
-        {
             title: 'Evite Códigos de Erro',
             description: 'Retornar código de erro faz com que você tenha que fazer uma verificação sempre que a função é chamada.',
             codeBefore: {
@@ -44,6 +32,18 @@ function _0303() {
             codeAfter: {
                 description: <>Agora essas funções lançam uma excessão no lugar do código de erro:</>,
                 value: example2Resolved 
+            },
+        },
+        {
+            title: 'Extraia Blocos try catch',
+            description: 'Blocos try catch devem estar sozinhos na função, pois o tratamento de erro já é considerado como uma coisa.',
+            codeBefore: {
+                description: <>Muito código dentro do bloco "<span className={slideStyles.hightlight}>try</span>":</>,
+                value: example1
+            },
+            codeAfter: {
+                description: <>Código do bloco "<span className={slideStyles.hightlight}>try</span>" extraído para uma função:</>,
+                value: example1Resolved 
             },
         },
     ];

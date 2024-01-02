@@ -8,7 +8,7 @@ const example1 =
             if (availableCar) {
                 reserveVehicleForCustomer(availableCar, aCustomer);
             } else {
-                throw new Error('There is no cars availble');
+                throw new Error('There is no cars available');
             }
         }
     } catch (err) {
@@ -19,7 +19,7 @@ const example1 =
 const example1Resolved = 
 `function rentCar(aCustomer, preferences) {
     try {
-        toRentCar(aCustomer, preferences);
+        rentAvailableCar(aCustomer, preferences);
     } catch (err) {
         console.log(err.message);
     }
