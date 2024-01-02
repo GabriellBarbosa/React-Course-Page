@@ -8,6 +8,7 @@ import _0302 from './0302';
 import _0303 from './0303';
 import _0304 from './0304';
 import _0305 from './0305';
+import _0306 from './0306';
 
 function CleanCode() {
     return (
@@ -22,6 +23,7 @@ function CleanCode() {
                 <Route path="0303-parametros" element={<_0303 />} />
                 <Route path="0304-evite-surpresas" element={<_0304 />} />
                 <Route path="0305-tratamento-de-erro" element={<_0305 />} />
+                <Route path="0306-open-closed-principle" element={<_0306 />} />
             </Routes>
             <Outlet />
         </>
