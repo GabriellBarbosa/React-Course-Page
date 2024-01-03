@@ -1,11 +1,11 @@
 const example1 = 
-`function calcularValorLiquido(valor, tipoPagamento) {
-    const taxa = calcularTaxa(valor, tipoPagamento);
+`function calcularValorLiquido(valor, meioDePagamento) {
+    const taxa = calcularTaxa(valor, meioDePagamento);
     return valor - taxa;
 }
 
-function calcularTaxa(valor, tipoPagamento) {
-    switch (tipoPagamento) {
+function calcularTaxa(valor, meioDePagamento) {
+    switch (meioDePagamento) {
         case 'CRÉDITO': {
             const taxaPorcentagem = 3.49;
             const taxaEmReais = (valor * taxaPorcentagem) / 100;

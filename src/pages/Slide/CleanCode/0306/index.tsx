@@ -1,4 +1,5 @@
 import slideStyles from '../../../../assets/css/Slide.module.css';
+import styles from './styles.module.css'
 import useSlide from '../../../../hooks/useSlide';
 import useScrollbar from '../../../../hooks/useScrollbar';
 import PrincipleExplanationComponent from '../../../../components/PrincipleExplanationComponent';
@@ -22,10 +23,10 @@ function _0306() {
 
     const principles: PrincipleExplanation[] = [
         {
-            title: 'O que significa?',
-            description: 'Entidades de software devem ser abertas para extensão, mas fechadas para modificação.',
+            title: 'Violando o OCP',
+            description: 'No exemplo abaixo temos a violação do OCP, pois quando tivermos um novo meio de pagamento teremos que alterar a função para adicionar a lógica. A função tem mais de um motivo para ser alterada: mudança no algoritmo de crédito, boleto e pix.',
             code: {
-                description: <>Exemplo de código que viola essa regra:</>,
+                description: <>Exemplo de código que viola o OCP:</>,
                 value: example1,
                 showCopyButton: true
             },
@@ -52,6 +53,13 @@ function _0306() {
                     <span className={slideStyles.logo}><img src={logo} alt="BookInVideo" /></span>
                     <h1 className={`${slideStyles.title} ${slideStyles.introTitle}`}>open-closed principle</h1>
                     <h3 className={slideStyles.subtitle}>0306 Capítulo: Funções<span>.</span></h3>
+                </div>
+            </section>
+
+            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
+                <div className={slideStyles.container}>
+                    <p className={styles.ocp_description}>“Entidades de software devem ser abertas para extensão, mas fechadas para modificação.”</p>
+                    <a href="" className={styles.source}>Wikipédia</a>
                 </div>
             </section>
 

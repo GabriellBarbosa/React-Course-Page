@@ -1,0 +1,29 @@
+.ocp_description {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 2rem;
+    line-height: 2.563rem;
+    max-width: 43.125rem;
+    text-align: center;
+    color: var(--gray-7);
+}
+
+.ocp_description::after {
+   display: block;
+   content: "";
+   width: 1.875rem;
+   height: 0.188rem;
+   background-color: var(--gray-4);
+   margin: 2rem auto;
+}
+
+.source {
+    display: block;
+    max-width: 43.125rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--gray-5);
+}
