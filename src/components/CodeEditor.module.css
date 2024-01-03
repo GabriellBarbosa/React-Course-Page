@@ -12,7 +12,6 @@
     background-color: var(--gray-3);
     color: var(--gray-7);
     cursor: pointer;
-    margin-bottom: 0.625rem;
 }
 
 .copyButton:hover {
@@ -38,11 +37,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 0.625rem;
 }
 
 .codeDescription {
     font-size: 1rem;
     line-height: 1.313rem;
     color: var(--gray-5);
-    margin-bottom: 1rem;
 }
