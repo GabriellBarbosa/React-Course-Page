@@ -33,3 +33,16 @@
 .copyButton.copied::before {
     background-image: url('../assets/correct-icon.svg');
 }
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.codeDescription {
+    font-size: 1rem;
+    line-height: 1.313rem;
+    color: var(--gray-5);
+    margin-bottom: 1rem;
+}

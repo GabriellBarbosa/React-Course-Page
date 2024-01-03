@@ -20,17 +20,20 @@ function CodeEditor(props: { code: string, showCopyButton?: boolean }) {
 
     return (
         <div>
-            {   
-                props.showCopyButton && (
-                    <button
-                        title="Copiar o código"
-                        type="button"
-                        data-testid="copyButton"
-                        className={`${styles.copyButton}`}
-                        onClick={copyCode}
-                    >Copiar</button> 
-                )
-            }
+            <div className={styles.header}>
+                <p className={styles.codeDescription}>Código muito bom e legal:</p>
+                {   
+                    props.showCopyButton && (
+                        <button
+                            title="Copiar o código"
+                            type="button"
+                            data-testid="copyButton"
+                            className={`${styles.copyButton}`}
+                            onClick={copyCode}
+                        >Copiar</button> 
+                    )
+                }
+            </div>
 
             <CodeMirror
                 value={props.code}
