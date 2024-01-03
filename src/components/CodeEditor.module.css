@@ -26,7 +26,6 @@
     background-image: url('../assets/copy-icon.svg');
     background-position: center;
     background-repeat: no-repeat;
-    margin-right: 0.313rem;
 }
 
 .copyButton.copied::before {

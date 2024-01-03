@@ -29,12 +29,12 @@ function CodeEditorComponent(props: CodeEditor) {
 
                 {props.showCopyButton && (
                     <button
-                        title="Copiar o código"
+                        title="Copiar código"
                         type="button"
                         data-testid="copyButton"
                         className={`${styles.copyButton}`}
                         onClick={copyCode}
-                    >Copiar</button> 
+                    ></button> 
                 )}
             </div>
 
