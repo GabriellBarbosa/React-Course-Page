@@ -8,8 +8,11 @@ function PrincipleExplanationComponent(props: PrincipleExplanation) {
             <h2 className={slideStyles.principleTitle}>{props.title}</h2>
             <p className={slideStyles.principleDescription}>{props.description}</p>
             <div className={slideStyles.principleCodeExamples}>
-                <p className={slideStyles.principleCodeDescription}>{props.code.description}</p>
-                <CodeEditor code={props.code.value} showCopyButton={props.code.showCopyButton} />
+                <CodeEditor 
+                    code={props.code.value} 
+                    showCopyButton={props.code.showCopyButton}
+                    description={props.code.description}
+                />
             </div>
         </>
     )

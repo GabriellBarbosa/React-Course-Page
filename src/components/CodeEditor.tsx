@@ -1,10 +1,12 @@
 import styles from './CodeEditor.module.css';
 import CodeMirror from "@uiw/react-codemirror";
+import CodeEditor from '../interfaces/CodeEditor';
+
 import { darcula } from '@uiw/codemirror-theme-darcula';
 import { javascript } from '@codemirror/lang-javascript';
 import { MouseEvent } from 'react';
 
-function CodeEditor(props: { code: string, showCopyButton?: boolean }) {
+function CodeEditorComponent(props: CodeEditor) {
 
     function copyCode(event: MouseEvent<HTMLElement>) {
         navigator.clipboard.writeText(props.code);
@@ -21,18 +23,19 @@ function CodeEditor(props: { code: string, showCopyButton?: boolean }) {
     return (
         <div>
             <div className={styles.header}>
-                <p className={styles.codeDescription}>Código muito bom e legal:</p>
-                {   
-                    props.showCopyButton && (
-                        <button
-                            title="Copiar o código"
-                            type="button"
-                            data-testid="copyButton"
-                            className={`${styles.copyButton}`}
-                            onClick={copyCode}
-                        >Copiar</button> 
-                    )
-                }
+                {props.description && (
+                    <p className={styles.codeDescription}>{props.description}</p>
+                )}
+
+                {props.showCopyButton && (
+                    <button
+                        title="Copiar o código"
+                        type="button"
+                        data-testid="copyButton"
+                        className={`${styles.copyButton}`}
+                        onClick={copyCode}
+                    >Copiar</button> 
+                )}
             </div>
 
             <CodeMirror
@@ -54,4 +57,4 @@ function CodeEditor(props: { code: string, showCopyButton?: boolean }) {
     )
 }
 
-export default CodeEditor;
+export default CodeEditorComponent;
