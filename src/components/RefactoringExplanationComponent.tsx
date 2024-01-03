@@ -10,12 +10,18 @@ function RefactoringExplanationComponent(props: RefactoringExplanation) {
             <p className={slideStyles.principleDescription}>{props.description} </p>
             <div className={slideStyles.principleCodeExamples}>
                 <div className={styles.code_example}>
-                    <p className={slideStyles.principleCodeDescription}>{props.codeBefore.description}</p>
-                    <CodeEditor code={props.codeBefore.value} />
+                    <CodeEditor 
+                        code={props.codeBefore.value}
+                        showCopyButton={props.codeBefore.showCopyButton}
+                        description={props.codeBefore.description}
+                    />
                 </div>
                 <div className={styles.code_example}>
-                    <p className={slideStyles.principleCodeDescription}>{props.codeAfter.description}</p>
-                    <CodeEditor code={props.codeAfter.value} />
+                    <CodeEditor 
+                        code={props.codeAfter.value} 
+                        showCopyButton={props.codeAfter.showCopyButton}
+                        description={props.codeAfter.description}
+                    />
                 </div>
             </div>
         </div>
