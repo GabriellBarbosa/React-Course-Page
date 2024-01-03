@@ -24,7 +24,7 @@ function _0306() {
     const principles: PrincipleExplanation[] = [
         {
             title: 'Violando o OCP',
-            description: 'No exemplo abaixo temos a violação do OCP, pois quando tivermos um novo meio de pagamento teremos que alterar a função para adicionar a lógica. A função tem mais de um motivo para ser alterada: mudança no algoritmo de crédito, boleto e pix.',
+            description: 'No exemplo abaixo temos a violação do OCP, pois quando tivermos um novo meio de pagamento teremos que alterar a função para adicionar a lógica.',
             code: {
                 description: <>Exemplo de código que viola o OCP:</>,
                 value: example1,
@@ -59,7 +59,7 @@ function _0306() {
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <p className={styles.ocp_description}>“Entidades de software devem ser abertas para extensão, mas fechadas para modificação.”</p>
-                    <a href="" className={styles.source}>Wikipédia</a>
+                    <a href="https://pt.wikipedia.org/wiki/Princ%C3%ADpio_do_aberto/fechado" target="_blank" className={styles.source}>Wikipédia</a>
                 </div>
             </section>
 
