@@ -9,7 +9,7 @@ function PrincipleExplanationComponent(props: PrincipleExplanation) {
             <p className={slideStyles.principleDescription}>{props.description}</p>
             <div className={slideStyles.principleCodeExamples}>
                 <p className={slideStyles.principleCodeDescription}>{props.code.description}</p>
-                <CodeEditor code={props.code.value} />
+                <CodeEditor code={props.code.value} showCopyButton={props.code.showCopyButton} />
             </div>
         </>
     )
