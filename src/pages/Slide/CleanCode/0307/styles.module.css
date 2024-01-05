@@ -1,0 +1,29 @@
+.tip {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--gray-7);
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+}
+
+.tip:nth-child(2) {
+    margin: 1.5rem 0;
+}
+
+.tip:nth-child(2)::before,
+.tip:nth-child(2)::after {
+    content: '';
+    display: block;
+    width: 1.875rem;
+    height: 0.188rem;
+    background-color: var(--gray-4);
+    margin: 0 auto;
+}
+
+.tip:nth-child(2)::before {
+    margin-bottom: 1.5rem;
+}
+
+.tip:nth-child(2)::after {
+    margin-top: 1.5rem;
+}
