@@ -61,10 +61,15 @@ function CleanCode() {
                 </div>
 
                 <div className={styles.video_player}>
-                    <iframe 
+                    {/* <iframe 
                         src="https://player.vimeo.com/video/890014305?badge=0&amp;autopause=0&amp;quality_selector=1&amp;player_id=0&amp;app_id=58479" 
                         allow="autoplay; fullscreen; picture-in-picture" 
-                        className={styles.iframe} title="Sequência 01_1"></iframe>
+                        className={styles.iframe} title="Sequência 01_1"></iframe> */}
+
+                    <iframe 
+                        src="https://player.vimeo.com/video/902081439?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                        allow="autoplay; fullscreen; picture-in-picture" 
+                        className={styles.iframe} title="0308-exercicio-continuacao"></iframe>
                 </div>
                 <script src="https://player.vimeo.com/api/player.js"></script>
 
