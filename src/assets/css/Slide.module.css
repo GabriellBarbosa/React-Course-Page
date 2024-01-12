@@ -139,3 +139,12 @@
 .principleCodeExamples {
     margin-top: 2.5rem;
 }
+
+.separatorBefore::before,
+.separatorAfter::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--gray-4);
+}

@@ -14,12 +14,12 @@
 }
 
 .cite::before {
-    content: "";
-    display: block;
-    width: 30px;
-    height: 3px;
-    background-color: var(--gray-4);
     margin: 2rem auto;
+}
+
+.rulesList li:nth-child(2)::before,
+.rulesList li:nth-child(2)::after {
+    margin: 1.5rem auto;
 }
 
 .infoSource {
@@ -40,18 +40,4 @@
     line-height: 2.25rem;
     max-width: 507px;
     margin: 0 auto;
-}
-
-.rulesList li:nth-child(2)::before,
-.rulesList li:nth-child(2)::after {
-    content: "";
-    display: block;
-    width: 30px;
-    height: 3px;
-    background-color: var(--gray-4);
-    margin: 1.5rem auto;
-}
-
-.rulesList li:nth-child(2)::before {
-    margin-top: 24px;
 }

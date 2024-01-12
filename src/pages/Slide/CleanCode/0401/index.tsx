@@ -31,7 +31,7 @@ function _0307() {
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h2 className={styles.title}>Principal Motivação</h2>
-                    <p className={styles.cite}>Coragem para limpar o código.</p>
+                    <p className={`${slideStyles.separatorBefore} ${styles.cite}`}>Coragem para limpar o código.</p>
                     <p className={`${slideStyles.infoSource} ${styles.infoSource}`}>Desenvolvimento Ágil Limpo, Capítulo 5.</p>
                 </div>
             </section>
@@ -40,7 +40,9 @@ function _0307() {
                     <h2 className={styles.title}>Três Regras do TDD</h2>
                     <ul className={styles.rulesList}>
                         <li>Não escrever o código de produção antes de ter escrito um teste que esteja falhando.</li>
-                        <li>Não escrever mais testes que o suficiente para identificar a falha.</li>
+                        <li className={`${slideStyles.separatorBefore} ${slideStyles.separatorAfter}`}>
+                            Não escrever mais testes que o suficiente para identificar a falha.
+                        </li>
                         <li>Não escrever mais código que o suficiente para os testes passarem.</li>
                     </ul>
                     <p className={`${slideStyles.infoSource} ${styles.infoSource}`}>Código Limpo, Capítulo 9.</p>
