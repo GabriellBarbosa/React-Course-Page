@@ -1,0 +1,57 @@
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--gray-plus);
+    text-align: center;
+}
+
+.cite {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--gray-7);
+    text-align: center;
+}
+
+.cite::before {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--gray-4);
+    margin: 2rem auto;
+}
+
+.infoSource {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.rulesList {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.rulesList li {
+    display: block;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--gray-7);
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    max-width: 507px;
+    margin: 0 auto;
+}
+
+.rulesList li:nth-child(2)::before,
+.rulesList li:nth-child(2)::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--gray-4);
+    margin: 1.5rem auto;
+}
+
+.rulesList li:nth-child(2)::before {
+    margin-top: 24px;
+}
