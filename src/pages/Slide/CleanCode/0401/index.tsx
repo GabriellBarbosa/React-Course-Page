@@ -6,7 +6,7 @@ import React from 'react';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
 
-function _0307() {
+function _0401() {
     const { slideNumber, addSlide } = useSlide();
     const { hideScrollbar, showScrollbar } = useScrollbar();
 
@@ -52,4 +52,4 @@ function _0307() {
     );
 }
 
-export default _0307;
+export default _0401;
