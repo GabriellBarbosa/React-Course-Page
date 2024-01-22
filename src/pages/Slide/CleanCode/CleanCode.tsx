@@ -11,6 +11,7 @@ import _0305 from './0305';
 import _0306 from './0306';
 import _0307 from './0307';
 import _0401 from './0401';
+import _0404 from './0404';
 
 function CleanCode() {
     return (
@@ -28,6 +29,7 @@ function CleanCode() {
                 <Route path="0306-open-closed-principle" element={<_0306 />} />
                 <Route path="0307-exercicio" element={<_0307 />} />
                 <Route path="0401-testes-unitarios" element={<_0401 />} />
+                <Route path="0404-mais-sobre-testes" element={<_0404 />} />
             </Routes>
             <Outlet />
         </>

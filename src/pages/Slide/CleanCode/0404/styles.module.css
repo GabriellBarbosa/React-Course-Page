@@ -1,0 +1,9 @@
+.smallSerifText {
+    display: block;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--gray-7);
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    margin: 1.5rem auto 3rem auto;
+    text-align: center;
+}
