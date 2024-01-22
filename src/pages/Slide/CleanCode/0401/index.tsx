@@ -41,9 +41,9 @@ function _0401() {
                     <ul className={styles.rulesList}>
                         <li>Não escrever o código de produção antes de ter escrito um teste que esteja falhando.</li>
                         <li className={`${slideStyles.separatorBefore} ${slideStyles.separatorAfter}`}>
-                            Não escrever mais testes que o suficiente para identificar a falha.
+                            Não escrever mais código que o suficiente para os testes passarem.
                         </li>
-                        <li>Não escrever mais código que o suficiente para os testes passarem.</li>
+                        <li>Não escrever mais testes que o suficiente para identificar a falha.</li>
                     </ul>
                     <p className={`${slideStyles.infoSource} ${styles.infoSource}`}>Código Limpo, Capítulo 9.</p>
                 </div>
