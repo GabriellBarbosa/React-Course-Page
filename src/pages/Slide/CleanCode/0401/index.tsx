@@ -30,14 +30,14 @@ function _0401() {
             </section>
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
-                    <h2 className={styles.title}>Principal Motivação</h2>
+                    <h2 className={slideStyles.grayTitle}>Principal Motivação</h2>
                     <p className={`${slideStyles.separatorBefore} ${styles.cite}`}>Coragem para limpar o código.</p>
                     <p className={`${slideStyles.infoSource} ${styles.infoSource}`}>Desenvolvimento Ágil Limpo, Capítulo 5.</p>
                 </div>
             </section>
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
-                    <h2 className={styles.title}>Três Regras do TDD</h2>
+                    <h2 className={slideStyles.grayTitle}>Três Regras do TDD</h2>
                     <ul className={styles.rulesList}>
                         <li>Não escrever o código de produção antes de ter escrito um teste que esteja falhando.</li>
                         <li className={`${slideStyles.separatorBefore} ${slideStyles.separatorAfter}`}>

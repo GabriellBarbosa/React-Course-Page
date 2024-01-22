@@ -148,3 +148,10 @@
     height: 3px;
     background-color: var(--gray-4);
 }
+
+.grayTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--gray-plus);
+    text-align: center;
+}
