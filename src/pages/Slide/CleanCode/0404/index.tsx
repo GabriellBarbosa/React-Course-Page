@@ -3,6 +3,14 @@ import styles from './styles.module.css';
 import useSlide from '../../../../hooks/useSlide';
 import useScrollbar from '../../../../hooks/useScrollbar';
 import React from 'react';
+import {
+    example1,
+    example1Resolved,
+    example2,
+    example3,
+    example4,
+    example4Resolved
+} from './Example';
 
 import RefactoringExplanationComponent from '../../../../components/RefactoringExplanationComponent';
 import PrincipleExplanationComponent from '../../../../components/PrincipleExplanationComponent';
@@ -24,39 +32,53 @@ function _0404() {
             description: 'O benefício dessa regra é que assim nossos testes falham por apenas um motivo, mas há casos em que precisamos de mais de uma verificação.',
             code: {
                 description: <></>,
-                value: ''
+                value: example3
             },
         },
         {
             title: 'Um conceito por teste',
-            description: 'Nossos testes podem ter mais de uma verificação, mas é importante que essas verificações estejam se referindo ao mesmo contexto.',
+            description: 'Nossos testes podem ter mais de uma verificação, mas é importante que essas verificações estejam se referindo ao mesmo conceito.',
             code: {
                 description: <></>,
-                value: ''
+                value: example4
             },
         },
         {
             title: 'Teste as condições limites',
-            description: 'As condições limites merecem atenção, porque são lugares onde bugs podem se esconder.',
+            description: 'As condições limites merecem atenção, pois são lugares onde os bugs podem se esconder.',
             code: {
                 description: <></>,
-                value: ''
+                value: example2
             },
         },
     ]
 
-    const refactoring = {
-        title: 'Cálculos',
-        description: 'Não deixe números de resultado de cálculos soltos nas verificações, faça o cálculo nos testes e verifique o resultado.',
-        codeBefore: {
-            description: <></>,
-            value: ''
+    const refactorings = [
+        {
+            title: 'Um conceito por teste',
+            description: 'Nossos testes podem ter mais de uma verificação, mas é importante que essas verificações estejam se referindo ao mesmo conceito.',
+            codeBefore: {
+                description: <>Antes:</>,
+                value: example4
+            },
+            codeAfter: {
+                description: <>Depois:</>,
+                value: example4Resolved
+            }
         },
-        codeAfter: {
-            description: <></>,
-            value: ''
-        }
-    }
+        {
+            title: 'Cálculos',
+            description: 'Se for possível, deixe o cálculo diretamente no teste em vez de usar somente o resultado na verificação.',
+            codeBefore: {
+                description: <>Antes:</>,
+                value: example1
+            },
+            codeAfter: {
+                description: <>Depois:</>,
+                value: example1Resolved
+            }
+        },
+    ]
 
     return (
         <div 
@@ -87,27 +109,23 @@ function _0404() {
                     </p>
                 </div>
             </section>
-            {
-                principles.map((principle) => (
-                    <section 
-                        className={slideStyles.slide} 
-                        data-testid="slide" 
-                        ref={addSlide}
-                        key={principle.title}
-                    >
-                        <div className={slideStyles.container}>
-                            <PrincipleExplanationComponent
-                                title={principle.title}
-                                description={principle.description}
-                                code={{
-                                    description: principle.code.description,
-                                    value: principle.code.value,
-                                }}
-                            />
-                        </div>
-                    </section>
-                ))
-            }
+     
+            <section 
+                className={slideStyles.slide} 
+                data-testid="slide" 
+                ref={addSlide}
+            >
+                <div className={slideStyles.container}>
+                    <PrincipleExplanationComponent
+                        title='Uma verificação por teste?'
+                        description='O benefício dessa regra é que assim nossos testes falham por apenas um motivo, mas há casos em que precisamos de mais de uma verificação.'
+                        code={{
+                            description: <></>,
+                            value: example3,
+                        }}
+                    />
+                </div>
+            </section>
 
             <section 
                 className={slideStyles.slide} 
@@ -116,15 +134,53 @@ function _0404() {
             >
                 <div className={slideStyles.container}>
                     <RefactoringExplanationComponent
-                        title={refactoring.title}
-                        description={refactoring.description}
+                        title='Um conceito por teste'
+                        description='Nossos testes podem ter mais de uma verificação, mas é importante que essas verificações estejam se referindo ao mesmo conceito.'
                         codeBefore={{
-                            description: refactoring.codeBefore.description,
-                            value: refactoring.codeBefore.value,
+                            description: <>Antes:</>,
+                            value: example4,
                         }}
                         codeAfter={{
-                            description: refactoring.codeAfter.description,
-                            value: refactoring.codeAfter.value,
+                            description: <>Depois:</>,
+                            value: example4Resolved,
+                        }}
+                    />
+                </div>
+            </section>
+
+            <section 
+                className={slideStyles.slide} 
+                data-testid="slide" 
+                ref={addSlide}
+            >
+                <div className={slideStyles.container}>
+                    <PrincipleExplanationComponent
+                        title='Teste as condições limites'
+                        description='As condições limites merecem atenção, pois são lugares onde os bugs podem se esconder.'
+                        code={{
+                            description: <></>,
+                            value: example2,
+                        }}
+                    />
+                </div>
+            </section>
+
+            <section 
+                className={slideStyles.slide} 
+                data-testid="slide" 
+                ref={addSlide}
+            >
+                <div className={slideStyles.container}>
+                    <RefactoringExplanationComponent
+                        title='Cálculos'
+                        description='Se for possível, deixe o cálculo diretamente no teste em vez de usar somente o resultado na verificação.'
+                        codeBefore={{
+                            description: <>Antes:</>,
+                            value: example1,
+                        }}
+                        codeAfter={{
+                            description: <>Depois:</>,
+                            value: example1Resolved,
                         }}
                     />
                 </div>
