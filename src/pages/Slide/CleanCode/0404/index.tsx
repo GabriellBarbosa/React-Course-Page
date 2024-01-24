@@ -26,60 +26,6 @@ function _0404() {
         return () => showScrollbar();
     }, []);
 
-    const principles = [
-        {
-            title: 'Uma verificação por teste?',
-            description: 'O benefício dessa regra é que assim nossos testes falham por apenas um motivo, mas há casos em que precisamos de mais de uma verificação.',
-            code: {
-                description: <></>,
-                value: example3
-            },
-        },
-        {
-            title: 'Um conceito por teste',
-            description: 'Nossos testes podem ter mais de uma verificação, mas é importante que essas verificações estejam se referindo ao mesmo conceito.',
-            code: {
-                description: <></>,
-                value: example4
-            },
-        },
-        {
-            title: 'Teste as condições limites',
-            description: 'As condições limites merecem atenção, pois são lugares onde os bugs podem se esconder.',
-            code: {
-                description: <></>,
-                value: example2
-            },
-        },
-    ]
-
-    const refactorings = [
-        {
-            title: 'Um conceito por teste',
-            description: 'Nossos testes podem ter mais de uma verificação, mas é importante que essas verificações estejam se referindo ao mesmo conceito.',
-            codeBefore: {
-                description: <>Antes:</>,
-                value: example4
-            },
-            codeAfter: {
-                description: <>Depois:</>,
-                value: example4Resolved
-            }
-        },
-        {
-            title: 'Cálculos',
-            description: 'Se for possível, deixe o cálculo diretamente no teste em vez de usar somente o resultado na verificação.',
-            codeBefore: {
-                description: <>Antes:</>,
-                value: example1
-            },
-            codeAfter: {
-                description: <>Depois:</>,
-                value: example1Resolved
-            }
-        },
-    ]
-
     return (
         <div 
             className={`${slideStyles.slidesWrapper}`} 
