@@ -42,15 +42,15 @@ function _0404() {
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h3 className={slideStyles.grayTitle}>Teste Unitário</h3>
-                    <p className={styles.smallSerifText}>Escrever o código de produção e depois o teste.</p>
+                    <p className={`${slideStyles.smallSerifText} ${styles.smallSerifText}`}>Escrever o código de produção e depois o teste.</p>
                     <h3 className={slideStyles.grayTitle}>TDD</h3>
-                    <p className={styles.smallSerifText}>Escrever primeiro o teste e depois o código de produção.</p>
+                    <p className={`${slideStyles.smallSerifText} ${styles.smallSerifText}`}>Escrever primeiro o teste e depois o código de produção.</p>
                 </div>
             </section>
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h3 className={slideStyles.grayTitle}>Testabilidade e Desacoplamento</h3>
-                    <p className={styles.smallSerifText}>
+                    <p className={`${slideStyles.smallSerifText} ${styles.smallSerifText}`}>
                         Escrever primeiro o teste deixa naturalmente o código mais desacoplado e testável.
                     </p>
                 </div>

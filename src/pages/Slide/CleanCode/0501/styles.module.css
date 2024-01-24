@@ -1,0 +1,23 @@
+.text {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    text-align: center;
+    color: var(--gray-7);
+}
+
+.italic {
+    font-style: italic;
+}
+
+.text::before, 
+.text::after {
+    margin: 2rem auto;
+}
+
+.list {
+    margin-top: 3rem;
+}
+
+.smallSerifText::before {
+    margin: 1.5rem auto;
+}

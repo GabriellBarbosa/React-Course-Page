@@ -155,3 +155,12 @@
     color: var(--gray-plus);
     text-align: center;
 }
+
+.smallSerifText {
+    display: block;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--gray-7);
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    text-align: center;
+}
