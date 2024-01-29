@@ -92,13 +92,13 @@ function _0501() {
                         <CodeEditorComponent 
                             code={example1} 
                             description={
-                                <p><span className={slideStyles.hightlight}>Antes:</span> classe com diversas responsabilidades.</p>
+                                <><span className={slideStyles.hightlight}>Antes:</span> classe com diversas responsabilidades.</>
                             } 
                         />
                         <CodeEditorComponent 
                             code={example1Resolved} 
                             description={
-                                <p><span className={slideStyles.hightlight}>Depois:</span> responsabilidades movidas para novas classes.</p>
+                                <><span className={slideStyles.hightlight}>Depois:</span> responsabilidades movidas para novas classes.</>
                             } 
                         />
                     </div>
