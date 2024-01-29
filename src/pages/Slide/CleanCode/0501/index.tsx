@@ -8,7 +8,7 @@ import {
     example1Resolved
 } from './Example';
 
-import RefactoringExplanationComponent from '../../../../components/RefactoringExplanationComponent';
+import CodeEditorComponent from '../../../../components/CodeEditor';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
 
@@ -79,26 +79,29 @@ function _0501() {
                         ${slideStyles.smallSerifText} 
                         ${slideStyles.separatorBefore}`
                     }>
-                        Uma classe grande pode ser decomposta em várias 
+                        Uma classe grande pode ser divididas em várias 
                         classes pequenas com apenas uma responsabilidade.
                     </p>
                 </div>
             </section>
 
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
-                <div className={slideStyles.container}>
-                    <RefactoringExplanationComponent
-                        title='Quebrando a Classe'
-                        description=''
-                        codeBefore={{
-                            description: <></>,
-                            value: example1,
-                        }}
-                        codeAfter={{
-                            description: <></>,
-                            value: example1Resolved,
-                        }}
-                    />
+                <div>
+                    <h2 className={styles.refactoringTitle}>Dividindo uma Classe Grande</h2>
+                    <div className={styles.codeExamples}>
+                        <CodeEditorComponent 
+                            code={example1} 
+                            description={
+                                <p><span className={slideStyles.hightlight}>Antes:</span> classe com diversas responsabilidades.</p>
+                            } 
+                        />
+                        <CodeEditorComponent 
+                            code={example1Resolved} 
+                            description={
+                                <p><span className={slideStyles.hightlight}>Depois:</span> responsabilidades movidas para novas classes.</p>
+                            } 
+                        />
+                    </div>
                 </div>
             </section>
         </div>
