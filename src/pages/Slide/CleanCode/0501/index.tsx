@@ -3,6 +3,12 @@ import styles from './styles.module.css';
 import useSlide from '../../../../hooks/useSlide';
 import useScrollbar from '../../../../hooks/useScrollbar';
 import React from 'react';
+import { 
+    example1,
+    example1Resolved
+} from './Example';
+
+import RefactoringExplanationComponent from '../../../../components/RefactoringExplanationComponent';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
 
@@ -58,6 +64,7 @@ function _0501() {
                     <h3 className={slideStyles.subtitle}>Desvantagens de uma classes grande<span>.</span></h3>
                     <ul className={`${slideStyles.list} ${styles.list}`}>
                         <li>Dificuldade para entender o seu papel.</li>
+                        <li>Dificuldade para dar um nome significativo.</li>
                         <li>Dar manutenção.</li>
                         <li>Adicionar novas funcionalidades.</li>
                     </ul>
@@ -75,6 +82,23 @@ function _0501() {
                         Uma classe grande pode ser decomposta em várias 
                         classes pequenas com apenas uma responsabilidade.
                     </p>
+                </div>
+            </section>
+
+            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
+                <div className={slideStyles.container}>
+                    <RefactoringExplanationComponent
+                        title='Quebrando a Classe'
+                        description=''
+                        codeBefore={{
+                            description: <></>,
+                            value: example1,
+                        }}
+                        codeAfter={{
+                            description: <></>,
+                            value: example1Resolved,
+                        }}
+                    />
                 </div>
             </section>
         </div>
