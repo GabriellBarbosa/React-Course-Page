@@ -61,10 +61,10 @@ function _0501() {
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Classes Grandes</h2>
-                    <h3 className={slideStyles.subtitle}>Desvantagens de uma classes grande<span>.</span></h3>
+                    <h3 className={slideStyles.subtitle}>Problemas das classes grandes<span>.</span></h3>
                     <ul className={`${slideStyles.list} ${styles.list}`}>
                         <li>Dificuldade para entender o seu papel.</li>
-                        <li>Dificuldade para dar um nome significativo.</li>
+                        <li>Dar um nome significativo.</li>
                         <li>Dar manutenção.</li>
                         <li>Adicionar novas funcionalidades.</li>
                     </ul>
@@ -79,7 +79,7 @@ function _0501() {
                         ${slideStyles.smallSerifText} 
                         ${slideStyles.separatorBefore}`
                     }>
-                        Uma classe grande pode ser divididas em várias 
+                        Uma classe grande pode ser dividida em várias 
                         classes pequenas com apenas uma responsabilidade.
                     </p>
                 </div>
@@ -92,7 +92,7 @@ function _0501() {
                         <CodeEditorComponent 
                             code={example1} 
                             description={
-                                <><span className={slideStyles.hightlight}>Antes:</span> classe com diversas responsabilidades.</>
+                                <><span className={slideStyles.hightlight}>Antes:</span> uma classe com diversas responsabilidades.</>
                             } 
                         />
                         <CodeEditorComponent 
