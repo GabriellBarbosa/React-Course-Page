@@ -134,6 +134,9 @@ function _0501() {
                             </div>
                         </div>
                     </div>
+                    <p className={`${slideStyles.infoSource} ${styles.infoSource}`}>
+                        Imagens retiradas do <a className={styles.link} href="https://unsplash.com/pt-br" target='_blank'>unsplash</a>.
+                    </p>
                 </div>
             </section>
         </div>
