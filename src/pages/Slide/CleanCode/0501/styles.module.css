@@ -3,6 +3,8 @@
     font-size: 2rem;
     text-align: center;
     color: var(--gray-7);
+    max-width: 550px;
+    margin: 0 auto;
 }
 
 .italic {
@@ -18,7 +20,25 @@
     margin-top: 3rem;
 }
 
-.smallSerifText::before {
+.whiteTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--gray-7);
+    text-align: center;
+}
+
+.graySmallSerifText {
+    display: block;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--gray-5);
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    text-align: center;
+    font-style: italic;
+}
+
+.smallSerifText::before,
+.graySmallSerifText::before {
     margin: 1.5rem auto;
 }
 
@@ -43,3 +63,18 @@
     background-color: var(--gray-plus);
     margin: 0.625rem auto 0 auto;
 }
+
+.optionDescription {
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--gray-5);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.imgWrapper {
+    margin-top: 1.5rem;
+    max-width: 400px;
+    border: 1px solid var(--gray-3);
+    border-radius: 4px;
+}   

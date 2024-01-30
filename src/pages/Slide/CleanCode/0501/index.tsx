@@ -11,6 +11,8 @@ import {
 import CodeEditorComponent from '../../../../components/CodeEditor';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
+import { default as organizedTools } from '../../../../assets/unorganized-tools.jpg';
+import { default as unorganizedTools } from '../../../../assets/organized-tools.jpg';
 
 function _0501() {
     const { slideNumber, addSlide } = useSlide();
@@ -51,10 +53,10 @@ function _0501() {
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.grayTitle}>O que é uma classe pequena?</h2>
                     <p className={`
-                        ${slideStyles.separatorBefore} 
-                        ${styles.text} 
-                        ${styles.italic} 
-                    `}>Uma única responsabilidade.</p>
+                        ${styles.smallSerifText} 
+                        ${slideStyles.smallSerifText} 
+                        ${slideStyles.separatorBefore}`
+                    }>É uma classe com uma única responsabilidade e apenas um motivo para ser alterada.</p>
                 </div>
             </section>
 
@@ -101,6 +103,36 @@ function _0501() {
                                 <><span className={slideStyles.hightlight}>Depois:</span> responsabilidades movidas para novas classes.</>
                             } 
                         />
+                    </div>
+                </div>
+            </section>
+
+            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
+                <div className={slideStyles.container}>
+                    <h2 className={styles.whiteTitle}>Vou ter muitas classes pequenas?</h2>
+                    <p className={`
+                        ${styles.graySmallSerifText} 
+                        ${slideStyles.separatorBefore}`
+                    }>Sim.</p>
+                </div>
+            </section>
+
+            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
+                <div>
+                    <h2 className={styles.refactoringTitle}>Há Duas Opções</h2>
+                    <div className={styles.codeExamples}>
+                        <div>
+                            <p className={styles.optionDescription}>Poucas classes grandes.</p>
+                            <div className={styles.imgWrapper}>
+                                <img src={organizedTools} alt="ferramentas desorganizadas" />
+                            </div>
+                        </div>
+                        <div>
+                            <p className={styles.optionDescription}>Muitas classes pequenas.</p>
+                            <div className={styles.imgWrapper}>
+                                <img src={unorganizedTools} alt="ferramentas organizadas em gavetas" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
