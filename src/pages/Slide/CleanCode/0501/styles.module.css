@@ -27,19 +27,9 @@
     text-align: center;
 }
 
-.graySmallSerifText {
-    display: block;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+.smallSerifText {
     color: var(--gray-5);
-    font-size: 1.5rem;
-    line-height: 2.25rem;
-    text-align: center;
     font-style: italic;
-}
-
-.smallSerifText::before,
-.graySmallSerifText::before {
-    margin: 1.5rem auto;
 }
 
 .codeExamples {

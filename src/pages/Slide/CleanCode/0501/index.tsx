@@ -53,7 +53,6 @@ function _0501() {
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.grayTitle}>O que é uma classe pequena?</h2>
                     <p className={`
-                        ${styles.smallSerifText} 
                         ${slideStyles.smallSerifText} 
                         ${slideStyles.separatorBefore}`
                     }>É uma classe com uma única responsabilidade e apenas um motivo para ser alterada.</p>
@@ -77,7 +76,6 @@ function _0501() {
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.grayTitle}>O que fazer com as classes grandes?</h2>
                     <p className={`
-                        ${styles.smallSerifText} 
                         ${slideStyles.smallSerifText} 
                         ${slideStyles.separatorBefore}`
                     }>
@@ -111,7 +109,8 @@ function _0501() {
                 <div className={slideStyles.container}>
                     <h2 className={styles.whiteTitle}>Vou ter muitas classes pequenas?</h2>
                     <p className={`
-                        ${styles.graySmallSerifText} 
+                        ${slideStyles.smallSerifText}
+                        ${styles.smallSerifText} 
                         ${slideStyles.separatorBefore}`
                     }>Sim.</p>
                 </div>
