@@ -1,0 +1,94 @@
+.infoSource {
+    text-align: center;
+    margin-top: 48px;
+}
+
+.codeExamples {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+}
+
+.codeDescription {
+    font-size: 1rem;
+    line-height: 1.313rem;
+    color: var(--gray-5);
+}
+
+.imgWrapper {
+    margin-top: 1rem;
+    max-width: 600px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.refactoringTitle {
+    font-size: 1.75rem;
+    line-height: 2.063rem;
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.refactoringTitle::after {
+    content: "";
+    display: block;
+    width: 3.75rem;
+    height: 0.125rem;
+    background-color: var(--gray-plus);
+    margin: 0.625rem auto 0 auto;
+}
+
+.list {
+    margin-top: 48px;
+}
+
+.cohesionList li {
+    margin-bottom: 48px;
+}
+
+.listItemTitle {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.75rem;
+    line-height: 2.625rem;
+}
+
+.listItemTitle::before {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    margin-right: 12px;
+    border-radius: 50%;
+}
+
+.highCohesion::before {
+    background-color: #22EE00;
+}
+
+.lowCohesion::before {
+    background-color: #FF2200;
+}
+
+.itemListDescription {
+    display: block;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--gray-5);
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    margin-left: 18px;
+}
+
+
+.list li.checkIcon::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    background-image: url('../../../../assets/check-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
