@@ -56,7 +56,7 @@ function _0503() {
                         </li>
                         <li>
                             <span className={`${styles.listItemTitle} ${styles.lowCohesion}`}>Coesão baixa.</span>
-                            <span className={styles.itemListDescription}>Apenas alguns métodos utilizando certas variáveis de instância.</span>
+                            <span className={styles.itemListDescription}>Apenas alguns métodos utilizam certas variáveis de instância.</span>
                         </li>
                     </ul>
                 </div>
