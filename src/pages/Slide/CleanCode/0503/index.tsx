@@ -7,6 +7,8 @@ import React from 'react';
 import { default as logo } from '../../../../assets/BookInVideo.svg';
 import { default as OrderProcessor } from '../../../../assets/OrderProcessor.png';
 import { default as OrderProcessorExtracted } from '../../../../assets/OrderProcessorExtracted.png';
+import { default as OneResponsability } from './images/one-responsability.png';
+import { default as SeveralResponsabilities } from './images/several-responsabilities.png';
 
 function _0503() {
     const { slideNumber, addSlide } = useSlide();
@@ -76,6 +78,26 @@ function _0503() {
                             <p className={styles.codeDescription}><span className={slideStyles.hightlight}>Depois:</span> extraímos as variáveis de instância junto aos métodos que as utilizam.</p>
                             <div className={styles.imgWrapper}>
                                 <img src={OrderProcessorExtracted} alt="Duas classes com poucas váriaveis de instância e a maioria dos métodos estão utilizando essas variáveis" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
+                <div className={styles.wrapper}>
+                    <h2 className={styles.refactoringTitle}>Variáveis separadas por assunto</h2>
+                    <div className={styles.codeExamples}>
+                        <div>
+                            <p className={styles.codeDescription}><span className={slideStyles.hightlight}>Antes:</span> diversos assuntos na classe.</p>
+                            <div className={styles.imgWrapper}>
+                                <img src={SeveralResponsabilities} alt="Uma classe tratando de três assuntos diferentes" />
+                            </div>
+                        </div>
+                        <div>
+                            <p className={styles.codeDescription}><span className={slideStyles.hightlight}>Depois:</span> cada classe com um assunto.</p>
+                            <div className={styles.imgWrapper}>
+                                <img src={OneResponsability} alt="Três classes tratando de apenas um assunto cada" />
                             </div>
                         </div>
                     </div>

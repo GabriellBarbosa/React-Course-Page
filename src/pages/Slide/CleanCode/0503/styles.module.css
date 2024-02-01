@@ -100,3 +100,7 @@
     background-position: center;
     background-size: cover;
 }
+
+.wrapper {
+    padding: 2.5rem 1.25rem;
+}
