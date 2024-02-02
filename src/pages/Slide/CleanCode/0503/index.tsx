@@ -5,8 +5,8 @@ import useScrollbar from '../../../../hooks/useScrollbar';
 import React from 'react';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
-import { default as OrderProcessor } from '../../../../assets/OrderProcessor.png';
-import { default as OrderProcessorExtracted } from '../../../../assets/OrderProcessorExtracted.png';
+import { default as OrderProcessor } from './images/OrderProcessor.png';
+import { default as OrderProcessorExtracted } from './images/OrderProcessorExtracted.png';
 import { default as OneResponsability } from './images/one-responsability.png';
 import { default as SeveralResponsabilities } from './images/several-responsabilities.png';
 
