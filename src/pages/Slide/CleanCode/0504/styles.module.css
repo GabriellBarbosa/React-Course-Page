@@ -1,0 +1,50 @@
+.list {
+    margin-top: 48px;
+}
+
+.titleAndDescriptionList li {
+    margin-bottom: 48px;
+}
+
+.listItemTitle {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.75rem;
+    line-height: 2.625rem;
+}
+
+.listItemTitle::before {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    margin-right: 12px;
+    border-radius: 50%;
+}
+
+.obj::before {
+    background-color: #87e;
+}
+
+.dataStructure::before {
+    background-color: #d79c6b;
+}
+
+.listDecoration li::before {
+    background-color: #FF2200;
+}
+
+.itemListDescription {
+    display: block;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--gray-5);
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    margin-left: 18px;
+}
+
+.italic {
+    font-style: italic;
+    color: var(--gray-7)
+}
