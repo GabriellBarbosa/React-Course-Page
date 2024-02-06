@@ -22,15 +22,15 @@ function _0504() {
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Objeto e Estrutura de Dados</h2>
-                    <h3 className={slideStyles.subtitle}>Diferença entre objeto e estrutura de dados<span>.</span></h3>
+                    <h3 className={slideStyles.subtitle}>Diferença entre objeto e estrutura de dados.</h3>
                     <ul className={`${styles.list} ${styles.titleAndDescriptionList}`}>
                         <li>
                             <p className={`${styles.listItemTitle} ${styles.obj}`}>Objeto.</p>
-                            <p className={styles.itemListDescription}>Oculta suas propriedades e expõe seus métodos.</p>
+                            <p className={styles.itemListDescription}>Oculta seus dados e expõe seus métodos.</p>
                         </li>
                         <li>
                             <p className={`${styles.listItemTitle} ${styles.dataStructure}`}>Estrutura de dados.</p>
-                            <p className={styles.itemListDescription}>Expõe suas propriedades e não possui métodos significativos.</p>
+                            <p className={styles.itemListDescription}>Expõe seus dados e não possui métodos significativos.</p>
                         </li>
                     </ul>
                 </div>
@@ -42,23 +42,12 @@ function _0504() {
                     <ul className={`${styles.list} ${styles.titleAndDescriptionList}`}>
                         <li>
                             <p className={`${styles.listItemTitle} ${styles.obj}`}>Objetos.</p>
-                            <p className={styles.itemListDescription}>Facilitam a adição de <span className={styles.italic}>novos tipos</span>.</p>
+                            <p className={styles.itemListDescription}>Facilitam a adição de <span className={styles.italic}>novos tipos</span> sem ter que alterar as funções existentes.</p>
                         </li>
                         <li>
                             <p className={`${styles.listItemTitle} ${styles.dataStructure}`}>Estrutura de dados.</p>
-                            <p className={styles.itemListDescription}>Facilitam a adição de <span className={styles.italic}>novas funções</span>.</p>
+                            <p className={styles.itemListDescription}>Facilitam a adição de <span className={styles.italic}>novas funções</span> sem ter que alterar as estruturas existentes.</p>
                         </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
-                <div className={slideStyles.container}>
-                    <h2 className={slideStyles.regular_title}>Híbridos</h2>
-                    <h3 className={slideStyles.subtitle}>Meio objeto e meio estrutura de dados.</h3>
-                    <ul className={`${slideStyles.list} ${styles.list} ${styles.listDecoration}`}>
-                        <li>Expõe suas propriedades.</li>
-                        <li>Expõe seus métodos.</li>
                     </ul>
                 </div>
             </section>
