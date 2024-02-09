@@ -44,10 +44,10 @@ function _0505() {
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Lei de Demeter</h2>
-                    <p className={slideStyles.subtitle}>Também conhecida como princípio do menor conhecimento.</p>
+                    <p className={slideStyles.subtitle}>Também conhecido como princípio do menor conhecimento.</p>
                     <ul className={`${slideStyles.list} ${styles.list} ${styles.demeter}`}>
                         <li>Cada unidade deve ter conhecimento limitado sobre outras unidades.</li>
-                        <li>Cada unidade deve apenas conversar com seus amigos; Não fale com estranhos.</li>
+                        <li>Cada unidade deve apenas conversar com seus amigos; não fale com estranhos.</li>
                         <li>Apenas fale com seus amigos imediatos.</li>
                     </ul>
                         <a 
