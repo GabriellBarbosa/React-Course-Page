@@ -1,0 +1,29 @@
+.list,
+.infoSource {
+    margin-top: 48px;
+}
+
+.listDecoration li::before {
+    background-color: #FF2200;
+}
+
+.list.demeter li {
+    align-items: start;
+    line-height: 2.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.list.demeter li::before {
+    margin-top: 14px;
+}
+
+.infoSource {
+    color: var(--gray-5);
+    display: inline-block;
+    text-decoration: underline;
+}
+
+.wheelDisc {
+    border: 1px solid var(--gray-2);
+    margin-top: 3rem;
+}
