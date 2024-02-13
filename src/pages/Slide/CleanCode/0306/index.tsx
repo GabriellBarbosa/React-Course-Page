@@ -24,7 +24,7 @@ function _0306() {
     const principles: PrincipleExplanation[] = [
         {
             title: 'Violando o OCP',
-            description: 'No exemplo abaixo temos a violação do OCP, pois quando tivermos um novo meio de pagamento teremos que alterar a função para adicionar a lógica.',
+            description: 'No exemplo abaixo, temos uma violação do OCP, pois quando tivermos um novo meio de pagamento teremos que alterar duas funções para adicionar a lógica.',
             code: {
                 description: <>Exemplo de código que viola o OCP:</>,
                 value: example1,
