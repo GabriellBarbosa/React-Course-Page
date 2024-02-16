@@ -1,6 +1,8 @@
 import styles from './styles.module.css';
 import slideStyles from '../../../../assets/css/Slide.module.css';
 
+import { default as logo } from './img/logo.svg';
+
 import useSlide from '../../../../hooks/useSlide';
 import React from 'react';
 import useScrollbar from '../../../../hooks/useScrollbar';
@@ -20,6 +22,13 @@ function _0000() {
             data-testid="slidesWrapper" 
             data-slide-number={slideNumber}
         >
+            <section className={`${slideStyles.slide} ${styles.banner}`} data-testid="slide" ref={addSlide}>
+                <div className={slideStyles.container}>
+                <span><img src={logo} alt="BookInVideo" /></span>
+                    <h1 className={`${styles.introTitle}`}>Código Limpo</h1>
+                    <p className={styles.introSubtitle}>Habilidades Práticas do Agile Software<span>.</span></p>
+                </div>
+            </section>
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>O curso</h2>
