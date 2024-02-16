@@ -16,6 +16,7 @@ import _0501 from './0501';
 import _0503 from './0503';
 import _0504 from './0504';
 import _0505 from './0505';
+import _0000 from './0000';
 
 function CleanCode() {
     return (
@@ -38,6 +39,7 @@ function CleanCode() {
                 <Route path="0503-coesao" element={<_0503 />} />
                 <Route path="0504-objetos-e-estruturas-de-dados" element={<_0504 />} />
                 <Route path="0505-hibridos" element={<_0505 />} />
+                <Route path="0000-intro" element={<_0000 />} />
             </Routes>
             <Outlet />
         </>

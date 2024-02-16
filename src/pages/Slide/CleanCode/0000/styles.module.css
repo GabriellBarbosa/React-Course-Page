@@ -1,0 +1,56 @@
+.list {
+    margin-top: 48px;
+}
+
+.titleAndDescriptionList li {
+    margin-bottom: 48px;
+}
+
+.listItemTitle {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.75rem;
+    line-height: 2.625rem;
+}
+
+.listItemTitle::before {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    margin-right: 12px;
+    border-radius: 50%;
+    background-color: var(--c-0-light);
+}
+
+.itemListDescription {
+    display: block;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--gray-5);
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    margin-left: 18px;
+}
+
+.infoSource {
+    margin: 48px;
+    text-align: center;
+}
+
+.aboutMe {
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    margin-top: 28px;
+    color: var(--gray-6);
+}
+
+.aboutMe::before {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 4px;
+    background-color: var(--gray-4);
+    margin-right: 12px;
+}
