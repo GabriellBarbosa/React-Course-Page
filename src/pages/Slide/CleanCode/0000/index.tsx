@@ -24,9 +24,9 @@ function _0000() {
         >
             <section className={`${slideStyles.slide} ${styles.banner}`} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
-                <span><img src={logo} alt="BookInVideo" /></span>
-                    <h1 className={`${styles.introTitle}`}>Código Limpo</h1>
-                    <p className={styles.introSubtitle}>Habilidades Práticas do Agile Software<span>.</span></p>
+                    <span className={slideStyles.logo}><img src={logo} alt="BookInVideo" /></span>
+                    <h1 className={`${slideStyles.title} ${slideStyles.introTitle}`}>Código Limpo</h1>
+                    <h3 className={slideStyles.subtitle}>Habilidades Práticas do Agile Software<span>.</span></h3>
                 </div>
             </section>
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
@@ -39,7 +39,7 @@ function _0000() {
                             <p className={styles.itemListDescription}>Não ensinarei a programar. Vou apresentar práticas para escrevermos códigos melhores.</p>
                         </li>
                         <li>
-                            <p className={styles.listItemTitle}>Requisitos</p>
+                            <p className={styles.listItemTitle}>Requisito</p>
                             <p className={styles.itemListDescription}>Saber uma linguagem que tenha orientação a objetos.</p>
                         </li>
                         <li>
