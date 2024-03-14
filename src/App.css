@@ -9,18 +9,17 @@
 body {
     color: var(--gray-8);
     background-color: var(--gray-2);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 .cm-scroller::-webkit-scrollbar {
-    height: 0.5rem;
-    width: 0.5rem;
+    height: 8px;
+    width: 8px;
     background-color: var(--gray-2);
-
 }
 
 .cm-scroller::-webkit-scrollbar-thumb {
     background-color: var(--gray-4);
-    border-radius: 1.25rem;
-    border: 0.375rem solid transparent;
+    border-radius: 20px;
+    border: 6px solid transparent;
 }
