@@ -34,7 +34,7 @@ function CourseNavBar(props: { data: Chapter[] }) {
                 onClick={activeNavbar} 
             >
                 <div className={styles.header}>
-                    <h1 className={styles.title}>Código Limpo</h1>
+                    <p className={styles.title}>Código limpo</p>
                     <span 
                         className={styles.toggle_navbar_btn} 
                         aria-label="mostrar ou esconder o menu" 

@@ -1,5 +1,6 @@
 .header {
     background-color: var(--gray-0);
+    height: 65px;
 }
 
 .navigation {
