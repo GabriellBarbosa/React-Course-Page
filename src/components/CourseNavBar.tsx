@@ -12,15 +12,11 @@ function CourseNavBar(props: { data: Course }) {
     }
 
     function activeNavbar() {
-        if (!navbarActive) {
-            setNavbarActive(true);
-        }
+        if (!navbarActive) setNavbarActive(true);
     }
 
     function deactiveNavbar() {
-        if (navbarActive) {
-            setNavbarActive(false);
-        }
+        if (navbarActive) setNavbarActive(false);
     }
 
     return (
@@ -48,21 +44,21 @@ function CourseNavBar(props: { data: Course }) {
                     return (
                         <div className={styles.module} key={item.module} data-testid='module'>
                             <h2 className={styles.title}>{item.module}</h2>
-                            <ul className={styles.video_list}>
+                            <ul>
                                 {item.lessons.map((lesson) => {
                                     return (
-                                            <li className={styles.video} data-testid='video' key={lesson.slug}>
-                                                <Link to={lesson.slug}>
-                                                    <div className={styles.video_name_wrapper}>
-                                                        <span className={styles.video_number}>{lesson.sequence}</span>
-                                                        <p className={styles.video_name}>{lesson.name}</p>
-                                                    </div>
-                                                </Link>
-                                                <div className={styles.video_duration_wrapper}>
-                                                    <p className={styles.video_duration}>{lesson.duration}</p>
-                                                    <span className={styles.video_watched_feedback} aria-label='vídeo já assistido'></span>
+                                        <li data-testid='video' className={styles.lesson_wrapper} key={lesson.slug}>
+                                            <Link to={lesson.slug} className={styles.lesson_link} tabIndex={-1}>
+                                                <div className={styles.lesson_name_wrapper}>
+                                                    <span className={styles.lesson_sequence}>{lesson.sequence}</span>
+                                                    <p className={styles.lesson_name}>{lesson.name}</p>
                                                 </div>
-                                            </li>
+                                                <div className={styles.lesson_duration_wrapper}>
+                                                    <p className={styles.lesson_duration}>{lesson.duration}</p>
+                                                    <span className={styles.lesson_watched_feedback} aria-label='vídeo assistido'></span>
+                                                </div>
+                                            </Link>
+                                        </li>
                                     );
                                 })}
                             </ul>

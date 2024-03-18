@@ -86,50 +86,53 @@
     padding: 10px;
 }
 
-.module .video {
+
+
+.module .lesson_wrapper:nth-child(even) {
+    background-color: var(--gray-3);
+    color: red;
+}
+
+.navbar.active .module .lesson_wrapper:hover {
+    background-color: var(--gray-1);
+}
+
+.module .lesson_link {
     display: flex;
     align-items: stretch;
     justify-content: space-between;
     cursor: pointer;
 }
 
-.module .video:nth-child(even) {
-    background-color: var(--gray-3);
-}
-
-.navbar.active .module .video:hover {
-    background-color: var(--gray-1);
-}
-
-.module .video_name_wrapper {
+.module .lesson_name_wrapper {
     padding: 10px;
 }
 
-.module .video_name_wrapper .video_number,
-.module .video_duration_wrapper .video_duration {
+.module .lesson_name_wrapper .lesson_sequence,
+.module .lesson_duration_wrapper .lesson_duration {
     color: var(--gray-5);
     font-size: 12px;
 }
 
-.module .video_name_wrapper .video_name {
+.module .lesson_name_wrapper .lesson_name {
     color: var(--gray-7);
     font-size: 16px;
     line-height: 20px;
 }
 
-.module .video_duration_wrapper {
+.module .lesson_duration_wrapper {
     display: flex;
     align-items: center;
 }
 
-.module .video_duration_wrapper .video_watched_feedback {
+.module .lesson_duration_wrapper .lesson_watched_feedback {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 32px;
 }
 
-.module .video_duration_wrapper .video_watched_feedback::after {
+.module .lesson_duration_wrapper .lesson_watched_feedback::after {
     content: '';
     display: block;
     width: 6px;
