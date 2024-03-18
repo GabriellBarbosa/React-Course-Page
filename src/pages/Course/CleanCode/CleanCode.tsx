@@ -1,4 +1,3 @@
-import styles from './CleanCode.module.css';
 import React from 'react';
 
 import CourseNavBar from '../components/CourseNavBar';
@@ -12,11 +11,11 @@ function CleanCode() {
         fetch('http://bookinvideo.local/wp-json/api/curso/codigo-limpo')
             .then(response => response.json())
             .then(json => setCourseContent(json))
-            .catch(error => console.error(error));
+            .catch(error => console.error(error))
     }, []);
 
     return (
-        <div className={styles.wrapper}>
+        <div>
             <Header />
             { courseContent ? <CourseNavBar data={courseContent} />  : `courseContent` }
         </div>
