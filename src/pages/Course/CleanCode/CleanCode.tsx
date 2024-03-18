@@ -1,57 +1,25 @@
 import styles from './CleanCode.module.css';
+import React from 'react';
+
 import CourseNavBar from '../../../components/CourseNavBar';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
+import Course from '../../../interfaces/Course';
 
 function CleanCode() {
+    const [courseContent, setCourseContent] = React.useState<Course | null>(null);
 
-    const courseContent = [
-        {
-            id: '01',
-            title: 'Introdução',
-            videos: [
-                {
-                    id: '01',
-                    title: 'Introdução',
-                    slug: 'introducao',
-                    duration: '13:44',
-                    completed: false
-                },
-                {
-                    id: '02',
-                    title: 'Código Limpo',
-                    slug: 'codigo-limpo',
-                    duration: '19:54',
-                    completed: false
-                },
-            ]
-        },
-        {
-            id: '02',
-            title: 'Nomes',
-            videos: [
-                {
-                    id: '01',
-                    title: 'Nomes Significativos',
-                    slug: 'nomes-significativos',
-                    duration: '13:44',
-                    completed: false
-                },
-                {
-                    id: '02',
-                    title: 'Motivos das Decisões',
-                    slug: 'motivos-das-decisoes',
-                    duration: '19:54',
-                    completed: false
-                },
-            ]
-        }
-    ];
-    
+    React.useEffect(() => {
+        fetch('http://bookinvideo.local/wp-json/api/curso/codigo-limpo')
+            .then(response => response.json())
+            .then(json => setCourseContent(json))
+            .catch(error => console.error(error));
+    }, []);
+
     return (
         <div className={styles.wrapper}>
-            <CourseNavBar data={courseContent} />
             <Header />
+            { courseContent && <CourseNavBar data={courseContent} />}
 
             <div className={`${styles.container} ${styles.video_section}`}>
                 <span className={styles.video_number}>0102</span>
@@ -61,11 +29,6 @@ function CleanCode() {
                 </div>
 
                 <div className={styles.video_player}>
-                    {/* <iframe 
-                        src="https://player.vimeo.com/video/890014305?badge=0&amp;autopause=0&amp;quality_selector=1&amp;player_id=0&amp;app_id=58479" 
-                        allow="autoplay; fullscreen; picture-in-picture" 
-                        className={styles.iframe} title="Sequência 01_1"></iframe> */}
-
                     <iframe 
                         src="https://player.vimeo.com/video/902081439?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
                         allow="autoplay; fullscreen; picture-in-picture" 

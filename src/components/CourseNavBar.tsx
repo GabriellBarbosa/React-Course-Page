@@ -1,8 +1,10 @@
 import styles from './CourseNavBar.module.css';
-import Chapter from '../interfaces/Chapter';
-import React from 'react';
+import Course from '../interfaces/Course';
 
-function CourseNavBar(props: { data: Chapter[] }) {
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+function CourseNavBar(props: { data: Course }) {
     const [navbarActive, setNavbarActive] = React.useState(false);
 
     function toggleNavbarActive() {
@@ -34,7 +36,7 @@ function CourseNavBar(props: { data: Chapter[] }) {
                 onClick={activeNavbar} 
             >
                 <div className={styles.header}>
-                    <p className={styles.title}>Código limpo</p>
+                    <p className={styles.title}>{props.data.course}</p>
                     <span 
                         className={styles.toggle_navbar_btn} 
                         aria-label="mostrar ou esconder o menu" 
@@ -42,24 +44,25 @@ function CourseNavBar(props: { data: Chapter[] }) {
                         onClick={toggleNavbarActive}
                     ></span>
                 </div>
-
-                {props.data && props.data.map((item) => {
+                {props.data && props.data.content.map((item) => {
                     return (
-                        <div className={styles.chapter} key={item.id} data-testid='chapter'>
-                            <h2 className={styles.title}>{`${item.id} ${item.title}`}</h2>
+                        <div className={styles.chapter} key={item.module} data-testid='chapter'>
+                            <h2 className={styles.title}>{item.module}</h2>
                             <ul className={styles.video_list}>
-                                {item.videos.map((video) => {
+                                {item.lessons.map((lesson) => {
                                     return (
-                                        <li className={styles.video} data-testid='video' key={video.id}>
-                                            <div className={styles.video_name_wrapper}>
-                                                <span className={styles.video_number}>{`${item.id + video.id}`}</span>
-                                                <p className={styles.video_name}>{video.title}</p>
-                                            </div>
-                                            <div className={styles.video_duration_wrapper}>
-                                                <p className={styles.video_duration}>{video.duration}</p>
-                                                <span className={styles.video_watched_feedback} aria-label='vídeo já assistido'></span>
-                                            </div>
-                                        </li>
+                                        <Link to={lesson.slug}>
+                                            <li className={styles.video} data-testid='video' key={lesson.slug}>
+                                                <div className={styles.video_name_wrapper}>
+                                                    <span className={styles.video_number}>{lesson.sequence}</span>
+                                                    <p className={styles.video_name}>{lesson.name}</p>
+                                                </div>
+                                                <div className={styles.video_duration_wrapper}>
+                                                    <p className={styles.video_duration}>{lesson.duration}</p>
+                                                    <span className={styles.video_watched_feedback} aria-label='vídeo já assistido'></span>
+                                                </div>
+                                            </li>
+                                        </Link>
                                     );
                                 })}
                             </ul>
