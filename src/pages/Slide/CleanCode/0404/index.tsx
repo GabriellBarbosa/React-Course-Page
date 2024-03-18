@@ -12,7 +12,7 @@ import {
     example4Resolved
 } from './Example';
 
-import RefactoringExplanationComponent from '../../../../components/RefactoringExplanationComponent';
+import RefactoringExplanationComponent from '../../components/RefactoringExplanationComponent';
 import PrincipleExplanationComponent from '../../../../components/PrincipleExplanationComponent';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';

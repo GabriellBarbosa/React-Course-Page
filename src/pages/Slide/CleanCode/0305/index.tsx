@@ -10,7 +10,7 @@ import {
 } from './Example';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
-import RefactoringExplanationComponent from '../../../../components/RefactoringExplanationComponent';
+import RefactoringExplanationComponent from '../../components/RefactoringExplanationComponent';
 
 function _0305() {
     const { slideNumber, addSlide } = useSlide();

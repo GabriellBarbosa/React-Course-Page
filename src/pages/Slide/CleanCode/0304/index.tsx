@@ -3,7 +3,7 @@ import useSlide from '../../../../hooks/useSlide';
 import useScrollbar from '../../../../hooks/useScrollbar';
 import React from 'react';
 import PrincipleExplanationComponent from '../../../../components/PrincipleExplanationComponent';
-import RefactoringExplanationComponent from '../../../../components/RefactoringExplanationComponent';
+import RefactoringExplanationComponent from '../../components/RefactoringExplanationComponent';
 import { 
     example1, 
     example2,
