@@ -2,7 +2,7 @@ import slideStyles from '../../../../assets/css/Slide.module.css';
 import styles from './styles.module.css'
 import useSlide from '../../../../hooks/useSlide';
 import useScrollbar from '../../../../hooks/useScrollbar';
-import PrincipleExplanationComponent from '../../../../components/PrincipleExplanationComponent';
+import PrincipleExplanationComponent from '../../components/PrincipleExplanationComponent';
 import PrincipleExplanation from '../../../../interfaces/PrincipleExplanation';
 import React from 'react';
 import {

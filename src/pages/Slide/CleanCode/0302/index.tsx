@@ -1,7 +1,7 @@
 import slideStyles from '../../../../assets/css/Slide.module.css';
 import useSlide from '../../../../hooks/useSlide';
 import useScrollbar from '../../../../hooks/useScrollbar';
-import PrincipleExplanationComponent from '../../../../components/PrincipleExplanationComponent';
+import PrincipleExplanationComponent from '../../components/PrincipleExplanationComponent';
 import RefactoringExplanationComponent from '../../components/RefactoringExplanationComponent';
 import React from 'react';
 import {

@@ -4,7 +4,7 @@ import useScrollbar from '../../../../hooks/useScrollbar';
 import React from 'react';
 
 import RefactoringExplanationComponent from '../../components/RefactoringExplanationComponent';
-import PrincipleExplanationComponent from '../../../../components/PrincipleExplanationComponent';
+import PrincipleExplanationComponent from '../../components/PrincipleExplanationComponent';
 
 import {
     example1,
