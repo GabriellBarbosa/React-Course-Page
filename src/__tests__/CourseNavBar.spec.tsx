@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
-import CourseNavBar from '../components/CourseNavBar';
+import CourseNavBar from '../pages/Course/components/CourseNavBar';
 import styles from '../components/CourseNavBar.module.css';
 
 const courseContent = {

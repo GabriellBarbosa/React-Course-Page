@@ -1,5 +1,5 @@
 import styles from './CourseNavBar.module.css';
-import Course from '../interfaces/Course';
+import Course from '../../../interfaces/Course';
 
 import React from 'react';
 import { Link } from 'react-router-dom';

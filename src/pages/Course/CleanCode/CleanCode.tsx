@@ -1,9 +1,8 @@
 import styles from './CleanCode.module.css';
 import React from 'react';
 
-import CourseNavBar from '../../../components/CourseNavBar';
+import CourseNavBar from '../components/CourseNavBar';
 import Header from '../../../components/Header';
-// import Footer from '../../../components/Footer';
 import Course from '../../../interfaces/Course';
 
 function CleanCode() {
