@@ -23,13 +23,13 @@
     display: block;
     width: 0.904rem;
     height: 0.858rem;
-    background-image: url('../assets/copy-icon.svg');
+    background-image: url('../../../assets/copy-icon.svg');
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .copyButton.copied::before {
-    background-image: url('../assets/correct-icon.svg');
+    background-image: url('../../../assets/correct-icon.svg');
 }
 
 .header {

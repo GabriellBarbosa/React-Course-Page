@@ -1,5 +1,5 @@
 import slideStyles from '../assets/css/Slide.module.css'
-import CodeEditor from './CodeEditor';
+import CodeEditor from '../pages/Slide/components/CodeEditor';
 import PrincipleExplanation from '../interfaces/PrincipleExplanation';
 
 function PrincipleExplanationComponent(props: PrincipleExplanation) {

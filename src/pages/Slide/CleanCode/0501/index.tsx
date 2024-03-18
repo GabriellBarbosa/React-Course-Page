@@ -8,7 +8,7 @@ import {
     example1Resolved
 } from './Example';
 
-import CodeEditorComponent from '../../../../components/CodeEditor';
+import CodeEditorComponent from '../../components/CodeEditor';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
 import { default as organizedTools } from '../../../../assets/unorganized-tools.jpg';

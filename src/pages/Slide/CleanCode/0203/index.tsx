@@ -27,7 +27,7 @@ import {
 } from './Example';
 
 import { default as logo } from '../../../../assets/BookInVideo.svg';
-import CodeEditor from '../../../../components/CodeEditor';
+import CodeEditor from '../../components/CodeEditor';
 
 function _0203() {
     const { slideNumber, addSlide } = useSlide();

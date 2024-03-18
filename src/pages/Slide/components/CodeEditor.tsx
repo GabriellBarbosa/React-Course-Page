@@ -1,6 +1,6 @@
 import styles from './CodeEditor.module.css';
 import CodeMirror from "@uiw/react-codemirror";
-import CodeEditor from '../interfaces/CodeEditor';
+import CodeEditor from '../../../interfaces/CodeEditor';
 
 import { darcula } from '@uiw/codemirror-theme-darcula';
 import { javascript } from '@codemirror/lang-javascript';

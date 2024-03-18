@@ -5,7 +5,7 @@ import { default as logo } from '../../../../assets/BookInVideo.svg';
 import { default as agileManifesto } from '../../../../assets/agile-manifesto.jpg';
 import { default as guitar } from '../../../../assets/guitar.png';
 
-import CodeEditor from '../../../../components/CodeEditor';
+import CodeEditor from '../../components/CodeEditor';
 import useSlide from '../../../../hooks/useSlide';
 import React from 'react';
 import useScrollbar from '../../../../hooks/useScrollbar';

@@ -1,4 +1,4 @@
-import CodeEditor from "../components/CodeEditor";
+import CodeEditor from "../pages/Slide/components/CodeEditor";
 import styles from "../components/CodeEditor.module.css";
 
 import { fireEvent, render, screen } from '@testing-library/react';
