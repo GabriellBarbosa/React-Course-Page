@@ -19,6 +19,12 @@ function CourseNavBar(props: { data: Course }) {
         if (navbarActive) setNavbarActive(false);
     }
 
+    function preventNavigationIfNavbarIsDeactive(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+        if (!navbarActive) {
+            event.preventDefault();
+        }
+    }
+
     return (
         <>
             <div 
@@ -50,7 +56,12 @@ function CourseNavBar(props: { data: Course }) {
                                     {item.lessons.map((lesson) => {
                                         return (
                                             <li data-testid='video' style={{ order: lesson.sequence }} className={styles.lesson_wrapper} key={lesson.slug}>
-                                                <Link to={lesson.slug} className={styles.lesson_link} tabIndex={-1}>
+                                                <Link 
+                                                    to={lesson.slug} 
+                                                    className={styles.lesson_link} 
+                                                    tabIndex={ navbarActive ? 0 : -1} 
+                                                    onClick={preventNavigationIfNavbarIsDeactive}
+                                                >
                                                     <div className={styles.lesson_name_wrapper}>
                                                         <span className={styles.lesson_sequence}>{lesson.sequence}</span>
                                                         <p className={styles.lesson_name}>{lesson.name}</p>
