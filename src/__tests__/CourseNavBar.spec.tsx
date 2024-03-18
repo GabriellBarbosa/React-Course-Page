@@ -1,53 +1,41 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+
 import CourseNavBar from '../components/CourseNavBar';
 import styles from '../components/CourseNavBar.module.css';
 
-const courseContent = [
-    {
-        id: '01',
-        title: 'Introdução',
-        videos: [
-            {
-                id: '01',
-                title: 'Introdução',
-                slug: 'introducao',
-                duration: '13:44',
-                completed: false
-            },
-            {
-                id: '02',
-                title: 'Código Limpo',
-                slug: 'codigo-limpo',
-                duration: '19:54',
-                completed: false
-            },
-        ]
-    },
-    {
-        id: '02',
-        title: 'Nomes',
-        videos: [
-            {
-                id: '01',
-                title: 'Nomes Significativos',
-                slug: 'nomes-significativos',
-                duration: '13:44',
-                completed: false
-            },
-            {
-                id: '02',
-                title: 'Motivos das Decisões',
-                slug: 'motivos-das-decisoes',
-                duration: '19:54',
-                completed: false
-            },
-        ]
-    }
-];
+const courseContent = {
+    "course": "Código limpo",
+    "content": [
+        {
+            "module": "01 Introdução",
+            "lessons": [
+                {
+                    "name": "Código limpo",
+                    "slug": "0102-codigo-limpo",
+                    "sequence": "0102",
+                    "video_src": "https://player.vimeo.com/video/922895312?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+                    "duration": "15:56"
+                },
+                {
+                    "name": "Configuração",
+                    "slug": "0101-configuracao",
+                    "sequence": "0101",
+                    "video_src": "https://player.vimeo.com/video/922895312?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+                    "duration": "06:55"
+                }
+            ]
+        }
+    ]
+}
 
 describe('CourseNavBar', () => {
     beforeEach(() => {
-        render(<CourseNavBar data={courseContent} />);
+        render(
+            <BrowserRouter>
+                <CourseNavBar data={courseContent} />
+            </BrowserRouter>
+        );
 
         Object.assign(navigator, {
           clipboard: { writeText: jest.fn() },
@@ -97,15 +85,15 @@ describe('CourseNavBar', () => {
         expect([...navbar.classList]).toContain(styles.active);
     });
 
-    it('should render all chapters from courseContent', () => {
-        const chapters = screen.getAllByTestId('chapter');
-        expect(chapters.length).toBe(courseContent.length);
+    it('should render all modules from courseContent', () => {
+        const modules = screen.getAllByTestId('module');
+        expect(modules.length).toBe(courseContent.content.length);
     });
 
-    it('should contain all videos from all chapters', () => {
+    it('should contain all videos from all modules', () => {
         const videos = screen.getAllByTestId('video');
-        const videosPerChapter = courseContent.map((chapter) => chapter.videos.length);
-        const totalVideos = videosPerChapter.reduce((prev, cur) => prev + cur);
+        const videosPermodule = courseContent.content.map((module) => module.lessons.length);
+        const totalVideos = videosPermodule.reduce((prev, cur) => prev + cur);
         expect(videos.length).toBe(totalVideos);
     });
 })

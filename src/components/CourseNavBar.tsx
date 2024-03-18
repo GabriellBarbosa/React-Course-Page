@@ -46,23 +46,23 @@ function CourseNavBar(props: { data: Course }) {
                 </div>
                 {props.data && props.data.content.map((item) => {
                     return (
-                        <div className={styles.chapter} key={item.module} data-testid='chapter'>
+                        <div className={styles.module} key={item.module} data-testid='module'>
                             <h2 className={styles.title}>{item.module}</h2>
                             <ul className={styles.video_list}>
                                 {item.lessons.map((lesson) => {
                                     return (
-                                        <Link to={lesson.slug}>
                                             <li className={styles.video} data-testid='video' key={lesson.slug}>
-                                                <div className={styles.video_name_wrapper}>
-                                                    <span className={styles.video_number}>{lesson.sequence}</span>
-                                                    <p className={styles.video_name}>{lesson.name}</p>
-                                                </div>
+                                                <Link to={lesson.slug}>
+                                                    <div className={styles.video_name_wrapper}>
+                                                        <span className={styles.video_number}>{lesson.sequence}</span>
+                                                        <p className={styles.video_name}>{lesson.name}</p>
+                                                    </div>
+                                                </Link>
                                                 <div className={styles.video_duration_wrapper}>
                                                     <p className={styles.video_duration}>{lesson.duration}</p>
                                                     <span className={styles.video_watched_feedback} aria-label='vídeo já assistido'></span>
                                                 </div>
                                             </li>
-                                        </Link>
                                     );
                                 })}
                             </ul>
