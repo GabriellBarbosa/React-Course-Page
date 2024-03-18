@@ -78,6 +78,11 @@
     background-color: var(--gray-4);
 }
 
+.modules_wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
 .module .title {
     background-color: var(--gray-0);
     font-weight: bold;
@@ -86,7 +91,10 @@
     padding: 10px;
 }
 
-
+.module .lesson_list {
+    display: flex;
+    flex-direction: column;
+}
 
 .module .lesson_wrapper:nth-child(even) {
     background-color: var(--gray-3);
@@ -115,7 +123,7 @@
 }
 
 .module .lesson_name_wrapper .lesson_name {
-    color: var(--gray-7);
+    color: var(--gray-6);
     font-size: 16px;
     line-height: 20px;
 }

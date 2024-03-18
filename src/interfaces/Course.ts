@@ -5,6 +5,7 @@ interface Course {
 
 interface Content {
     module: string;
+    sequence: string;
     lessons: Lesson[];
 }
 

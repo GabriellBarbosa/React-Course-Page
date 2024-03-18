@@ -40,31 +40,34 @@ function CourseNavBar(props: { data: Course }) {
                         onClick={toggleNavbarActive}
                     ></span>
                 </div>
-                {props.data && props.data.content.map((item) => {
-                    return (
-                        <div className={styles.module} key={item.module} data-testid='module'>
-                            <h2 className={styles.title}>{item.module}</h2>
-                            <ul>
-                                {item.lessons.map((lesson) => {
-                                    return (
-                                        <li data-testid='video' className={styles.lesson_wrapper} key={lesson.slug}>
-                                            <Link to={lesson.slug} className={styles.lesson_link} tabIndex={-1}>
-                                                <div className={styles.lesson_name_wrapper}>
-                                                    <span className={styles.lesson_sequence}>{lesson.sequence}</span>
-                                                    <p className={styles.lesson_name}>{lesson.name}</p>
-                                                </div>
-                                                <div className={styles.lesson_duration_wrapper}>
-                                                    <p className={styles.lesson_duration}>{lesson.duration}</p>
-                                                    <span className={styles.lesson_watched_feedback} aria-label='vídeo assistido'></span>
-                                                </div>
-                                            </Link>
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        </div>
-                    )
-                })}
+
+                <div className={styles.modules_wrapper}>
+                    {props.data && props.data.content.map((item) => {
+                        return (
+                            <div style={{ order: item.sequence }} className={styles.module} key={item.module} data-testid='module'>
+                                <h2 className={styles.title}>{item.module}</h2>
+                                <ul className={styles.lesson_list}>
+                                    {item.lessons.map((lesson) => {
+                                        return (
+                                            <li data-testid='video' style={{ order: lesson.sequence }} className={styles.lesson_wrapper} key={lesson.slug}>
+                                                <Link to={lesson.slug} className={styles.lesson_link} tabIndex={-1}>
+                                                    <div className={styles.lesson_name_wrapper}>
+                                                        <span className={styles.lesson_sequence}>{lesson.sequence}</span>
+                                                        <p className={styles.lesson_name}>{lesson.name}</p>
+                                                    </div>
+                                                    <div className={styles.lesson_duration_wrapper}>
+                                                        <p className={styles.lesson_duration}>{lesson.duration}</p>
+                                                        <span className={styles.lesson_watched_feedback} aria-label='vídeo assistido'></span>
+                                                    </div>
+                                                </Link>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         </>
     );
