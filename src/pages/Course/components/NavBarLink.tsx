@@ -1,8 +1,8 @@
-import styles from './CourseNavBar.module.css';
+import styles from './Navbar.module.css';
 import { Link } from 'react-router-dom';
 import { Lesson } from '../../../interfaces/Course';
 
-function NavBarLink(props: { 
+function NavbarLink(props: { 
     courseSlug: string,
     lesson: Lesson, 
     navbarActive: boolean,
@@ -39,4 +39,4 @@ function NavBarLink(props: {
     )
 }
 
-export default NavBarLink;
+export default NavbarLink;

@@ -2,8 +2,8 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Course } from '../interfaces/Course';
 
-import CourseNavBar from '../pages/Course/components/CourseNavBar';
-import styles from '../components/CourseNavBar.module.css';
+import Navbar from '../pages/Course/components/Navbar';
+import styles from '../components/Navbar.module.css';
 
 const courseContent: Course = {
     "course": "Código limpo",
@@ -32,11 +32,11 @@ const courseContent: Course = {
     ]
 }
 
-describe('CourseNavBar', () => {
+describe('Navbar', () => {
     beforeEach(() => {
         render(
             <BrowserRouter>
-                <CourseNavBar data={courseContent} />
+                <Navbar data={courseContent} />
             </BrowserRouter>
         );
 

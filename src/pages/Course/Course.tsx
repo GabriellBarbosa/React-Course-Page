@@ -1,5 +1,5 @@
 import React from "react";
-import CourseNavBar from './components/CourseNavBar';
+import CourseNavBar from './components/Navbar';
 import Header from '../../components/Header';
 import Loading from './components/Loading';
 import { Course } from '../../interfaces/Course';

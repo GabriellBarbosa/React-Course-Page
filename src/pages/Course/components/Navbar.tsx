@@ -1,6 +1,7 @@
-import styles from './CourseNavBar.module.css';
+import styles from './Navbar.module.css';
 import React from 'react';
-import NavBarLink from './NavBarLink';
+import NavBarLink from './NavbarLink';
+
 import { Course } from '../../../interfaces/Course';
 
 function CourseNavBar(props: { data: Course }) {
