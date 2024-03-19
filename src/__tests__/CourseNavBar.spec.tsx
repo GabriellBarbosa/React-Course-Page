@@ -3,12 +3,15 @@ import { BrowserRouter } from 'react-router-dom';
 
 import CourseNavBar from '../pages/Course/components/CourseNavBar';
 import styles from '../components/CourseNavBar.module.css';
+import Course from '../interfaces/Course';
 
-const courseContent = {
+const courseContent: Course = {
     "course": "Código limpo",
+    "slug": "codigo-limpo",
     "content": [
         {
             "module": "01 Introdução",
+            "sequence": "01",
             "lessons": [
                 {
                     "name": "Código limpo",
