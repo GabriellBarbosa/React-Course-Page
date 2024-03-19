@@ -1,9 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+import { Course } from '../interfaces/Course';
 
 import CourseNavBar from '../pages/Course/components/CourseNavBar';
 import styles from '../components/CourseNavBar.module.css';
-import Course from '../interfaces/Course';
 
 const courseContent: Course = {
     "course": "Código limpo",

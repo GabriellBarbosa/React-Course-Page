@@ -18,4 +18,4 @@ interface Lesson {
     duration: string;
 }
 
-export default Course;
+export type { Course, Lesson };
