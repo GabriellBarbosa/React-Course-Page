@@ -1,11 +1,11 @@
 interface Course {
-    course: string;
+    name: string;
     slug: string;
-    content: Content[];
+    modules: Module[];
 }
 
-interface Content {
-    module: string;
+interface Module {
+    name: string;
     sequence: string;
     lessons: Lesson[];
 }

@@ -6,11 +6,11 @@ import Navbar from '../pages/Course/components/Navbar';
 import styles from '../components/Navbar.module.css';
 
 const course: Course = {
-    "course": "Código limpo",
+    "name": "Código limpo",
     "slug": "codigo-limpo",
-    "content": [
+    "modules": [
         {
-            "module": "01 Introdução",
+            "name": "01 Introdução",
             "sequence": "01",
             "lessons": [
                 {
@@ -90,12 +90,12 @@ describe('Navbar', () => {
 
     it('should render all modules from course', () => {
         const modules = screen.getAllByTestId('module');
-        expect(modules.length).toBe(course.content.length);
+        expect(modules.length).toBe(course.modules.length);
     });
 
     it('should contain all videos from all modules', () => {
         const videos = screen.getAllByTestId('video');
-        const videosPermodule = course.content.map((module) => module.lessons.length);
+        const videosPermodule = course.modules.map((module) => module.lessons.length);
         const totalVideos = videosPermodule.reduce((prev, cur) => prev + cur);
         expect(videos.length).toBe(totalVideos);
     });

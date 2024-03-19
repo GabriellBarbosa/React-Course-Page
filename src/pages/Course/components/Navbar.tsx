@@ -1,7 +1,6 @@
 import styles from './Navbar.module.css';
 import React from 'react';
 import NavBarLink from './NavbarLink';
-
 import { Course } from '../../../interfaces/Course';
 
 function Navbar(props: { course: Course }) {
@@ -26,35 +25,37 @@ function Navbar(props: { course: Course }) {
                 className={`${styles.background} ${navbarActive ? styles.active : ''}`}
                 onClick={deactiveNavbar} 
             ></div>
+
             <div 
-                className={`${styles.navbar} ${navbarActive ? styles.active : ''}`} 
                 data-testid="navbar"
                 onClick={activeNavbar} 
+                className={`${styles.navbar} ${navbarActive ? styles.active : ''}`} 
             >
                 <div className={styles.header}>
-                    <p className={styles.title}>{props.course.course}</p>
+                    <p className={styles.title}>{ props.course.name }</p>
                     <span 
-                        className={styles.toggle_navbar_btn} 
-                        aria-label="mostrar ou esconder o menu" 
                         data-testid="toggleActive"
                         onClick={toggleNavbarActive}
+                        className={styles.toggle_navbar_btn} 
+                        aria-label="mostrar ou esconder o menu" 
                     ></span>
                 </div>
 
                 <div className={styles.modules_wrapper}>
-                    {props.course && props.course.content.map((item) => {
+                    {props.course.modules.map((module) => {
                         return (
                             <div 
-                                data-testid='module'
-                                key={item.module} 
-                                style={{ order: item.sequence }} 
+                                data-testid="module"
+                                key={module.sequence} 
+                                style={{ order: module.sequence }} 
                                 className={styles.module} 
                             >
-                                <h2 className={styles.title}>{ item.module }</h2>
+                                <h2 className={styles.title}>{ module.name }</h2>
                                 <ul className={styles.lesson_list}>
-                                    {item.lessons.map((lesson) => {
+                                    {module.lessons.map((lesson) => {
                                         return (
-                                            <NavBarLink 
+                                            <NavBarLink
+                                                key={lesson.slug} 
                                                 courseSlug={props.course.slug}
                                                 lesson={lesson}
                                                 navbarActive={navbarActive}
