@@ -4,7 +4,7 @@ import NavBarLink from './NavbarLink';
 
 import { Course } from '../../../interfaces/Course';
 
-function CourseNavBar(props: { data: Course }) {
+function Navbar(props: { course: Course }) {
     const [navbarActive, setNavbarActive] = React.useState(false);
 
     function toggleNavbarActive() {
@@ -32,7 +32,7 @@ function CourseNavBar(props: { data: Course }) {
                 onClick={activeNavbar} 
             >
                 <div className={styles.header}>
-                    <p className={styles.title}>{props.data.course}</p>
+                    <p className={styles.title}>{props.course.course}</p>
                     <span 
                         className={styles.toggle_navbar_btn} 
                         aria-label="mostrar ou esconder o menu" 
@@ -42,7 +42,7 @@ function CourseNavBar(props: { data: Course }) {
                 </div>
 
                 <div className={styles.modules_wrapper}>
-                    {props.data && props.data.content.map((item) => {
+                    {props.course && props.course.content.map((item) => {
                         return (
                             <div 
                                 data-testid='module'
@@ -55,7 +55,7 @@ function CourseNavBar(props: { data: Course }) {
                                     {item.lessons.map((lesson) => {
                                         return (
                                             <NavBarLink 
-                                                courseSlug={props.data.slug}
+                                                courseSlug={props.course.slug}
                                                 lesson={lesson}
                                                 navbarActive={navbarActive}
                                             />
@@ -71,4 +71,4 @@ function CourseNavBar(props: { data: Course }) {
     );
 }
 
-export default CourseNavBar;
+export default Navbar;

@@ -5,7 +5,7 @@ import { Course } from '../interfaces/Course';
 import Navbar from '../pages/Course/components/Navbar';
 import styles from '../components/Navbar.module.css';
 
-const courseContent: Course = {
+const course: Course = {
     "course": "Código limpo",
     "slug": "codigo-limpo",
     "content": [
@@ -36,7 +36,7 @@ describe('Navbar', () => {
     beforeEach(() => {
         render(
             <BrowserRouter>
-                <Navbar data={courseContent} />
+                <Navbar course={course} />
             </BrowserRouter>
         );
 
@@ -88,14 +88,14 @@ describe('Navbar', () => {
         expect([...navbar.classList]).toContain(styles.active);
     });
 
-    it('should render all modules from courseContent', () => {
+    it('should render all modules from course', () => {
         const modules = screen.getAllByTestId('module');
-        expect(modules.length).toBe(courseContent.content.length);
+        expect(modules.length).toBe(course.content.length);
     });
 
     it('should contain all videos from all modules', () => {
         const videos = screen.getAllByTestId('video');
-        const videosPermodule = courseContent.content.map((module) => module.lessons.length);
+        const videosPermodule = course.content.map((module) => module.lessons.length);
         const totalVideos = videosPermodule.reduce((prev, cur) => prev + cur);
         expect(videos.length).toBe(totalVideos);
     });

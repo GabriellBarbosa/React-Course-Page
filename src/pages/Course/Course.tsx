@@ -1,17 +1,17 @@
 import React from "react";
-import CourseNavBar from './components/Navbar';
+import Navbar from './components/Navbar';
 import Header from '../../components/Header';
 import Loading from './components/Loading';
 import { Course } from '../../interfaces/Course';
 
 function CourseComponent() {
-    const [courseContent, setCourseContent] = React.useState<Course | null>(null);
+    const [course, setCourse] = React.useState<Course | null>(null);
     const [courseNotFound, setCourseNotFound] = React.useState<boolean>(false);
 
     React.useEffect(() => {
         fetch('http://bookinvideo.local/wp-json/api/curso/codigo-limpo')
             .then(response => response.json())
-            .then(json => setCourseContent(json))
+            .then(json => setCourse(json))
             .catch(() => setCourseNotFound(true))
     }, []);
 
@@ -22,7 +22,7 @@ function CourseComponent() {
                 {courseNotFound ? (
                     <p>Curso não encontrado</p>
                 ) : (
-                    <div>{ courseContent ? <CourseNavBar data={courseContent} />  : <Loading /> }</div>
+                    <div>{ course ? <Navbar course={course} />  : <Loading /> }</div>
                 )}
             </div>
         </>
