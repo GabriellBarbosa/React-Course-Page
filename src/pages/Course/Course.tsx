@@ -22,7 +22,7 @@ function CourseComponent() {
                 {courseNotFound ? (
                     <p>Curso não encontrado</p>
                 ) : (
-                    <div>{ course ? <Navbar course={course} />  : <Loading /> }</div>
+                    <>{ course ? <Navbar course={course} />  : <Loading /> }</>
                 )}
             </div>
         </>
