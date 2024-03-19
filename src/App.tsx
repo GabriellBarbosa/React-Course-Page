@@ -7,7 +7,7 @@ function App() {
     return (
         <Routes>
             <Route path='slide/*' element={<Slide />} />
-            <Route path='curso/*' element={<Course />} />
+            <Route path='curso/:course/:lesson' element={<Course />} />
         </Routes>
     )
 }

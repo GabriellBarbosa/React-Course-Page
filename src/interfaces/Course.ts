@@ -1,5 +1,6 @@
 interface Course {
     course: string;
+    slug: string;
     content: Content[];
 }
 

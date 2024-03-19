@@ -57,7 +57,7 @@ function CourseNavBar(props: { data: Course }) {
                                         return (
                                             <li data-testid='video' style={{ order: lesson.sequence }} className={styles.lesson_wrapper} key={lesson.slug}>
                                                 <Link 
-                                                    to={lesson.slug} 
+                                                    to={`/curso/${props.data.slug}/${lesson.slug}`} 
                                                     className={styles.lesson_link} 
                                                     tabIndex={ navbarActive ? 0 : -1} 
                                                     onClick={preventNavigationIfNavbarIsDeactive}

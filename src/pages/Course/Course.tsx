@@ -1,15 +1,32 @@
-import { Route, Routes, Outlet } from "react-router-dom";
-import CleanCode from "./CleanCode/CleanCode";
+import React from "react";
+import CourseNavBar from './components/CourseNavBar';
+import Header from '../../components/Header';
+import Course from '../../interfaces/Course';
+import Loading from './components/Loading';
 
-function Course() {
+function CourseComponent() {
+    const [courseContent, setCourseContent] = React.useState<Course | null>(null);
+    const [courseNotFound, setCourseNotFound] = React.useState<boolean>(false);
+
+    React.useEffect(() => {
+        fetch('http://bookinvideo.local/wp-json/api/curso/codigo-limpo')
+            .then(response => response.json())
+            .then(json => setCourseContent(json))
+            .catch(() => setCourseNotFound(true))
+    }, []);
+
     return (
         <>
-            <Routes>
-                <Route path="codigo-limpo" element={<CleanCode />} />
-            </Routes>
-            <Outlet />
+            <div>
+                <Header />
+                {courseNotFound ? (
+                    <p>Curso não encontrado</p>
+                ) : (
+                    <div>{ courseContent ? <CourseNavBar data={courseContent} />  : <Loading /> }</div>
+                )}
+            </div>
         </>
     );
 }
 
-export default Course;
+export default CourseComponent;
