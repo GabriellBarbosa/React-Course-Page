@@ -11,11 +11,13 @@ function CourseComponent() {
     const location = useLocation();
 
     React.useEffect(() => {
-      console.log('Location changed');
+        fetch(import.meta.env.VITE_API_ENDPOINT + '/curso/codigo-limpo/0101-configuracao')
+            .then(response => response.json())
+            .then(json => console.log(json))
     }, [location]);
   
     React.useEffect(() => {
-        fetch(import.meta.env.VITE_API_ENDPOINT + '/api/curso/codigo-limpo')
+        fetch(import.meta.env.VITE_API_ENDPOINT + '/curso/codigo-limpo')
             .then(response => response.json())
             .then(json => setCourse(json))
             .catch(() => setCourseNotFound(true))

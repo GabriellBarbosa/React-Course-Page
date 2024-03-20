@@ -14,7 +14,6 @@ interface Lesson {
     name: string;
     slug: string;
     sequence: string;
-    video_src: string;
     duration: string;
 }
 

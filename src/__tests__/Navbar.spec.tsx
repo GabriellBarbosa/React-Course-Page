@@ -17,14 +17,12 @@ const course: Course = {
                     "name": "Código limpo",
                     "slug": "0102-codigo-limpo",
                     "sequence": "0102",
-                    "video_src": "https://player.vimeo.com/video/922895312?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
                     "duration": "15:56"
                 },
                 {
                     "name": "Configuração",
                     "slug": "0101-configuracao",
                     "sequence": "0101",
-                    "video_src": "https://player.vimeo.com/video/922895312?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
                     "duration": "06:55"
                 }
             ]
