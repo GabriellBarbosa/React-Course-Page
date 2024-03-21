@@ -43,9 +43,10 @@
 
 .header .title {
     color: var(--gray-8);
-    font-family: "Inter", sans-serif;
+    font-family: "PT Serif", serif;
     font-size: 24px;
     padding-left: 10px;
+    font-weight: bold;
 }
 
 .header .toggle_navbar_btn {
