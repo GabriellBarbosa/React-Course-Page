@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Slide from './pages/Slide/Slide';
-import Course from './pages/Course/Course';
+import Course from './pages/Course/CourseComponent';
 import './App.css'
 
 function App() {

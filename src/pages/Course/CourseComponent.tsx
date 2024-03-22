@@ -1,4 +1,4 @@
-import styles from './Course.module.css';
+import styles from './CourseComponent.module.css';
 import React from "react";
 import Navbar from './components/Navbar';
 import Header from '../../components/Header';
