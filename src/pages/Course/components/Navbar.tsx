@@ -59,6 +59,7 @@ function Navbar(props: { course: Course }) {
                                                 courseSlug={props.course.slug}
                                                 lesson={lesson}
                                                 navbarActive={navbarActive}
+                                                setNavbarActive={setNavbarActive}
                                             />
                                         );
                                     })}

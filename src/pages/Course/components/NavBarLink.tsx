@@ -6,9 +6,12 @@ function NavbarLink(props: {
     courseSlug: string,
     lesson: Lesson, 
     navbarActive: boolean,
+    setNavbarActive: (navbarActive: boolean) => void;
 }) {
-    function preventNavigationIfNavbarIsDeactive(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
-        if (!props.navbarActive) {
+    function deactiveNavbar(event: React.MouseEvent) {
+        if (props.navbarActive) {
+            props.setNavbarActive(false);
+        } else {
             event.preventDefault();
         }
     }
@@ -22,7 +25,7 @@ function NavbarLink(props: {
         >
             <Link
                 to={`/curso/${props.courseSlug}/${props.lesson.slug}`}
-                onClick={preventNavigationIfNavbarIsDeactive}
+                onClick={deactiveNavbar}
                 className={ styles.lesson_link}
                 tabIndex={ props.navbarActive ? 0 : -1} 
             >
