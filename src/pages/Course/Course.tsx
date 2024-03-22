@@ -70,8 +70,8 @@ function CourseComponent() {
                         <script src="https://player.vimeo.com/api/player.js"></script>
                     </div>
                     <div className={styles.change_video_buttons}>
-                        <Link to="" className={styles.prev}>Anterior</Link>
-                        <Link to="" className={styles.next}>Próximo</Link>
+                        <Link to="" className={styles.prev}><span>Anterior</span></Link>
+                        <Link to="" className={styles.next}><span>Próximo</span></Link>
                     </div>
                 </div>
             </div>
