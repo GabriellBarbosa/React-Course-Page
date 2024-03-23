@@ -7,6 +7,7 @@ import SingleLesson from '../../interfaces/SingleLesson';
 import Lesson from './components/Lesson';
 import { Course } from '../../interfaces/Course';
 import { useLocation, useParams } from "react-router-dom";
+import { VITE_API_URL } from '../../constants/enviroment';
 
 function CourseComponent() {
     const [course, setCourse] = React.useState<Course | null>(null);
@@ -22,7 +23,7 @@ function CourseComponent() {
         setLessonLoading(true);
         async function getLesson() {
             try {
-                const response = await fetch(import.meta.env.VITE_API_ENDPOINT + `/curso/${urlParams.course}/${urlParams.lesson}`)
+                const response = await fetch(VITE_API_URL + `/curso/${urlParams.course}/${urlParams.lesson}`)
                 if (response.ok) {
                     const json = await response.json();
                     setLesson(json);
@@ -39,10 +40,11 @@ function CourseComponent() {
     }, [location]);
   
     React.useEffect(() => {
+        console.log(VITE_API_URL)
         setCourseLoading(true);
         async function getCourse() {
             try {
-                const response = await fetch(import.meta.env.VITE_API_ENDPOINT + `/curso/${urlParams.course}`)
+                const response = await fetch(VITE_API_URL + `/curso/${urlParams.course}`)
                 if (response.ok) {
                     const json = await response.json();
                     setCourse(json);
@@ -65,7 +67,7 @@ function CourseComponent() {
                 {courseLoading ? (
                     <Loading />
                 ) : (
-                    course ? <Navbar course={course} />  : null 
+                    course ? <Navbar course={course} data-testid="navbar" />  : null 
                 )}
             </div>
             <div className={styles.wrapper}>

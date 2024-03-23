@@ -1,12 +1,32 @@
 import CourseComponent from "../pages/Course/CourseComponent";
-
+import mockedCourse from "../mock/course";
 import { render, screen } from '@testing-library/react';
+import { act } from "react-dom/test-utils";
+import { MemoryRouter } from "react-router";
 
-describe('CodeEditor without copy button', () => {
+jest.mock('../constants/enviroment.ts', () => ({
+    VITE_API_URL: 'http://bookinvideo',
+  }));
 
-    it('should not render copy button', () => {
-        render(<CourseComponent />);
-        const copyButton = screen.queryByText('Copiar');
-        expect(copyButton).toBeNull();
+global.fetch = jest.fn(() => {
+    return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockedCourse)
+    })
+}) as jest.Mock;
+
+describe('CourseComponent', () => {
+
+    beforeEach(async () => {
+        await act(() => render(
+            <MemoryRouter>
+                <CourseComponent />
+            </MemoryRouter>
+        ));
+    });
+
+    it('', () => {
+        const element = screen.getByTestId("navbar");
+        expect(element).toBeTruthy();
     });
 });
