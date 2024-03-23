@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import { Course } from '../interfaces/Course';
 
 import Navbar from '../pages/Course/components/Navbar';
@@ -33,9 +33,9 @@ const course: Course = {
 describe('Navbar', () => {
     beforeEach(() => {
         render(
-            <BrowserRouter>
+            <MemoryRouter>
                 <Navbar course={course} />
-            </BrowserRouter>
+            </MemoryRouter>
         );
 
         Object.assign(navigator, {
