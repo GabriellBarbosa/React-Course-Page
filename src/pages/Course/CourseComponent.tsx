@@ -1,13 +1,13 @@
 import styles from './CourseComponent.module.css';
 import React from "react";
-import Navbar from './components/Navbar';
 import Header from '../../components/Header';
-import Loading from './components/Loading';
-import SingleLesson from '../../interfaces/SingleLesson';
+import Navbar from './components/Navbar';
 import Lesson from './components/Lesson';
+import Loading from './components/Loading';
+import fetchData from '../../api/fetchData';
+import SingleLesson from '../../interfaces/SingleLesson';
 import { Course } from '../../interfaces/Course';
 import { useLocation, useParams } from "react-router-dom";
-import { VITE_API_URL } from '../../constants/enviroment';
 
 function CourseComponent() {
     const [course, setCourse] = React.useState<Course | null>(null);
@@ -21,44 +21,33 @@ function CourseComponent() {
 
     React.useEffect(() => {
         setLessonLoading(true);
-        async function getLesson() {
-            try {
-                const response = await fetch(VITE_API_URL + `/curso/${urlParams.course}/${urlParams.lesson}`)
-                if (response.ok) {
-                    const json = await response.json();
-                    setLesson(json);
-                } else {
-                    throw new Error();
-                }
-            } catch {
-                setLesson(null);
-            } finally {
-                setLessonLoading(false);
-            }
-        }
-        getLesson();
+        getLesson()
+            .then((lesson) => setLesson(lesson))
+            .finally(() => setLessonLoading(false))
     }, [location]);
   
     React.useEffect(() => {
-        console.log(VITE_API_URL)
         setCourseLoading(true);
-        async function getCourse() {
-            try {
-                const response = await fetch(VITE_API_URL + `/curso/${urlParams.course}`)
-                if (response.ok) {
-                    const json = await response.json();
-                    setCourse(json);
-                } else {
-                    throw new Error();
-                }
-            }  catch {
-                setCourse(null);
-            } finally {
-                setCourseLoading(false);
-            }
-        }
-        getCourse();
+        getCourse()
+            .then((course) => setCourse(course))
+            .finally(() => setCourseLoading(false))
     }, []);
+
+    function getCourse() {
+        return fetchPromise(`/curso/${urlParams.course}`);
+    }
+
+    function getLesson() {
+        return fetchPromise(`/curso/${urlParams.course}/${urlParams.lesson}`);
+    }
+
+    async function fetchPromise(endpoint: string) {
+        try {
+            return await fetchData(endpoint);
+        } catch {
+            return null;
+        }
+    }
 
     return (
         <>
@@ -67,7 +56,7 @@ function CourseComponent() {
                 {courseLoading ? (
                     <Loading />
                 ) : (
-                    course ? <Navbar course={course} data-testid="navbar" />  : null 
+                    course ? <Navbar course={course} />  : null 
                 )}
             </div>
             <div className={styles.wrapper}>
