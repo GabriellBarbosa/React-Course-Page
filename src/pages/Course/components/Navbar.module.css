@@ -151,3 +151,12 @@
     margin: 0 12px;
 }
 
+.link_active {
+    background-color: var(--gray-4);
+}
+
+.link_active .lesson_name_wrapper .lesson_sequence,
+.link_active .lesson_name_wrapper .lesson_name,
+.link_active .lesson_duration_wrapper .lesson_duration {
+    color: var(--gray-8);
+}

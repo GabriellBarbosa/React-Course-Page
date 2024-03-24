@@ -1,5 +1,5 @@
 import styles from './Navbar.module.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Lesson } from '../../../interfaces/Course';
 
 function NavbarLink(props: { 
@@ -23,21 +23,25 @@ function NavbarLink(props: {
             className={styles.lesson_wrapper} 
             key={props.lesson.slug}
         >
-            <Link
+            <NavLink
                 to={`/curso/${props.courseSlug}/${props.lesson.slug}`}
                 onClick={deactiveNavbar}
-                className={ styles.lesson_link}
-                tabIndex={ props.navbarActive ? 0 : -1} 
+                tabIndex={props.navbarActive ? 0 : -1}
+                className={({ isActive }) => (
+                    `${styles.lesson_link} ${ isActive ? styles.link_active : '' }`
+                )}
             >
                 <div className={styles.lesson_name_wrapper}>
                     <span className={styles.lesson_sequence}>{ props.lesson.sequence }</span>
-                    <p className={styles.lesson_name}>{ props.lesson.name }</p>
+                    <p className={styles.lesson_name}>
+                        { props.lesson.name }
+                    </p>
                 </div>
                 <div className={styles.lesson_duration_wrapper}>
                     <p className={styles.lesson_duration}>{ props.lesson.duration }</p>
                     <span className={styles.lesson_watched_feedback} aria-label='vídeo assistido'></span>
                 </div>
-            </Link>
+            </NavLink>
         </li>
     )
 }
