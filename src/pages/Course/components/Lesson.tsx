@@ -30,8 +30,16 @@ function Lesson(props: { lesson: SingleLesson }) {
                 <script src="https://player.vimeo.com/api/player.js"></script>
             </div>
             <div className={styles.change_video_buttons}>
-                <Link to="" className={styles.prev}><span>Anterior</span></Link>
-                <Link to="" className={styles.next}><span>Próximo</span></Link>
+                {props.lesson.prev && (
+                    <Link to={`/curso/${urlParams.course}/${props.lesson.prev}`} className={styles.prev}>
+                        <span>Anterior</span>
+                    </Link>
+                )}
+                {props.lesson.next && (
+                    <Link to={`/curso/${urlParams.course}/${props.lesson.next}`} className={styles.next}>
+                        <span>Próximo</span>
+                    </Link>
+                )}
             </div>
         </div>
     )

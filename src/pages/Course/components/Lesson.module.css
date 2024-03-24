@@ -107,8 +107,6 @@
 
 .change_video_buttons {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
 }
 
 .change_video_buttons .prev,
@@ -121,6 +119,15 @@
     display: flex;
     align-items: center;
 }
+
+.change_video_buttons .prev {
+    margin: 0 auto 0 0 0;
+}
+
+.change_video_buttons .next {
+    margin: 0 0 0 auto;
+}
+
 
 .change_video_buttons .prev:hover,
 .change_video_buttons .next:hover {
