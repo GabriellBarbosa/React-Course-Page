@@ -10,17 +10,20 @@ function Lesson(props: { lesson: SingleLesson }) {
             <div className={styles.wrapper_title_slide}>
                 <h2 className={styles.title}>{`${props.lesson.sequence} ${props.lesson.name}`}</h2>
                 <div className={styles.video_buttons}>
-                    <a 
-                        href={``} 
-                        className={`${styles.code_btn}`}
-                        target="_blank"
-                    >Código</a>
-                    <a 
-                        href={`/slide/${urlParams.course}/${urlParams.lesson}`}
-                        className={`${styles.slide_btn}`}
-                        target="_blank"
-                    >Slide</a>
-
+                    {props.lesson.has_code && (
+                        <a 
+                            href={`https://github.com/bookinvideo/${urlParams.course}/${urlParams.lesson}`} 
+                            className={`${styles.code_btn}`}
+                            target="_blank"
+                        >Código</a>
+                    )}
+                    {props.lesson.has_slide && (
+                        <a 
+                            href={`/slide/${urlParams.course}/${urlParams.lesson}`}
+                            className={`${styles.slide_btn}`}
+                            target="_blank"
+                        >Slide</a>
+                    )}
                 </div>
             </div>
             <div className={styles.video}>

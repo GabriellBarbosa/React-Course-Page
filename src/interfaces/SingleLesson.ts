@@ -4,6 +4,8 @@ interface SingleLesson {
     video_src: string;
     prev?: string;
     next?: string;
+    has_code?: string;
+    has_slide?: string;
 }
 
 export default SingleLesson;
