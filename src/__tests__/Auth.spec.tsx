@@ -7,11 +7,6 @@ jest.mock('../hooks/useApi.tsx');
 const mockUseApi = jest.mocked(useApi);
 
 describe('Auth', () => {
-
-    // beforeEach(() => {
-    //     jest.clearAllMocks();
-    // })
-
     it('user logged', () => {
         mockUseApi.mockReturnValue({
             getUser: jest.fn(() => ({ username: 'Gabriel' }))
