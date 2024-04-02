@@ -4,7 +4,7 @@ import NavBarLink from './NavbarLink';
 import { Course } from '../../../interfaces/Course';
 
 function Navbar(props: { course: Course }) {
-    const [navbarActive, setNavbarActive] = React.useState(false);
+    const [navbarActive, setNavbarActive] = React.useState(true);
 
     function toggleNavbarActive() {
         setNavbarActive(!navbarActive);
