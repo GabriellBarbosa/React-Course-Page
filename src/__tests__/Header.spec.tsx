@@ -2,6 +2,10 @@ import Header from '../components/Header';
 import styles from '../components/Header.module.css';
 import { fireEvent, render, screen } from '@testing-library/react';
 
+jest.mock('../constants/enviroment.ts', () => ({
+    VITE_API_URL: 'bookinvideo',
+}));
+
 describe('Header', () => {
     beforeEach(() => {
         render(<Header />);

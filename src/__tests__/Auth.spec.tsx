@@ -1,57 +1,65 @@
 import Header from '../components/Header';
 import useApi from '../hooks/useApi';
 import { AuthProvider } from '../context/AuthContext';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 
+jest.mock('../constants/enviroment.ts', () => ({
+    VITE_API_URL: 'bookinvideo',
+}));
 jest.mock('../hooks/useApi.tsx');
 const mockUseApi = jest.mocked(useApi);
 
 describe('Auth', () => {
-    it('user logged', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+    })
+
+    it('user logged', async () => {
         mockUseApi.mockReturnValue({
-            getUser: jest.fn(() => ({ username: 'Gabriel' }))
+            getUser: jest.fn(() => Promise.resolve({ user: { username: 'Gabriel' }}))
+        });
+        
+        act(() => {
+            render(
+                <AuthProvider>
+                    <Header />
+                </AuthProvider>
+            );
         });
 
-        render(
-            <AuthProvider>
-                <Header />
-            </AuthProvider>
-        );
-
-        const loginButton = screen.getByText('Gabriel');
-
-        expect(loginButton).toBeTruthy();
+        await waitFor(() => expect(screen.getByText('Gabriel')).toBeTruthy());
     });
 
-    it('user logged without name', () => {
+    it('user logged without name', async () => {
         mockUseApi.mockReturnValue({
-            getUser: jest.fn(() => ({ username: '' }))
+            getUser: jest.fn(() => Promise.resolve({ user: { username: '' }}))
         });
 
-        render(
-            <AuthProvider>
-                <Header />
-            </AuthProvider>
-        );
+        act(() => {
+            render(
+                <AuthProvider>
+                    <Header />
+                </AuthProvider>
+            );
+        });
 
-        const loginButton = screen.getByText('Minha conta');
-
-        expect(loginButton).toBeTruthy();
+        await waitFor(() => expect(screen.getByText('Minha conta')).toBeTruthy());
     });
 
-    it('user logged without name', () => {
+    it('user not logged', async () => {
         mockUseApi.mockReturnValue({
-            getUser: jest.fn(() => null)
+            getUser: jest.fn(() => Promise.resolve({ user: null }))
         });
 
-        render(
-            <AuthProvider>
-                <Header />
-            </AuthProvider>
-        );
+        act(() => {
+            render(
+                <AuthProvider>
+                    <Header />
+                </AuthProvider>
+            );
+        });
 
-        const loginButton = screen.getByText('Login');
-
-        expect(loginButton).toBeTruthy();
+        await waitFor(() => expect(screen.getByText('Login')).toBeTruthy());
     });
 });

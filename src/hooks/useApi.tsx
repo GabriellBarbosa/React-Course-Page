@@ -1,8 +1,19 @@
+import fetchData from "../api/fetchData";
 import User from "../interfaces/User";
 
 function useApi() {
-    function getUser(): User | null {
-        return { username: 'Gabriel' };
+    async function getUser(): Promise<{ user: User | null }> {
+        const response = await userRequest();
+        return response;
+    }
+
+    async function userRequest() {
+        try {
+            return await fetchData('/user');
+        } catch {
+            return { user: null };
+        }
+
     }
 
     return { getUser };

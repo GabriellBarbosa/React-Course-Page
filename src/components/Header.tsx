@@ -73,7 +73,7 @@ function Header() {
                             <a href="/plano" className={styles.link}>Inscreva-se</a>
                             <a href="/contato" className={`${styles.link} ${styles.contact}`}>Contato</a>
                             <a href="/conta" data-testid="myAccountBtn" className={`${styles.link} ${styles.login}`}>
-                                { authContext ? (authContext.username || 'Minha conta') : 'Login' }
+                                { authContext.user ? (authContext.user.username || 'Minha conta') : 'Login' }
                             </a>
                         </div>
                     </div>
