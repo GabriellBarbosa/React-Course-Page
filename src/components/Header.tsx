@@ -1,11 +1,13 @@
 import styles from './Header.module.css';
 import React from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 function Header() {
     const [mobileMenuActive, setMobileMenuActive] = React.useState(false);
+    const authContext = React.useContext(AuthContext);
     const mobileMenu = React.useRef<HTMLDivElement>(null);
     const menuButton = React.useRef<HTMLDivElement>(null);
-
+    
     function toggleMobileMenuActive() {
         setMobileMenuActive(!mobileMenuActive);
     }
@@ -70,7 +72,9 @@ function Header() {
                         <div className={styles.links_wrapper}>
                             <a href="/plano" className={styles.link}>Inscreva-se</a>
                             <a href="/contato" className={`${styles.link} ${styles.contact}`}>Contato</a>
-                            <a href="/entrar" className={`${styles.link} ${styles.login}`}>Login</a>
+                            <a href="/conta" data-testid="myAccountBtn" className={`${styles.link} ${styles.login}`}>
+                                { authContext ? (authContext.username || 'Minha conta') : 'Login' }
+                            </a>
                         </div>
                     </div>
                 </div>
