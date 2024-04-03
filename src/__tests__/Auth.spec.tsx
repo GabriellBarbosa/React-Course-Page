@@ -1,5 +1,6 @@
 import Header from '../components/Header';
 import useApi from '../hooks/useApi';
+import Lesson from '../pages/Course/components/Lesson';
 import { AuthProvider } from '../context/AuthContext';
 import { render, screen, waitFor } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
@@ -10,7 +11,7 @@ jest.mock('../constants/enviroment.ts', () => ({
 jest.mock('../hooks/useApi.tsx');
 const mockUseApi = jest.mocked(useApi);
 
-describe('Auth', () => {
+describe('Header', () => {
     beforeEach(() => {
         jest.clearAllMocks();
     })
@@ -63,3 +64,30 @@ describe('Auth', () => {
         await waitFor(() => expect(screen.getByText('Login')).toBeTruthy());
     });
 });
+
+describe('Lesson', () => {
+
+    it('', () => {
+            const lesson = {
+                name: 'codigo-limpo',
+                sequence: '01',
+                video_src: '',
+                prev: '',
+                next: '',
+                has_code: '',
+                has_slide: '',
+            }
+            mockUseApi.mockReturnValue({
+                getUser: jest.fn(() => Promise.resolve({ user: null }))
+            });
+
+            render(
+                <AuthProvider>
+                    <Lesson lesson={lesson} />
+                </AuthProvider>
+            );
+
+            const authenticateElement = screen.getByTestId('authenticate');
+            expect(authenticateElement).toBeTruthy();
+    })
+})
