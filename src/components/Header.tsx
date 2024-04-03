@@ -4,9 +4,9 @@ import { AuthContext } from '../context/AuthContext';
 
 function Header() {
     const [mobileMenuActive, setMobileMenuActive] = React.useState(false);
-    const authContext = React.useContext(AuthContext);
     const mobileMenu = React.useRef<HTMLDivElement>(null);
     const menuButton = React.useRef<HTMLDivElement>(null);
+    const authContext = React.useContext(AuthContext);
     
     function toggleMobileMenuActive() {
         setMobileMenuActive(!mobileMenuActive);
@@ -42,6 +42,13 @@ function Header() {
         );
     }
 
+    function getMyAccountBtnText() {
+        if (authContext.user)
+            return (authContext.user.username || 'Minha conta');
+        else 
+            return 'Login';
+    }
+
     return (
         <header className={styles.header} data-testid="header">
             <nav className={styles.navigation}>
@@ -73,7 +80,7 @@ function Header() {
                             <a href="/plano" className={styles.link}>Inscreva-se</a>
                             <a href="/contato" className={`${styles.link} ${styles.contact}`}>Contato</a>
                             <a href="/conta" data-testid="myAccountBtn" className={`${styles.link} ${styles.login}`}>
-                                { authContext.user ? (authContext.user.username || 'Minha conta') : 'Login' }
+                                { getMyAccountBtnText() }
                             </a>
                         </div>
                     </div>
