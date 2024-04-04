@@ -1,4 +1,4 @@
-.nonSubscribedAccount {
+.nonSubscribedUser {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,7 +8,7 @@
     padding: 15px;
 }
 
-.nonSubscribedAccount p {
+.nonSubscribedUser p {
     font-family: 'PT Serif', serif;
     font-size: 24px;
     line-height: 33.6px;
@@ -17,7 +17,7 @@
     text-align: center;
 }
 
-.nonSubscribedAccount button {
+.nonSubscribedUser button {
     display: block;
     text-align: center;
     font-size: 18px;
@@ -30,18 +30,18 @@
     cursor: pointer;
 }
 
-.nonSubscribedAccount button:hover {
+.nonSubscribedUser button:hover {
     background-color: var(--c-0-dark);
 }
 
 @media screen and (max-width: 760px) {
-    .nonSubscribedAccount p {
+    .nonSubscribedUser p {
         font-size: 16px;
         line-height: 24px;
         margin-bottom: 16px;
         max-width: 300px;
     }
-    .nonSubscribedAccount button {
+    .nonSubscribedUser button {
         font-size: 14px;
         width: 180px;
         margin-bottom: 15px;

@@ -1,7 +1,7 @@
-import styles from './NonSubscribedAccount.module.css';
+import styles from './NonSubscribedUser.module.css';
 import SubscribeForm from '../../../components/SubscribeForm';
 
-function NonSubscribedAccount() {
+function NonSubscribedUser() {
     return (
         <div className={styles.nonSubscribedAccount}>
             <p>Sua conta ainda não está ativa. Aguarde a aprovação ou assine.</p>
@@ -12,4 +12,4 @@ function NonSubscribedAccount() {
     )
 }
 
-export default NonSubscribedAccount;
+export default NonSubscribedUser;

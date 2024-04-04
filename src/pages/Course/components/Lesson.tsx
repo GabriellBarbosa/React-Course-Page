@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import Loading from './Loading';
 import Video from './Video';
 import Authenticate from './Authenticate';
-import NonSubscribedAccount from './NonSubscribedAccount';
+import NonSubscribedUser from './NonSubscribedUser';
 
 function Lesson(props: { lesson: SingleLesson }) {
     const urlParams = useParams();
@@ -26,7 +26,7 @@ function Lesson(props: { lesson: SingleLesson }) {
         if (authContext.activated) {
             return <Video video_src={props.lesson.video_src} />
         } else {
-            return <div data-testid="nonSubscriber"><NonSubscribedAccount /></div>
+            return <div data-testid="nonSubscriber"><NonSubscribedUser /></div>
         }
     }
 
