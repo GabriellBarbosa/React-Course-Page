@@ -17,18 +17,20 @@
     text-align: center;
 }
 
-.nonSubscribedAccount a {
+.nonSubscribedAccount button {
     display: block;
     text-align: center;
-    background-color: var(--gray-3);
     font-size: 18px;
     width: 212px;
     padding: 15px 0;
     border-radius: 4px;
     margin: 0 auto;
+    background-color: var(--gray-3);
+    color: var(--gray-8);
+    cursor: pointer;
 }
 
-.nonSubscribedAccount a:hover {
+.nonSubscribedAccount button:hover {
     background-color: var(--c-0-dark);
 }
 
@@ -39,7 +41,7 @@
         margin-bottom: 16px;
         max-width: 300px;
     }
-    .nonSubscribedAccount a {
+    .nonSubscribedAccount button {
         font-size: 14px;
         width: 180px;
         margin-bottom: 15px;

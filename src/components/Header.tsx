@@ -1,5 +1,6 @@
 import styles from './Header.module.css';
 import React from 'react';
+import BuyCourse from './BuyCourse';
 import { AuthContext } from '../context/AuthContext';
 
 function Header() {
@@ -77,8 +78,9 @@ function Header() {
 
                     <div className={styles.links_container} ref={mobileMenu}>
                         <div className={styles.links_wrapper}>
-                            <a href="/plano" className={styles.link}>Inscreva-se</a>
-                            <a href="/contato" className={`${styles.link} ${styles.contact}`}>Contato</a>
+                            <BuyCourse className={styles.subscription_form}>
+                                <button className={styles.link} type="submit" name="add-to-cart" value={ (window as any).wp_data?.course }>Inscreva-se</button>
+                            </BuyCourse>
                             <a href="/conta" data-testid="myAccountBtn" className={`${styles.link} ${styles.login}`}>
                                 { getMyAccountBtnText() }
                             </a>

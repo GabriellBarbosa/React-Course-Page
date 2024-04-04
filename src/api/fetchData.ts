@@ -9,7 +9,7 @@ async function fetchData(endpoint: string) {
 }
 
 function getHeadersWithNonce() {
-    const nonce: string = (window as any).wp_auth?.nonce || 'not defined';
+    const nonce: string = (window as any).wp_data?.nonce || 'not defined';
     return {
         headers: {
             'X-WP-Nonce': nonce
