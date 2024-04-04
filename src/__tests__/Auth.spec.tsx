@@ -66,28 +66,54 @@ describe('Header', () => {
 });
 
 describe('Lesson', () => {
+    it('show authenticate component', async () => {
+        const lesson = {
+            name: 'codigo-limpo',
+            sequence: '01',
+            video_src: '',
+            prev: '',
+            next: '',
+            has_code: '',
+            has_slide: '',
+        }
+        mockUseApi.mockReturnValue({
+            getUser: jest.fn(() => Promise.resolve({ user: null }))
+        });
 
-    it('', () => {
-            const lesson = {
-                name: 'codigo-limpo',
-                sequence: '01',
-                video_src: '',
-                prev: '',
-                next: '',
-                has_code: '',
-                has_slide: '',
-            }
-            mockUseApi.mockReturnValue({
-                getUser: jest.fn(() => Promise.resolve({ user: null }))
-            });
-
+        act(() => {
             render(
                 <AuthProvider>
                     <Lesson lesson={lesson} />
                 </AuthProvider>
             );
+        })
 
-            const authenticateElement = screen.getByTestId('authenticate');
-            expect(authenticateElement).toBeTruthy();
+        await waitFor(() => expect(screen.getByTestId('authenticate')).toBeTruthy())
+    });
+
+    it('hide slide and code buttons', () => {
+        const lesson = {
+            name: 'codigo-limpo',
+            sequence: '01',
+            video_src: '',
+            prev: '',
+            next: '',
+            has_code: 'true',
+            has_slide: 'true',
+        }
+        mockUseApi.mockReturnValue({
+            getUser: jest.fn(() => Promise.resolve({ user: null }))
+        });
+
+        act(() => {
+            render(
+                <AuthProvider>
+                    <Lesson lesson={lesson} />
+                </AuthProvider>
+            );
+        })
+
+        expect(() => screen.getByTestId('slideBtn')).toThrow();
+        expect(() => screen.getByTestId('codeBtn')).toThrow();
     })
 })

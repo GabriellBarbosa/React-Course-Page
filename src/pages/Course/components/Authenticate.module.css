@@ -1,0 +1,48 @@
+.authenticate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--gray-1);
+    aspect-ratio: 16 / 9;
+    border-radius: 4px;
+    padding: 15px;
+}
+
+.authenticate p {
+    font-family: 'PT Serif', serif;
+    font-size: 24px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.authenticate a {
+    display: block;
+    text-align: center;
+    background-color: var(--gray-3);
+    font-size: 18px;
+    width: 212px;
+    padding: 15px 0;
+    border-radius: 4px;
+}
+
+.authenticate a:hover {
+    background-color: var(--c-0-dark);
+}
+
+.authenticate span {
+    font-family: 'PT Serif', serif;
+    margin: 16px 0;
+}
+
+@media screen and (max-width: 760px) {
+    .authenticate a {
+        font-size: 14px;
+        width: 180px;
+        margin-bottom: 15px;
+    }
+
+    .authenticate span {
+        display: none;
+    }
+}
