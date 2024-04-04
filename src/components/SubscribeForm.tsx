@@ -1,6 +1,6 @@
 import React from 'react';
 
-function BuyCourse({ children, className }: { children: React.ReactNode, className?: string }) {
+function SubscribeForm({ children, className }: { children: React.ReactNode, className?: string }) {
     return (
         <form className={className} action="http://bookinvideo.local/product/codigo-limpo/" method="post" encType="multipart/form-data">
             <input type="hidden" name="quantity" value="1" inputMode="numeric" autoComplete="off" />
@@ -9,4 +9,4 @@ function BuyCourse({ children, className }: { children: React.ReactNode, classNa
     )
 }
 
-export default BuyCourse;
+export default SubscribeForm;

@@ -1,5 +1,5 @@
 import styles from './Authenticate.module.css';
-import BuyCourse from '../../../components/BuyCourse';
+import SubscribeForm from '../../../components/SubscribeForm';
 
 function Authenticate() {
     return (
@@ -7,9 +7,9 @@ function Authenticate() {
             <p>Para acessar o vídeo:</p>
             <a href="/conta">Login</a>
             <span>ou</span>
-            <BuyCourse>
+            <SubscribeForm>
                 <button type="submit" name="add-to-cart" value={ (window as any).wp_data?.course }>Inscreva-se</button>
-            </BuyCourse>
+            </SubscribeForm>
         </div>
     )
 }

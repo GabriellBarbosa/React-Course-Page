@@ -1,6 +1,6 @@
 import styles from './Header.module.css';
 import React from 'react';
-import BuyCourse from './BuyCourse';
+import SubscribeForm from './SubscribeForm';
 import { AuthContext } from '../context/AuthContext';
 
 function Header() {
@@ -78,9 +78,9 @@ function Header() {
 
                     <div className={styles.links_container} ref={mobileMenu}>
                         <div className={styles.links_wrapper}>
-                            <BuyCourse className={styles.subscription_form}>
+                            <SubscribeForm className={styles.subscription_form}>
                                 <button className={styles.link} type="submit" name="add-to-cart" value={ (window as any).wp_data?.course }>Inscreva-se</button>
-                            </BuyCourse>
+                            </SubscribeForm>
                             <a href="/conta" data-testid="myAccountBtn" className={`${styles.link} ${styles.login}`}>
                                 { getMyAccountBtnText() }
                             </a>
