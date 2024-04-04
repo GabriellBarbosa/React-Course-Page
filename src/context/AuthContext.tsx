@@ -2,13 +2,15 @@ import React from 'react';
 import useApi from '../hooks/useApi';
 import User from '../interfaces/User';
 
-const AuthContext = React.createContext<{ user: User | null; loading: boolean }>({ 
+const AuthContext = React.createContext<{ activated: boolean; user: User | null; loading: boolean }>({ 
     user: null, 
-    loading: false
+    activated: false,
+    loading: false,
 });
 
 function AuthProvider({ children }: { children: React.ReactNode }) {
     const [user, setUser] = React.useState<User | null>(null);
+    const [activated, setActivated] = React.useState<boolean>(false);
     const [loading, setLoading] = React.useState<boolean>(false);
     const { getUser } = useApi();
 
@@ -17,6 +19,7 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
         getUser()
             .then((response) => {
                 setUser(response.user);
+                setActivated(response.activated);
             }).catch(() => {
                 setUser(null);
             })
@@ -26,7 +29,9 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
     }, []);
     
     return (
-        <AuthContext.Provider value={{ user, loading }}>{ children }</AuthContext.Provider>
+        <AuthContext.Provider value={{ activated, user, loading }}>
+            { children }
+        </AuthContext.Provider>
     );
 }
 

@@ -1,16 +1,34 @@
 import styles from './Lesson.module.css';
 import React from 'react';
 import SingleLesson from '../../../interfaces/SingleLesson';
-import Loading from './Loading';
-import Video from './Video';
-import Authenticate from './Authenticate';
 import { useParams } from "react-router-dom";
 import { AuthContext } from '../../../context/AuthContext';
 import { Link } from 'react-router-dom';
 
+import Loading from './Loading';
+import Video from './Video';
+import Authenticate from './Authenticate';
+import NonSubscribedAccount from './NonSubscribedAccount';
+
 function Lesson(props: { lesson: SingleLesson }) {
     const urlParams = useParams();
     const authContext = React.useContext(AuthContext);
+
+    function displayVideoIfLoggedIn() {
+        if (authContext.user) {
+            return displayVideoIfAccountIsSubscribed();
+        } else {
+            return <div data-testid="authenticate"><Authenticate /></div>
+        }
+    }
+
+    function displayVideoIfAccountIsSubscribed() {
+        if (authContext.activated) {
+            return <Video video_src={props.lesson.video_src} />
+        } else {
+            return <div data-testid="nonSubscriber"><NonSubscribedAccount /></div>
+        }
+    }
 
     return (
         <div>
@@ -38,19 +56,7 @@ function Lesson(props: { lesson: SingleLesson }) {
                 )}
             </div>
             <div className={styles.videoWrapper}>
-                { authContext.loading ? (
-                    <Loading />
-                ) : (
-                    <>
-                        { authContext.user ? (
-                            <Video video_src={props.lesson.video_src} />
-                        ) : (
-                            <div data-testid="authenticate">
-                                <Authenticate />
-                            </div>
-                        )}
-                    </>
-                )}
+                { authContext.loading ? <Loading /> : displayVideoIfLoggedIn() }
             </div>
             <div className={styles.change_video_buttons}>
                 {props.lesson.prev && (

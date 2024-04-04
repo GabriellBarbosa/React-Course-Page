@@ -12,108 +12,126 @@ jest.mock('../hooks/useApi.tsx');
 const mockUseApi = jest.mocked(useApi);
 
 describe('Header', () => {
-    beforeEach(() => {
-        jest.clearAllMocks();
-    })
-
     it('user logged', async () => {
         mockUseApi.mockReturnValue({
-            getUser: jest.fn(() => Promise.resolve({ user: { username: 'Gabriel' }}))
+            getUser: jest.fn(() => Promise.resolve({ 
+                activated: true,
+                user: { username: 'Gabriel' }
+            }))
         });
         
-        act(() => {
+        act(() => (
             render(
                 <AuthProvider>
                     <Header />
                 </AuthProvider>
-            );
-        });
+            )
+        ));
 
         await waitFor(() => expect(screen.getByText('Gabriel')).toBeTruthy());
     });
 
     it('user logged without name', async () => {
         mockUseApi.mockReturnValue({
-            getUser: jest.fn(() => Promise.resolve({ user: { username: '' }}))
+            getUser: jest.fn(() => Promise.resolve({ 
+                activated: true,
+                user: { username: '' }
+            }))
         });
 
-        act(() => {
+        act(() => (
             render(
                 <AuthProvider>
                     <Header />
                 </AuthProvider>
-            );
-        });
+            )
+        ));
 
         await waitFor(() => expect(screen.getByText('Minha conta')).toBeTruthy());
     });
 
     it('user not logged', async () => {
         mockUseApi.mockReturnValue({
-            getUser: jest.fn(() => Promise.resolve({ user: null }))
+            getUser: jest.fn(() => Promise.resolve({ 
+                activated: false, 
+                user: null 
+            }))
         });
 
-        act(() => {
+        act(() => (
             render(
                 <AuthProvider>
                     <Header />
                 </AuthProvider>
-            );
-        });
+            )
+        ));
 
         await waitFor(() => expect(screen.getByText('Login')).toBeTruthy());
     });
 });
 
 describe('Lesson', () => {
-    it('show authenticate component', async () => {
-        const lesson = {
-            name: 'codigo-limpo',
-            sequence: '01',
-            video_src: '',
-            prev: '',
-            next: '',
-            has_code: '',
-            has_slide: '',
-        }
+    it('unlogged: show authenticate component', async () => {
         mockUseApi.mockReturnValue({
-            getUser: jest.fn(() => Promise.resolve({ user: null }))
+            getUser: jest.fn(() => Promise.resolve({ 
+                activated: false, 
+                user: null 
+            }))
         });
 
-        act(() => {
-            render(
-                <AuthProvider>
-                    <Lesson lesson={lesson} />
-                </AuthProvider>
-            );
-        })
+        renderLesson();
 
         await waitFor(() => expect(screen.getByTestId('authenticate')).toBeTruthy())
     });
 
-    it('hide slide and code buttons', () => {
-        const lesson = {
-            name: 'codigo-limpo',
-            sequence: '01',
-            video_src: '',
-            prev: '',
-            next: '',
-            has_code: 'true',
-            has_slide: 'true',
-        }
+    it('unlogged: hide slide and code buttons', async () => {
         mockUseApi.mockReturnValue({
-            getUser: jest.fn(() => Promise.resolve({ user: null }))
+            getUser: jest.fn(() => Promise.resolve({ 
+                activated: false,
+                user: null 
+            }))
         });
 
-        act(() => {
-            render(
-                <AuthProvider>
-                    <Lesson lesson={lesson} />
-                </AuthProvider>
-            );
-        })
+        renderLesson();
 
-        expect(() => screen.getByTestId('slideBtn')).toThrow();
-        expect(() => screen.getByTestId('codeBtn')).toThrow();
+        await waitFor(() => {
+            expect(() => screen.getByTestId('slideBtn')).toThrow();
+            expect(() => screen.getByTestId('codeBtn')).toThrow();
+        });
+    })
+
+    it('non subscriber element', async () => {
+        mockUseApi.mockReturnValue({
+            getUser: jest.fn(() => Promise.resolve({ 
+                user: { username: 'Gabriel' },
+                activated: false
+            }))
+        });
+
+        renderLesson();
+
+        await waitFor(() => {
+            expect(screen.getByTestId('nonSubscriber')).toBeTruthy();
+        });
     })
 })
+
+function renderLesson() {
+    const lesson = {
+        name: 'codigo-limpo',
+        sequence: '01',
+        video_src: '',
+        prev: '',
+        next: '',
+        has_code: 'true',
+        has_slide: 'true',
+    }
+
+    act(() => (
+        render(
+            <AuthProvider>
+                <Lesson lesson={lesson} />
+            </AuthProvider>
+        )
+    ));
+}

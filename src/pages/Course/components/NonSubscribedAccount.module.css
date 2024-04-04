@@ -1,21 +1,23 @@
-.authenticate {
+.nonSubscribedAccount {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     background-color: var(--gray-1);
     aspect-ratio: 16 / 9;
     padding: 15px;
 }
 
-.authenticate p {
+.nonSubscribedAccount p {
     font-family: 'PT Serif', serif;
     font-size: 24px;
+    line-height: 33.6px;
     margin-bottom: 24px;
+    max-width: 430px;
     text-align: center;
 }
 
-.authenticate a {
+.nonSubscribedAccount a {
     display: block;
     text-align: center;
     background-color: var(--gray-3);
@@ -23,25 +25,23 @@
     width: 212px;
     padding: 15px 0;
     border-radius: 4px;
+    margin: 0 auto;
 }
 
-.authenticate a:hover {
+.nonSubscribedAccount a:hover {
     background-color: var(--c-0-dark);
 }
 
-.authenticate span {
-    font-family: 'PT Serif', serif;
-    margin: 16px 0;
-}
-
 @media screen and (max-width: 760px) {
-    .authenticate a {
+    .nonSubscribedAccount p {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 16px;
+        max-width: 300px;
+    }
+    .nonSubscribedAccount a {
         font-size: 14px;
         width: 180px;
         margin-bottom: 15px;
-    }
-
-    .authenticate span {
-        display: none;
     }
 }
