@@ -16,7 +16,7 @@
 }
 
 .authenticate a,
-.authenticate button {
+.authenticate .subscription {
     display: block;
     font-size: 18px;
     width: 212px;
@@ -29,7 +29,7 @@
 }
 
 .authenticate a:hover,
-.authenticate button:hover {
+.authenticate .subscription:hover {
     background-color: var(--c-0-dark);
 }
 
@@ -40,7 +40,7 @@
 
 @media screen and (max-width: 760px) {
     .authenticate a, 
-    .authenticate button {
+    .authenticate .subscription {
         font-size: 14px;
         width: 180px;
         margin-bottom: 15px;

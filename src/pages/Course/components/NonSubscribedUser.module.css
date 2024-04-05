@@ -17,7 +17,7 @@
     text-align: center;
 }
 
-.nonSubscribedUser button {
+.nonSubscribedUser .subscription {
     display: block;
     text-align: center;
     font-size: 18px;
@@ -30,7 +30,7 @@
     cursor: pointer;
 }
 
-.nonSubscribedUser button:hover {
+.nonSubscribedUser .subscription:hover {
     background-color: var(--c-0-dark);
 }
 
@@ -41,7 +41,7 @@
         margin-bottom: 16px;
         max-width: 300px;
     }
-    .nonSubscribedUser button {
+    .nonSubscribedUser .subscription {
         font-size: 14px;
         width: 180px;
         margin-bottom: 15px;
