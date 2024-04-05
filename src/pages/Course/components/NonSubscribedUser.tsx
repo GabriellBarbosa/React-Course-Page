@@ -5,9 +5,7 @@ function NonSubscribedUser() {
     return (
         <div className={styles.nonSubscribedUser}>
             <p>Sua conta ainda não está ativa. Aguarde a aprovação ou assine.</p>
-            <SubscribeButton text="Assinar" className={styles.subscription}>
-                <button type="submit" name="add-to-cart" value={ (window as any).wp_data?.course }>Assinar</button>
-            </SubscribeButton>
+            <SubscribeButton text="Assinar" className={styles.subscription} />
         </div>
     )
 }
