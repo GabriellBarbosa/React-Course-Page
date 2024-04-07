@@ -56,7 +56,9 @@ function Lesson(props: { lesson: SingleLesson }) {
                 )}
             </div>
             <div className={styles.videoWrapper}>
-                { authContext.loading ? <Loading /> : displayVideoIfLoggedIn() }
+                {authContext.loading ? (
+                    <div className={styles.loadingWrapper}><Loading /></div>
+                ) : displayVideoIfLoggedIn()}
             </div>
             <div className={styles.change_video_buttons}>
                 {props.lesson.prev && (

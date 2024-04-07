@@ -36,7 +36,6 @@
 }
 
 .videoWrapper {
-
     margin: 20px 0;
     border-radius: 4px;
     overflow: hidden;
@@ -171,4 +170,12 @@
     .change_video_buttons .next::after {
         margin: 0;
     }
+}
+
+.loadingWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--gray-1);
+    aspect-ratio: 16 / 9;
 }
