@@ -84,22 +84,6 @@ describe('Lesson', () => {
         await waitFor(() => expect(screen.getByTestId('authenticate')).toBeTruthy())
     });
 
-    it('unlogged: hide slide and code buttons', async () => {
-        mockUseApi.mockReturnValue({
-            getUser: jest.fn(() => Promise.resolve({ 
-                activated: false,
-                user: null 
-            }))
-        });
-
-        renderLesson();
-
-        await waitFor(() => {
-            expect(() => screen.getByTestId('slideBtn')).toThrow();
-            expect(() => screen.getByTestId('codeBtn')).toThrow();
-        });
-    })
-
     it('non subscriber element', async () => {
         mockUseApi.mockReturnValue({
             getUser: jest.fn(() => Promise.resolve({ 

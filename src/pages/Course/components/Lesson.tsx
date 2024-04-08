@@ -34,26 +34,24 @@ function Lesson(props: { lesson: SingleLesson }) {
         <div>
             <div className={styles.wrapper_title_slide}>
                 <h2 className={styles.title}>{`${props.lesson.sequence} ${props.lesson.name}`}</h2>
-                {authContext.user && (
-                    <div className={styles.video_buttons}>
-                        {props.lesson.has_code && (
-                            <a 
-                                href={`https://github.com/bookinvideo/${urlParams.course}/${urlParams.lesson}`} 
-                                className={`${styles.code_btn}`}
-                                target="_blank"
-                                data-testid="codeBtn"
-                            >Código</a>
-                        )}
-                        {props.lesson.has_slide && (
-                            <a 
-                                href={`/slide/${urlParams.course}/${urlParams.lesson}`}
-                                className={`${styles.slide_btn}`}
-                                target="_blank"
-                                data-testid="slideBtn"
-                            >Slide</a>
-                        )}
-                    </div>
-                )}
+                <div className={styles.video_buttons}>
+                    {props.lesson.has_code && (
+                        <a 
+                            href={`https://github.com/bookinvideo/${urlParams.course}/${urlParams.lesson}`} 
+                            className={`${styles.code_btn}`}
+                            target="_blank"
+                            data-testid="codeBtn"
+                        >Código</a>
+                    )}
+                    {props.lesson.has_slide && (
+                        <a 
+                            href={`/slide/${urlParams.course}/${urlParams.lesson}`}
+                            className={`${styles.slide_btn}`}
+                            target="_blank"
+                            data-testid="slideBtn"
+                        >Slide</a>
+                    )}
+                </div>
             </div>
             <div className={styles.videoWrapper}>
                 {authContext.loading ? (
