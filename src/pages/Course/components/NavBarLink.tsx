@@ -1,5 +1,4 @@
-import styles from './Navbar.module.css';
-import styles2 from './NavbarLink.module.css';
+import styles from './NavbarLink.module.css';
 import { NavLink } from 'react-router-dom';
 import { Lesson } from '../../../interfaces/Course';
 
@@ -23,18 +22,16 @@ function NavbarLink(props: {
             onClick={deactiveNavbar}
             tabIndex={props.navbarActive ? 0 : -1}
             className={({ isActive }) => (
-                `${styles2.lesson_link} ${ isActive ? styles2.link_active : '' }`
+                `${styles.lesson_link} ${ isActive ? styles.link_active : '' }`
             )}
         >
-            <div className={styles2.lesson_name_wrapper}>
-                <span className={styles2.lesson_sequence}>{ props.lesson.sequence }</span>
-                <p className={styles2.lesson_name}>
-                    { props.lesson.name }
-                </p>
+            <div className={styles.lesson_name_wrapper}>
+                <span className={styles.lesson_sequence}>{ props.lesson.sequence }</span>
+                <p className={styles.lesson_name}>{ props.lesson.name }</p>
             </div>
-            <div className={styles2.lesson_duration_wrapper}>
-                <p className={styles2.lesson_duration}>{ props.lesson.duration }</p>
-                <div className={styles2.watched_feedback}>
+            <div className={styles.lesson_duration_wrapper}>
+                <p className={styles.lesson_duration}>{ props.lesson.duration }</p>
+                <div className={styles.watched_feedback}>
                     <span 
                         className={`${props.lesson.completed ? styles.watched : ''}`} 
                         data-testid="watchedFeedback"
