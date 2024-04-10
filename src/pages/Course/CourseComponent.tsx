@@ -4,8 +4,8 @@ import Header from '../../components/Header';
 import Navbar from './components/Navbar';
 import Lesson from './components/Lesson';
 import Loading from './components/Loading';
-import fetchData from '../../api/fetchData';
 import SingleLesson from '../../interfaces/SingleLesson';
+import { fetchData } from '../../api/fetchData';
 import { Course } from '../../interfaces/Course';
 import { useLocation, useParams } from "react-router-dom";
 

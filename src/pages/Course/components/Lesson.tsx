@@ -1,6 +1,7 @@
 import styles from './Lesson.module.css';
 import React from 'react';
 import SingleLesson from '../../../interfaces/SingleLesson';
+import useApi from '../../../hooks/useApi';
 import { useParams } from "react-router-dom";
 import { AuthContext } from '../../../context/AuthContext';
 import { Link } from 'react-router-dom';
@@ -13,6 +14,7 @@ import NonSubscribedUser from './NonSubscribedUser';
 function Lesson(props: { lesson: SingleLesson }) {
     const urlParams = useParams();
     const authContext = React.useContext(AuthContext);
+    const { completeLesson } = useApi();
 
     function displayVideoIfLoggedIn() {
         if (authContext.user) {
@@ -24,7 +26,7 @@ function Lesson(props: { lesson: SingleLesson }) {
 
     function displayVideoIfAccountIsSubscribed() {
         if (authContext.activated) {
-            return <Video video_src={props.lesson.video_src} />
+            return <Video video_src={props.lesson.video_src} completeLesson={completeLesson} />
         } else {
             return <div data-testid="nonSubscriber"><NonSubscribedUser /></div>
         }

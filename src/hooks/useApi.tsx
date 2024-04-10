@@ -1,8 +1,13 @@
-import fetchData from "../api/fetchData";
 import User from "../interfaces/User";
+import { fetchData, postData } from "../api/fetchData";
+
+interface AuthData {
+    user: User | null; 
+    activated: boolean;
+}
 
 function useApi() {
-    async function getUser(): Promise<{ user: User | null; activated: boolean }> {
+    async function getUser(): Promise<AuthData> {
         const response = await userRequest();
         return response;
     }
@@ -13,10 +18,18 @@ function useApi() {
         } catch {
             return { user: null };
         }
-
     }
 
-    return { getUser };
+    async function completeLesson(endpoint: string) {
+        try {
+            await postData(endpoint);
+            console.log(1);
+        } catch {
+            console.log('false')
+        }
+    }
+
+    return { getUser, completeLesson };
 }
 
 export default useApi;

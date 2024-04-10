@@ -14,6 +14,7 @@ const mockUseApi = jest.mocked(useApi);
 describe('Header', () => {
     it('user logged', async () => {
         mockUseApi.mockReturnValue({
+            completeLesson: jest.fn(),
             getUser: jest.fn(() => Promise.resolve({ 
                 activated: true,
                 user: { username: 'Gabriel' }
@@ -33,6 +34,7 @@ describe('Header', () => {
 
     it('user logged without name', async () => {
         mockUseApi.mockReturnValue({
+            completeLesson: jest.fn(),
             getUser: jest.fn(() => Promise.resolve({ 
                 activated: true,
                 user: { username: '' }
@@ -52,6 +54,7 @@ describe('Header', () => {
 
     it('user not logged', async () => {
         mockUseApi.mockReturnValue({
+            completeLesson: jest.fn(),
             getUser: jest.fn(() => Promise.resolve({ 
                 activated: false, 
                 user: null 
@@ -73,6 +76,7 @@ describe('Header', () => {
 describe('Lesson', () => {
     it('unlogged: show authenticate component', async () => {
         mockUseApi.mockReturnValue({
+            completeLesson: jest.fn(),
             getUser: jest.fn(() => Promise.resolve({ 
                 activated: false, 
                 user: null 
@@ -86,6 +90,7 @@ describe('Lesson', () => {
 
     it('non subscriber element', async () => {
         mockUseApi.mockReturnValue({
+            completeLesson: jest.fn(),
             getUser: jest.fn(() => Promise.resolve({ 
                 user: { username: 'Gabriel' },
                 activated: false
