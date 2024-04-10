@@ -17,13 +17,15 @@ const course: Course = {
                     "name": "Código limpo",
                     "slug": "0102-codigo-limpo",
                     "sequence": "0102",
-                    "duration": "15:56"
+                    "duration": "15:56",
+                    "completed": false,
                 },
                 {
                     "name": "Configuração",
                     "slug": "0101-configuracao",
                     "sequence": "0101",
-                    "duration": "06:55"
+                    "duration": "06:55",
+                    "completed": false,
                 }
             ]
         }

@@ -15,6 +15,7 @@ interface Lesson {
     slug: string;
     sequence: string;
     duration: string;
+    completed: boolean;
 }
 
 export type { Course, Lesson };

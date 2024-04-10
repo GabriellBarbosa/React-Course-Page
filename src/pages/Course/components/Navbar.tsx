@@ -54,13 +54,20 @@ function Navbar(props: { course: Course }) {
                                 <ul className={styles.lesson_list}>
                                     {module.lessons.map((lesson) => {
                                         return (
-                                            <NavBarLink
-                                                key={lesson.slug} 
-                                                courseSlug={props.course.slug}
-                                                lesson={lesson}
-                                                navbarActive={navbarActive}
-                                                setNavbarActive={setNavbarActive}
-                                            />
+                                            <li
+                                                key={lesson.slug}
+                                                data-testid="video"
+                                                style={{ order: lesson.sequence }}
+                                                className={styles.lesson_wrapper}
+                                            >
+                                                <NavBarLink
+                                                    key={lesson.slug} 
+                                                    courseSlug={props.course.slug}
+                                                    lesson={lesson}
+                                                    navbarActive={navbarActive}
+                                                    setNavbarActive={setNavbarActive}
+                                                />
+                                            </li>
                                         );
                                     })}
                                 </ul>

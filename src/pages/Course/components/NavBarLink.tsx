@@ -1,10 +1,11 @@
 import styles from './Navbar.module.css';
+import styles2 from './NavbarLink.module.css';
 import { NavLink } from 'react-router-dom';
 import { Lesson } from '../../../interfaces/Course';
 
-function NavbarLink(props: { 
+function NavbarLink(props: {
     courseSlug: string,
-    lesson: Lesson, 
+    lesson: Lesson,
     navbarActive: boolean,
     setNavbarActive: (navbarActive: boolean) => void;
 }) {
@@ -17,32 +18,30 @@ function NavbarLink(props: {
     }
 
     return (
-        <li 
-            data-testid='video' 
-            style={{ order: props.lesson.sequence }} 
-            className={styles.lesson_wrapper} 
-            key={props.lesson.slug}
+        <NavLink
+            to={`/curso/${props.courseSlug}/${props.lesson.slug}`}
+            onClick={deactiveNavbar}
+            tabIndex={props.navbarActive ? 0 : -1}
+            className={({ isActive }) => (
+                `${styles2.lesson_link} ${ isActive ? styles2.link_active : '' }`
+            )}
         >
-            <NavLink
-                to={`/curso/${props.courseSlug}/${props.lesson.slug}`}
-                onClick={deactiveNavbar}
-                tabIndex={props.navbarActive ? 0 : -1}
-                className={({ isActive }) => (
-                    `${styles.lesson_link} ${ isActive ? styles.link_active : '' }`
-                )}
-            >
-                <div className={styles.lesson_name_wrapper}>
-                    <span className={styles.lesson_sequence}>{ props.lesson.sequence }</span>
-                    <p className={styles.lesson_name}>
-                        { props.lesson.name }
-                    </p>
+            <div className={styles2.lesson_name_wrapper}>
+                <span className={styles2.lesson_sequence}>{ props.lesson.sequence }</span>
+                <p className={styles2.lesson_name}>
+                    { props.lesson.name }
+                </p>
+            </div>
+            <div className={styles2.lesson_duration_wrapper}>
+                <p className={styles2.lesson_duration}>{ props.lesson.duration }</p>
+                <div className={styles2.watched_feedback}>
+                    <span 
+                        className={`${props.lesson.completed ? styles.watched : ''}`} 
+                        data-testid="watchedFeedback"
+                    ></span>
                 </div>
-                <div className={styles.lesson_duration_wrapper}>
-                    <p className={styles.lesson_duration}>{ props.lesson.duration }</p>
-                    <span className={styles.lesson_watched_feedback} aria-label='vídeo assistido'></span>
-                </div>
-            </NavLink>
-        </li>
+            </div>
+        </NavLink>
     )
 }
 

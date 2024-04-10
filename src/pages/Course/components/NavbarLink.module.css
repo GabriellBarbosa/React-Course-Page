@@ -1,0 +1,57 @@
+.lesson_link {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.link_active {
+    background-color: var(--gray-4);
+}
+
+.link_active .lesson_name_wrapper .lesson_sequence,
+.link_active .lesson_name_wrapper .lesson_name,
+.link_active .lesson_duration_wrapper .lesson_duration {
+    color: var(--gray-8);
+}
+
+.lesson_name_wrapper {
+    padding: 10px;
+}
+
+.lesson_name_wrapper .lesson_sequence,
+.lesson_duration_wrapper .lesson_duration {
+    color: var(--gray-5);
+    font-size: 12px;
+}
+
+.lesson_name_wrapper .lesson_name {
+    color: var(--gray-6);
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.lesson_duration_wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.lesson_duration_wrapper .watched_feedback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+}
+
+.watched_feedback > span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border: 2px solid var(--gray-0);
+    border-radius: 50%;
+}
+
+.watched_feedback > span.watched {
+    background-color: var(--c-0-light);
+}
