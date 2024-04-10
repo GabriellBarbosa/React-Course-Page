@@ -22,10 +22,9 @@ function useApi() {
 
     async function completeLesson(endpoint: string) {
         try {
-            await postData(endpoint);
-            console.log(1);
+            return await postData(endpoint);
         } catch {
-            console.log('false')
+            return false;
         }
     }
 

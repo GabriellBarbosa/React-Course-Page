@@ -110,6 +110,7 @@ function renderLesson() {
         name: 'codigo-limpo',
         sequence: '01',
         video_src: '',
+        completed: true,
         prev: '',
         next: '',
         has_code: 'true',

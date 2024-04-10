@@ -26,7 +26,11 @@ function Lesson(props: { lesson: SingleLesson }) {
 
     function displayVideoIfAccountIsSubscribed() {
         if (authContext.activated) {
-            return <Video video_src={props.lesson.video_src} completeLesson={completeLesson} />
+            return (
+                <Video 
+                    video_src={props.lesson.video_src} 
+                    isCompleted={props.lesson.completed} 
+                    completeLesson={completeLesson} />)
         } else {
             return <div data-testid="nonSubscriber"><NonSubscribedUser /></div>
         }
