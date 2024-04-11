@@ -45,14 +45,12 @@ function Video(props: Props) {
     }
 
     return (
-        <>
-            <div className={styles.video}>
-                <button 
-                    data-testid="completeBtn"
-                    onClick={completeLesson}
-                >Completar aula</button>
-            </div>
-        </>
+        <div className={styles.video}>
+            <button 
+                data-testid="completeBtn"
+                onClick={completeLesson}
+            >Completar aula</button>
+        </div>
     )
 }
 

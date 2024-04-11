@@ -5,8 +5,6 @@ import { AuthProvider } from './context/AuthContext';
 import { Routes, Route } from 'react-router-dom';
 import { CourseContentProvider } from './context/CourseContentContext';
 
-console.log((window as any).wp_data?.course);
-
 function App() {
     return (
         <AuthProvider>
