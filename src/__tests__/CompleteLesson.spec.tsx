@@ -1,17 +1,56 @@
+import SingleLesson from "../interfaces/SingleLesson";
 import Video from "../pages/Course/components/Video";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { CourseContentContext } from "../context/CourseContentContext";
+import { Course } from "../interfaces/Course";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 describe('Complete lesson', () => {
+    let mockedLesson: SingleLesson;
+    let mockedCourse: Course;
+
+    beforeEach(() => {
+        mockedLesson = {
+            name: 'Codigo limpo',
+            sequence: '02',
+            slug: '0102-codigo-limpo',
+            video_src: 'vimeo/87e',
+            completed: false,
+            prev: '',
+            next: '0201-funcoes',
+            has_code: 'true',
+            has_slide: 'true',
+        }
+        mockedCourse = {
+            'name': 'Codigo limpo', 
+            'slug': 'codigo-limpo',
+            'modules': [
+                {
+                    'name': 'Introducao',
+                    'sequence': '01',
+                    'lessons': [
+                        {
+                            'name': 'Codigo limpo',
+                            'slug': '0102-codigo-limpo',
+                            'sequence': '02',
+                            'duration': '15:05',
+                            'completed': false
+                        },
+                    ]
+                }
+            ]
+        }
+    });
+
     it('completeLesson if its not completed', () => {
+        mockedLesson = { ...mockedLesson, completed: false };
         const completeLesson = jest.fn();
+        
         render(
             <Video 
-                video_src="www.vimeo.com"
-                isCompleted={false}
+                lesson={mockedLesson} 
                 completeLesson={completeLesson} 
             />
         );
-
         const completeButton = screen.getByTestId('completeBtn');
         fireEvent.click(completeButton);
 
@@ -19,18 +58,38 @@ describe('Complete lesson', () => {
     });
 
     it('not completeLesson if its already completed', () => {
+        mockedLesson = { ...mockedLesson, completed: true };
         const completeLesson = jest.fn();
+
         render(
             <Video 
-                video_src="www.vimeo.com"
-                isCompleted={true}
+                lesson={mockedLesson} 
                 completeLesson={completeLesson} 
             />
         );
-
         const completeButton = screen.getByTestId('completeBtn');
         fireEvent.click(completeButton);
 
         expect(completeLesson).not.toHaveBeenCalled();
+    });
+
+    it('update course context after complete lesson', async () => {
+        mockedLesson = { ...mockedLesson, completed: false };
+        const completeLesson = jest.fn(() => Promise.resolve(true));
+        const setCourseMock = jest.fn();
+        render(
+            <CourseContentContext.Provider 
+                value={{ course: mockedCourse, setCourse: setCourseMock }}
+            >
+                <Video 
+                    lesson={mockedLesson} 
+                    completeLesson={completeLesson} 
+                />
+            </CourseContentContext.Provider>
+        );
+        const completeButton = screen.getByTestId('completeBtn');
+        fireEvent.click(completeButton);
+
+        await waitFor(() => expect(setCourseMock).toHaveBeenCalled());
     });
 })

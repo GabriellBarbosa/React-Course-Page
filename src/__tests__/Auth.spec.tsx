@@ -107,8 +107,9 @@ describe('Lesson', () => {
 
 function renderLesson() {
     const lesson = {
-        name: 'codigo-limpo',
-        sequence: '01',
+        name: 'Codigo limpo',
+        sequence: '02',
+        slug: '0102-codigo-limpo',
         video_src: '',
         completed: true,
         prev: '',

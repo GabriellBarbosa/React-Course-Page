@@ -59,7 +59,6 @@ function Navbar(props: { course: Course }) {
                                         className={styles.lesson_wrapper}
                                     >
                                         <NavBarLink
-                                            key={lesson.slug} 
                                             courseSlug={props.course.slug}
                                             lesson={lesson}
                                             navbarActive={navbarActive}

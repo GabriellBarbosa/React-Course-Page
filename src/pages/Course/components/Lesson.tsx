@@ -11,26 +11,28 @@ import Video from './Video';
 import Authenticate from './Authenticate';
 import NonSubscribedUser from './NonSubscribedUser';
 
-function Lesson(props: { lesson: SingleLesson }) {
+interface Props {
+    lesson: SingleLesson;
+}
+
+function Lesson(props: Props) {
     const urlParams = useParams();
     const authContext = React.useContext(AuthContext);
     const { completeLesson } = useApi();
 
     function displayVideoIfLoggedIn() {
         if (authContext.user) {
-            return displayVideoIfAccountIsSubscribed();
+            return displayVideoIfUserIsSubscribed();
         } else {
             return <div data-testid="authenticate"><Authenticate /></div>
         }
     }
 
-    function displayVideoIfAccountIsSubscribed() {
+    function displayVideoIfUserIsSubscribed() {
         if (authContext.activated) {
             return (
-                <Video 
-                    video_src={props.lesson.video_src} 
-                    isCompleted={props.lesson.completed} 
-                    completeLesson={completeLesson} />)
+                <Video lesson={props.lesson} completeLesson={completeLesson} />
+            );
         } else {
             return <div data-testid="nonSubscriber"><NonSubscribedUser /></div>
         }

@@ -3,6 +3,7 @@ interface SingleLesson {
     sequence: string;
     video_src: string;
     completed: boolean;
+    slug: string;
     prev?: string;
     next?: string;
     has_code?: string;

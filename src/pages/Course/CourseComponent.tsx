@@ -6,40 +6,30 @@ import Lesson from './components/Lesson';
 import Loading from './components/Loading';
 import SingleLesson from '../../interfaces/SingleLesson';
 import { fetchData } from '../../api/fetchData';
-import { Course } from '../../interfaces/Course';
 import { useLocation, useParams } from "react-router-dom";
+import { CourseContentContext } from '../../context/CourseContentContext';
 
 function CourseComponent() {
-    const [course, setCourse] = React.useState<Course | null>(null);
+    const courseContentContext = React.useContext(CourseContentContext);
     const [lesson, setLesson] = React.useState<SingleLesson | null>(null);
-
     const [courseLoading, setCourseLoading] = React.useState<boolean>(false);
     const [lessonLoading, setLessonLoading] = React.useState<boolean>(false);
-
     const urlParams = useParams();
     const location = useLocation();
 
     React.useEffect(() => {
         setLessonLoading(true);
-        getLesson()
+        fetchPromise(`/curso/${urlParams.course}/${urlParams.lesson}`)
             .then((lesson) => setLesson(lesson))
             .finally(() => setLessonLoading(false))
     }, [location]);
   
     React.useEffect(() => {
         setCourseLoading(true);
-        getCourse()
-            .then((course) => setCourse(course))
+        fetchPromise(`/curso/${urlParams.course}`)
+            .then((course) => courseContentContext.setCourse(course))
             .finally(() => setCourseLoading(false))
     }, []);
-
-    function getCourse() {
-        return fetchPromise(`/curso/${urlParams.course}`);
-    }
-
-    function getLesson() {
-        return fetchPromise(`/curso/${urlParams.course}/${urlParams.lesson}`);
-    }
 
     async function fetchPromise(endpoint: string) {
         try {
@@ -49,23 +39,29 @@ function CourseComponent() {
         }
     }
 
+    function displayNavbar() {
+        if (courseContentContext.course) {
+            return <Navbar course={courseContentContext.course} />;
+        }
+        return null;
+    }
+
+    function displayLesson() {
+        if (lesson) {
+            return <Lesson lesson={lesson} />;
+        }
+        return <p>Não encontrado.</p>;
+    }
+
     return (
         <>
             <div>
                 <Header />
-                {courseLoading ? (
-                    <Loading />
-                ) : (
-                    course ? <Navbar course={course} />  : null 
-                )}
+                {courseLoading ?  <Loading /> : displayNavbar() }
             </div>
             <div className={styles.wrapper}>
                 <div className={styles.container}>
-                    {lessonLoading ? (
-                        <Loading />
-                    ) : (
-                        lesson ? <Lesson lesson={lesson} /> : <p>Não encontrado.</p> 
-                    )}
+                    {lessonLoading ?  <Loading /> : displayLesson()}
                 </div>
             </div>
         </>
