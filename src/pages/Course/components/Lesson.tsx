@@ -43,17 +43,17 @@ function Lesson(props: Props) {
             <div className={styles.wrapper_title_slide}>
                 <h2 className={styles.title}>{`${props.lesson.sequence} ${props.lesson.name}`}</h2>
                 <div className={styles.video_buttons}>
-                    {props.lesson.has_code && (
+                    {props.lesson.code && (
                         <a 
-                            href={`https://github.com/bookinvideo/${urlParams.course}/${urlParams.lesson}`} 
+                            href={`https://github.com/bookinvideo/${props.lesson.code}`} 
                             className={`${styles.code_btn}`}
                             target="_blank"
                             data-testid="codeBtn"
                         >Código</a>
                     )}
-                    {props.lesson.has_slide && (
+                    {props.lesson.slide && (
                         <a 
-                            href={`/slide/${urlParams.course}/${urlParams.lesson}`}
+                            href={props.lesson.slide}
                             className={`${styles.slide_btn}`}
                             target="_blank"
                             data-testid="slideBtn"
@@ -64,7 +64,9 @@ function Lesson(props: Props) {
             <div className={styles.videoWrapper}>
                 {authContext.loading ? (
                     <div className={styles.loadingWrapper}><Loading /></div>
-                ) : displayVideoIfLoggedIn()}
+                ) : (
+                    displayVideoIfLoggedIn()
+                )}
             </div>
             <div className={styles.change_video_buttons}>
                 {props.lesson.prev && (

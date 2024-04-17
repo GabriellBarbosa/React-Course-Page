@@ -4,10 +4,10 @@ interface SingleLesson {
     video_src: string;
     completed: boolean;
     slug: string;
-    prev?: string;
-    next?: string;
-    has_code?: string;
-    has_slide?: string;
+    prev: string;
+    next: string;
+    code: string;
+    slide: string;
 }
 
 export default SingleLesson;

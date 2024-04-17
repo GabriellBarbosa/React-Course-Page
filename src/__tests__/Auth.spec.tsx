@@ -114,8 +114,8 @@ function renderLesson() {
         completed: true,
         prev: '',
         next: '',
-        has_code: 'true',
-        has_slide: 'true',
+        code: '/code',
+        slide: '/slide',
     }
 
     act(() => (

@@ -17,8 +17,8 @@ describe('Complete lesson', () => {
             completed: false,
             prev: '',
             next: '0201-funcoes',
-            has_code: 'true',
-            has_slide: 'true',
+            code: '/code',
+            slide: '/slide',
         }
         mockedCourse = {
             'name': 'Codigo limpo', 
