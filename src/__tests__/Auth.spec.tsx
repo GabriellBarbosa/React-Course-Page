@@ -116,6 +116,7 @@ function renderLesson() {
         next: '',
         code: '/code',
         slide: '/slide',
+        note: ''
     }
 
     act(() => (

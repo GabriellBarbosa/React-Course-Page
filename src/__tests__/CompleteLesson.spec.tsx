@@ -19,6 +19,7 @@ describe('Complete lesson', () => {
             next: '0201-funcoes',
             code: '/code',
             slide: '/slide',
+            note: ''
         }
         mockedCourse = {
             'name': 'Codigo limpo', 

@@ -8,6 +8,7 @@ interface SingleLesson {
     next: string;
     code: string;
     slide: string;
+    note: string;
 }
 
 export default SingleLesson;

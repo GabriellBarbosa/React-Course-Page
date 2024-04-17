@@ -80,6 +80,9 @@ function Lesson(props: Props) {
                     </Link>
                 )}
             </div>
+            {props.lesson.note && (
+                <p data-testid="note" className={styles.note}>{ props.lesson.note }</p>
+            )}
         </div>
     )
 }
