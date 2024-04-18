@@ -45,7 +45,7 @@ function Lesson(props: Props) {
                 <div className={styles.video_buttons}>
                     {props.lesson.code && (
                         <a 
-                            href={`https://github.com/bookinvideo/${props.lesson.code}`} 
+                            href={props.lesson.code} 
                             className={`${styles.code_btn}`}
                             target="_blank"
                             data-testid="codeBtn"

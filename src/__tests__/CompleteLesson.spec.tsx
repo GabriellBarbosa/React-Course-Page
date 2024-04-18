@@ -13,7 +13,7 @@ describe('Complete lesson', () => {
             name: 'Codigo limpo',
             sequence: '02',
             slug: '0102-codigo-limpo',
-            video_src: 'vimeo/87e',
+            video_src: 'https://player.vimeo.com/video/922895312?badge=0&autopause=0&player_id=0&app_id=58479',
             completed: false,
             prev: '',
             next: '0201-funcoes',
@@ -78,6 +78,7 @@ describe('Complete lesson', () => {
         mockedLesson = { ...mockedLesson, completed: false };
         const completeLesson = jest.fn(() => Promise.resolve(true));
         const setCourseMock = jest.fn();
+
         render(
             <CourseContentContext.Provider 
                 value={{ course: mockedCourse, setCourse: setCourseMock }}

@@ -4,6 +4,7 @@ import styles from './Video.module.css';
 import { CourseContentContext } from '../../../context/CourseContentContext';
 import { Course, Lesson } from '../../../interfaces/Course';
 import { useParams } from 'react-router-dom';
+import VideoPlayer from './VideoPlayer';
 
 interface Props {
     lesson: SingleLesson;
@@ -46,7 +47,9 @@ function Video(props: Props) {
 
     return (
         <div className={styles.video}>
-            <button 
+            <VideoPlayer src={props.lesson.video_src} onEnded={completeLesson} />
+            <button
+                className={styles.completeBtn}
                 data-testid="completeBtn"
                 onClick={completeLesson}
             >Completar aula</button>
