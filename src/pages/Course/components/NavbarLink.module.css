@@ -6,13 +6,18 @@
 }
 
 .link_active {
-    background-color: var(--gray-4);
+    background-color: var(--gray-5);
 }
 
 .link_active .lesson_name_wrapper .lesson_sequence,
 .link_active .lesson_name_wrapper .lesson_name,
 .link_active .lesson_duration_wrapper .lesson_duration {
-    color: var(--gray-8);
+    color: var(--gray-0);
+}
+
+.link_active .lesson_name_wrapper .lesson_sequence,
+.link_active .lesson_duration_wrapper .lesson_duration {
+    color: var(--gray-3);
 }
 
 .lesson_name_wrapper {
@@ -21,7 +26,7 @@
 
 .lesson_name_wrapper .lesson_sequence,
 .lesson_duration_wrapper .lesson_duration {
-    color: var(--gray-5);
+    color: var(--gray-plus);
     font-size: 12px;
 }
 
