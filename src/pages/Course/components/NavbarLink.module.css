@@ -21,7 +21,7 @@
 }
 
 .lesson_name_wrapper {
-    padding: 10px;
+    padding: 5px 10px;
 }
 
 .lesson_name_wrapper .lesson_sequence,
@@ -32,8 +32,8 @@
 
 .lesson_name_wrapper .lesson_name {
     color: var(--gray-6);
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 14px;
+    line-height: 19.6px;
 }
 
 .lesson_duration_wrapper {
