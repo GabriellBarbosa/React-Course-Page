@@ -147,8 +147,10 @@ span.line:nth-child(3) {
     .links_container button.link {
         margin: 0;
         display: block;
+        width: 100%;
         padding: 15px 5px;
         border-bottom: 1px solid var(--gray-3);
+        text-align: left;
     }
 
     .links_container .link:nth-child(2) {
