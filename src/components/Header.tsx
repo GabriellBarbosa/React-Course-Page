@@ -73,10 +73,15 @@ function Header() {
                         onClick={toggleMobileMenuActive}
                         data-testid="mobile_menu_button"
                         ref={menuButton}
-                    ><span className={styles.line}></span></div>
+                    >
+                        <span className={styles.line}></span>
+                        <span className={styles.line}></span>
+                        <span className={styles.line}></span>
+                    </div>
 
                     <div className={styles.links_container} ref={mobileMenu}>
                         <div className={styles.links_wrapper}>
+                            <a href="/curso/codigo-limpo/0101-configuracao" className={styles.link}>Curso</a>
                             <div className={styles.subscription}>
                                 <SubscribeButton text="Inscreva-se" className={styles.link} />
                             </div>
