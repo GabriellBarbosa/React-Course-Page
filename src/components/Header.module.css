@@ -159,4 +159,8 @@ span.line:nth-child(3) {
         margin-top: 0.313rem;
         margin-bottom: 0.938rem;
     }
+
+    .subscription {
+        width: 100%;
+    }
 }
