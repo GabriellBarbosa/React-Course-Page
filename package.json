@@ -7,6 +7,7 @@
     "dev": "vite",
     "test": "jest --watchAll",
     "build": "tsc && vite build",
+    "build:wplocal": "tsc && vite build --mode wplocal",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

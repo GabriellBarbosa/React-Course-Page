@@ -1,14 +1,12 @@
-.nonSubscribedUser {
+.wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--gray-1);
-    aspect-ratio: 16 / 9;
     padding: 15px;
 }
 
-.nonSubscribedUser p {
+.wrapper p {
     font-family: 'PT Serif', serif;
     font-size: 24px;
     line-height: 33.6px;
@@ -17,7 +15,7 @@
     text-align: center;
 }
 
-.nonSubscribedUser .subscription {
+.wrapper .subscription {
     display: block;
     text-align: center;
     font-size: 18px;
@@ -30,18 +28,18 @@
     cursor: pointer;
 }
 
-.nonSubscribedUser .subscription:hover {
+.wrapper .subscription:hover {
     background-color: var(--c-0-dark);
 }
 
 @media screen and (max-width: 760px) {
-    .nonSubscribedUser p {
+    .wrapper p {
         font-size: 16px;
         line-height: 24px;
         margin-bottom: 16px;
         max-width: 300px;
     }
-    .nonSubscribedUser .subscription {
+    .wrapper .subscription {
         font-size: 14px;
         width: 180px;
         margin-bottom: 15px;
