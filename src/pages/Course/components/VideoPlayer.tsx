@@ -1,6 +1,8 @@
 import styles from './VideoPlayer.module.css';
 import React from 'react';
 import Vimeo from '@vimeo/player';
+import VideoBackground from './VideoBackground';
+import Loading from './Loading';
 
 interface Props {
     src: string;
@@ -26,6 +28,11 @@ function VideoPlayer(props: Props) {
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
             />
             <script src="https://player.vimeo.com/api/player.js"></script>
+            <div className={styles.loadingWrapper}>
+                <VideoBackground>
+                    <Loading />
+                </VideoBackground>
+            </div>
         </div>
     )
 }
