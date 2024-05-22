@@ -20,7 +20,10 @@ async function postData(endpoint: string) {
 
 function getHeadersWithNonce() {
     const nonce: string = (window as any).wp_data?.nonce || 'not defined';
-    return {headers: { 'X-WP-Nonce': nonce }}
+    if (import.meta.env.MODE == 'development')
+        return {};
+    else
+        return {headers: { 'X-WP-Nonce': nonce }}
 }
 
 export { fetchData, postData };
