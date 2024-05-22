@@ -1,5 +1,5 @@
-const { VITE_API_URL } = import.meta.env;
-
+const { VITE_API_URL, MODE } = import.meta.env;
 export {
-    VITE_API_URL
+    VITE_API_URL,
+    MODE
 };

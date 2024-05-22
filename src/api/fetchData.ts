@@ -1,4 +1,4 @@
-import { VITE_API_URL } from "../constants/enviroment";
+import { VITE_API_URL, MODE } from "../constants/enviroment";
 
 async function fetchData(endpoint: string) {
     const response = await fetch(VITE_API_URL + endpoint, getHeadersWithNonce());
@@ -20,7 +20,7 @@ async function postData(endpoint: string) {
 
 function getHeadersWithNonce() {
     const nonce: string = (window as any).wp_data?.nonce || 'not defined';
-    if (import.meta.env.MODE == 'development')
+    if (MODE == 'development')
         return {};
     else
         return {headers: { 'X-WP-Nonce': nonce }}
