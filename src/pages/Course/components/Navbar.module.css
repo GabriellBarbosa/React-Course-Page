@@ -110,11 +110,11 @@
 }
 
 @media screen and (max-width: 760px) {
-    module .lesson_wrapper {
+    .navbar.active .module .lesson_wrapper:hover {
         background-color: transparent;
     }
 
-    .module .lesson_wrapper:nth-child(even):hover {
+    .navbar.active module .lesson_wrapper:hover:nth-child(even) {
         background-color: var(--gray-3);
     }
 }
