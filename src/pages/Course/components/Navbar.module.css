@@ -106,5 +106,15 @@
 }
 
 .navbar.active .module .lesson_wrapper:hover {
-    background-color: var(--gray-0);
+    background-color: var(--gray-1);
+}
+
+@media screen and (max-width: 760px) {
+    module .lesson_wrapper {
+        background-color: transparent;
+    }
+
+    .module .lesson_wrapper:nth-child(even):hover {
+        background-color: var(--gray-3);
+    }
 }
