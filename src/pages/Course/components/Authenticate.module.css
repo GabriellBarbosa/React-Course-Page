@@ -1,22 +1,20 @@
-.authenticate {
+.wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--gray-1);
-    aspect-ratio: 16 / 9;
     padding: 15px;
 }
 
-.authenticate p {
+.wrapper p {
     font-family: 'PT Serif', serif;
     font-size: 24px;
     margin-bottom: 24px;
     text-align: center;
 }
 
-.authenticate a,
-.authenticate .subscription {
+.wrapper a,
+.wrapper .subscription {
     display: block;
     font-size: 18px;
     width: 212px;
@@ -28,25 +26,25 @@
     cursor: pointer;
 }
 
-.authenticate a:hover,
-.authenticate .subscription:hover {
+.wrapper a:hover,
+.wrapper .subscription:hover {
     background-color: var(--c-0-dark);
 }
 
-.authenticate span {
+.wrapper span {
     font-family: 'PT Serif', serif;
     margin: 16px 0;
 }
 
 @media screen and (max-width: 760px) {
-    .authenticate a, 
-    .authenticate .subscription {
+    .wrapper a, 
+    .wrapper .subscription {
         font-size: 14px;
         width: 180px;
         margin-bottom: 15px;
     }
 
-    .authenticate span {
+    .wrapper span {
         display: none;
     }
 }
