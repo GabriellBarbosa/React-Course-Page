@@ -37,6 +37,7 @@
     padding: 10px 0;
     margin-left: 20px;
     color: var(--gray-8);
+    line-height: 23px;
 }
 
 .links_container a.link:hover,
