@@ -1,8 +1,8 @@
-import styles from './NonSubscribedUser.module.css';
+import styles from './NotActivated.module.css';
 import SubscribeButton from '../../../components/SubscribeButton';
 import VideoBackground from './VideoBackground';
 
-function NonSubscribedUser() {
+function NotActivated() {
     return (
         <VideoBackground>
             <div className={styles.wrapper}>
@@ -13,4 +13,4 @@ function NonSubscribedUser() {
     )
 }
 
-export default NonSubscribedUser;
+export default NotActivated;

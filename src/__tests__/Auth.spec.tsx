@@ -1,17 +1,23 @@
 import Header from '../components/Header';
 import useApi from '../hooks/useApi';
 import Lesson from '../pages/Course/components/Lesson';
+import NavbarLink from '../pages/Course/components/NavBarLink';
 import { AuthProvider } from '../context/AuthContext';
 import { render, screen, waitFor } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { MemoryRouter } from 'react-router-dom';
-import NavbarLink from '../pages/Course/components/NavBarLink';
 
 jest.mock('../constants/enviroment.ts', () => ({
     VITE_API_URL: 'bookinvideo',
 }));
 jest.mock('../hooks/useApi.tsx');
 const mockUseApi = jest.mocked(useApi);
+
+jest.mock('../pages/Course/components/VideoPlayer.tsx', () => {
+    const VideoPlayer = () => <div />;
+    return VideoPlayer;
+});
+const LessonWithMockedPlayer = require('../pages/Course/components/Lesson').default;
 
 describe('Header', () => {
     it('user logged', async () => {
@@ -85,12 +91,12 @@ describe('Lesson', () => {
             }))
         });
 
-        renderLesson();
+        renderPaidLesson();
 
         await waitFor(() => expect(screen.getByTestId('authenticate')).toBeTruthy())
     });
 
-    it('non subscriber element', async () => {
+    it('not activated user element', async () => {
         mockUseApi.mockReturnValue({
             completeLesson: jest.fn(),
             getUser: jest.fn(() => Promise.resolve({ 
@@ -99,32 +105,75 @@ describe('Lesson', () => {
             }))
         });
 
-        renderLesson();
+        renderPaidLesson();
 
         await waitFor(() => {
-            expect(screen.getByTestId('nonSubscriber')).toBeTruthy();
+            expect(screen.getByTestId('notActivated')).toBeTruthy();
         });
     })
 
-    function renderLesson() {
-        const lesson = {
-            name: 'Codigo limpo',
-            sequence: '02',
-            slug: '0102-codigo-limpo',
-            video_src: '',
-            completed: true,
-            prev: '',
-            next: '',
-            code: '/code',
-            slide: '/slide',
-            free: '',
-            note: ''
-        }
-    
+    it('free lesson to not activated user', async () => {
+        mockUseApi.mockReturnValue({
+            completeLesson: jest.fn(),
+            getUser: jest.fn(() => Promise.resolve({ 
+                user: { username: 'Gabriel' },
+                activated: false
+            }))
+        });
+
+        renderFreeLesson();
+
+        await waitFor(() => {
+            expect(screen.getByTestId('videoLesson')).toBeTruthy();
+        });
+    })
+
+    it('free lesson to unlogged user', async () => {
+        mockUseApi.mockReturnValue({
+            completeLesson: jest.fn(),
+            getUser: jest.fn(() => Promise.resolve({ 
+                user: null,
+                activated: false
+            }))
+        });
+
+        renderFreeLesson();
+
+        await waitFor(() => {
+            expect(screen.getByTestId('videoLesson')).toBeTruthy();
+        });
+    })
+
+    const paidLesson = {
+        name: 'Codigo limpo',
+        sequence: '02',
+        slug: '0102-codigo-limpo',
+        video_src: 'vimeo.com',
+        completed: true,
+        prev: '',
+        next: '',
+        code: '/code',
+        slide: '/slide',
+        free: '',
+        note: ''
+    }
+
+    function renderPaidLesson() {
         act(() => (
             render(
                 <AuthProvider>
-                    <Lesson lesson={lesson} />
+                    <Lesson lesson={paidLesson} />
+                </AuthProvider>
+            )
+        ));
+    }
+
+    function renderFreeLesson() {
+        const freeLesson = {...paidLesson, free: 'true'};
+        act(() => (
+            render(
+                <AuthProvider>
+                    <LessonWithMockedPlayer lesson={freeLesson} />
                 </AuthProvider>
             )
         ));

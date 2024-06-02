@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import Loading from './Loading';
 import Video from './Video';
 import Authenticate from './Authenticate';
-import NonSubscribedUser from './NonSubscribedUser';
+import NotActivated from './NotActivated';
 
 interface Props {
     lesson: SingleLesson;
@@ -21,7 +21,7 @@ function Lesson(props: Props) {
     const { completeLesson } = useApi();
 
     function displayVideoIfLoggedIn() {
-        if (authContext.user) {
+        if (authContext.user || props.lesson.free == 'true') {
             return displayVideoIfUserIsSubscribed();
         } else {
             return <div data-testid="authenticate"><Authenticate /></div>
@@ -29,12 +29,18 @@ function Lesson(props: Props) {
     }
 
     function displayVideoIfUserIsSubscribed() {
-        if (authContext.activated) {
+        if (authContext.activated || props.lesson.free == 'true') {
             return (
-                <Video lesson={props.lesson} completeLesson={completeLesson} />
-            );
+                <div data-testid="videoLesson">
+                    <Video lesson={props.lesson} completeLesson={completeLesson} />
+                </div>
+                );
         } else {
-            return <div data-testid="nonSubscriber"><NonSubscribedUser /></div>
+            return (
+                <div data-testid="notActivated">
+                    <NotActivated />
+                </div>
+            )
         }
     }
 
