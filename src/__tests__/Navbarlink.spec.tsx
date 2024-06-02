@@ -2,6 +2,10 @@ import { MemoryRouter } from "react-router-dom";
 import NavBarLink from "../pages/Course/components/NavBarLink";
 import { render, screen } from "@testing-library/react";
 
+jest.mock('../constants/enviroment.ts', () => ({
+    VITE_API_URL: 'bookinvideo',
+}));
+
 describe('Navbarlink', () => {
     const lesson = {               
         "name": "Configuração",

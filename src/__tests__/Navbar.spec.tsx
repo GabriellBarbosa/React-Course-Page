@@ -5,6 +5,10 @@ import { Course } from '../interfaces/Course';
 import Navbar from '../pages/Course/components/Navbar';
 import styles from '../components/Navbar.module.css';
 
+jest.mock('../constants/enviroment.ts', () => ({
+    VITE_API_URL: 'bookinvideo',
+}));
+
 const course: Course = {
     "name": "Código limpo",
     "slug": "codigo-limpo",

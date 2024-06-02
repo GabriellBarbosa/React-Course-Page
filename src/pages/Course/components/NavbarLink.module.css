@@ -41,11 +41,16 @@
     align-items: center;
 }
 
-.lesson_duration_wrapper .watched_feedback {
+.lesson_duration_wrapper .watched_feedback,
+.freeIcon {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 32px;
+}
+
+.watched_feedback.hidden {
+    display: none;
 }
 
 .watched_feedback > span {
@@ -59,4 +64,18 @@
 
 .watched_feedback > span.watched {
     background-color: var(--c-0-light);
+}
+
+.freeIcon.hidden {
+    display: none;
+}
+
+.freeIcon {
+    font-size: 12px;
+    color: #9be564;
+    font-weight: 500;
+}
+
+.link_active .freeIcon {
+    color: var(--gray-3);
 }

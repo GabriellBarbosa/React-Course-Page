@@ -1,6 +1,8 @@
 import styles from './NavbarLink.module.css';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Lesson } from '../../../interfaces/Course';
+import { AuthContext } from '../../../context/AuthContext';
 
 function NavbarLink(props: {
     courseSlug: string,
@@ -8,6 +10,8 @@ function NavbarLink(props: {
     navbarActive: boolean,
     setNavbarActive: (navbarActive: boolean) => void;
 }) {
+    const authContext = React.useContext(AuthContext);
+
     function deactiveNavbar(event: React.MouseEvent) {
         if (props.navbarActive) {
             props.setNavbarActive(false);
@@ -16,6 +20,14 @@ function NavbarLink(props: {
         }
     }
 
+    function shouldHideWatchedFeedbackElement() {
+        return shouldShowFreeIcon();
+    }
+
+    function shouldShowFreeIcon() {
+        return !!(props.lesson.free && !authContext.activated);
+    }
+    
     return (
         <NavLink
             to={`/curso/${props.courseSlug}/${props.lesson.slug}`}
@@ -31,7 +43,12 @@ function NavbarLink(props: {
             </div>
             <div className={styles.lesson_duration_wrapper}>
                 <p className={styles.lesson_duration}>{ props.lesson.duration }</p>
-                <div className={styles.watched_feedback}>
+                <span 
+                    className={`${shouldShowFreeIcon() ? styles.active : styles.hidden} ${styles.freeIcon}`} 
+                    data-testid="freeLessonIcon"
+                >G</span>
+                
+                <div className={`${shouldHideWatchedFeedbackElement() ? styles.hidden : ''} ${styles.watched_feedback}`}>
                     <span 
                         className={`${props.lesson.completed ? styles.watched : ''}`} 
                         data-testid="watchedFeedback"
