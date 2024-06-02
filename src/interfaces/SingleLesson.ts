@@ -9,6 +9,7 @@ interface SingleLesson {
     code: string;
     slide: string;
     note: string;
+    free: string;
 }
 
 export default SingleLesson;

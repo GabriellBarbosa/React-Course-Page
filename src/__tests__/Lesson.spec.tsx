@@ -23,6 +23,7 @@ describe('Lesson', () => {
             next: '',
             code: '/code',
             slide: '/slide',
+            free: '',
             note: 'me envie um email falando o que você achou do curso'
         }
     })

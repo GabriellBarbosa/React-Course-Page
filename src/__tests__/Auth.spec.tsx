@@ -117,6 +117,7 @@ describe('Lesson', () => {
             next: '',
             code: '/code',
             slide: '/slide',
+            free: '',
             note: ''
         }
     
