@@ -1,5 +1,5 @@
 import { MemoryRouter } from "react-router-dom";
-import NavbarLink from "../pages/Course/components/NavbarLink";
+import NavBarLink from "../pages/Course/components/NavBarLink";
 import { render, screen } from "@testing-library/react";
 
 describe('Navbarlink', () => {
@@ -8,13 +8,14 @@ describe('Navbarlink', () => {
         "slug": "0101-configuracao",
         "sequence": "0101",
         "duration": "06:55",
+        "free": "",
         "completed": true
     }
 
     it('watchedFeedback', () => {
         render(
             <MemoryRouter>
-                <NavbarLink 
+                <NavBarLink 
                     courseSlug="codigo-limpo"
                     lesson={lesson}
                     navbarActive={true}

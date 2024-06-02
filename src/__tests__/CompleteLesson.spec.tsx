@@ -34,6 +34,7 @@ describe('Complete lesson', () => {
                             'slug': '0102-codigo-limpo',
                             'sequence': '02',
                             'duration': '15:05',
+                            'free': '',
                             'completed': false
                         },
                     ]

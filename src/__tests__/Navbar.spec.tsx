@@ -18,6 +18,7 @@ const course: Course = {
                     "slug": "0102-codigo-limpo",
                     "sequence": "0102",
                     "duration": "15:56",
+                    "free": "",
                     "completed": false,
                 },
                 {
@@ -25,6 +26,7 @@ const course: Course = {
                     "slug": "0101-configuracao",
                     "sequence": "0101",
                     "duration": "06:55",
+                    "free": "",
                     "completed": false,
                 }
             ]

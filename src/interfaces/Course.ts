@@ -16,6 +16,7 @@ interface Lesson {
     sequence: string;
     duration: string;
     completed: boolean;
+    free: string;
 }
 
 export type { Course, Lesson };
