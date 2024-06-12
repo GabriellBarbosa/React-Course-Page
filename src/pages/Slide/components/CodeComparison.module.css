@@ -1,0 +1,7 @@
+.container {
+    display: grid;
+    max-width: 100%;
+    padding: 20px;
+    grid-template-columns: minmax(300px, 600px) minmax(300px, 600px);
+    column-gap: 40px;
+}
