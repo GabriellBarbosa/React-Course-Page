@@ -1,15 +1,22 @@
 import styles from './CodeComparison.module.css';
-import React from 'react';
-import CodeEditor from '../../../interfaces/CodeEditor';
+import CodeEditorComponent from './CodeEditor';
 
 interface Props {
-    children: Array<React.ReactElement<CodeEditor>>;
+    before: string;
+    after: string;
 }
 
 function CodeComparion(props: Props) {
     return (
-        <div className={styles.container}>
-            {props.children}
+        <div className={styles.wrapper}>
+            <CodeEditorComponent
+                description={<>Antes:</>}
+                code={props.before}
+            />
+            <CodeEditorComponent
+                description={<>Depois:</>}
+                code={props.after}
+            />
         </div>
     )
 }

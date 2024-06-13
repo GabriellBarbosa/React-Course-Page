@@ -3,15 +3,12 @@ import styles from './styles.module.css';
 import useSlide from '../../../../hooks/useSlide';
 import useScrollbar from '../../../../hooks/useScrollbar';
 import React from 'react';
-import {
-    example1,
-    example2
-} from './Example';
+import { example1,  example2 } from './Example';
 
 import { default as logo } from '../../../../assets/BookInVideo-black.svg';
+import { default as crossCuttingConcerns } from '../../../../assets/cross-cutting-concerns.png';
+
 import PrincipleExplanationComponent from '../../components/PrincipleExplanationComponent';
-import CodeEditorComponent from '../../components/CodeEditor';
-import CodeComparison from '../../components/CodeComparison';
 
 function _0603() {
     const { slideNumber, addSlide } = useSlide();
@@ -21,25 +18,6 @@ function _0603() {
         hideScrollbar();
         return () => showScrollbar();
     }, []);
-
-    const singleExamples = [
-        {
-            title: 'Misturando Preocupações',
-            description: 'Essa função além da lógica do domínio também possui lógica de segurança, transação e log. Desse jeito a lógica do domínio fica ofuscada.',
-            code: {
-                description: <>Em TypeScript:</>,
-                value: example1
-            },
-        },
-        {
-            title: 'Separando Preocupações',
-            description: 'As preocupações secundárias foram movidas para outras funções através dos decorators. Agora conseguimos focar na lógica do domínio.',
-            code: {
-                description: <>Em TypeScript:</>,
-                value: example2
-            },
-        },
-    ]
 
     return (
         <div 
@@ -55,40 +33,55 @@ function _0603() {
                 </div>
             </section>
 
-            {singleExamples.map((example) => (
-                <section 
-                    className={slideStyles.slide} 
-                    data-testid="slide" 
-                    ref={addSlide}
-                    key={example.title}
-                >
-                    <div className={slideStyles.container}>
-                        <PrincipleExplanationComponent
-                            title={example.title}
-                            description={example.description}
-                            code={{
-                                description: example.code.description,
-                                value: example.code.value,
-                            }}
-                        />
+            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
+                <div className={slideStyles.container}>
+                    <h2 className={slideStyles.regular_title}>Preocupações Transversais</h2>
+                    <p className={slideStyles.subtitle}>Em inglês: Cross-Cutting Concerns<span>.</span></p>
+                    <div className={styles.img_wrapper}>
+                        <img src={crossCuttingConcerns} alt="segurança, desempenho, tratamento de exceções, caching, comunicação e logging" />
                     </div>
-                </section>
-            ))}
+                </div>
+            </section>
+
+            <section 
+                className={slideStyles.slide} 
+                data-testid="slide" 
+                ref={addSlide}
+            >
+                <div className={slideStyles.container}>
+                    <PrincipleExplanationComponent
+                        title="Mistura de Preocupações"
+                        description="Essa função além da lógica do domínio também possui lógica de segurança, transação e log. Desse jeito a lógica do domínio fica ofuscada."
+                        code={{
+                            description: <>Em TypeScript:</>,
+                            value: example1,
+                        }}
+                    />
+                </div>
+            </section>
 
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
-                <div className={styles.horizontalCodeComparison}>
-                    <div>
-                        <CodeComparison> 
-                            <CodeEditorComponent 
-                                code={singleExamples[0].code.value} 
-                                description={<>Antes:</>}
-                            />
-                            <CodeEditorComponent 
-                                code={singleExamples[1].code.value} 
-                                description={<>Depois:</>}
-                            />
-                        </CodeComparison>
-                    </div>
+                <div className={slideStyles.container}>
+                    <h2 className={slideStyles.grayTitle}>Paradigma</h2>
+                    <p className={`${slideStyles.separatorBefore} ${styles.focusedTitle}`}>Programação Orientada a Aspectos</p>
+                    <p className={styles.subtitle}>Ou Aspect-Oriented Programming(AOP):<br/>Ela nos ajuda a separar as preocupações.</p>
+                </div>
+            </section>
+
+            <section
+                className={slideStyles.slide} 
+                data-testid="slide" 
+                ref={addSlide}
+            >
+                <div className={slideStyles.container}>
+                    <PrincipleExplanationComponent
+                        title="Separando Preocupações"
+                        description="As demais preocupações foram movidas para outras funções através dos decorators. Agora conseguimos focar na lógica do domínio."
+                        code={{
+                            description: <>Em TypeScript:</>,
+                            value: example2,
+                        }}
+                    />
                 </div>
             </section>
         </div>
