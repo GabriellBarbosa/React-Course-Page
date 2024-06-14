@@ -1,36 +1,33 @@
-const example1 = `class Example {
-    processarOperacao(transacao: TransactionManager, log: LogManager, seguranca: SecurityManager, dao: OperacaoDAO, operacao: Operacao) {
-        try {
-            //segurança
-            if (seguranca.usuarioEstaLogado()) {
-                log.info("Falha de segurança"); //log
-                throw new Error('Acesso negado');
-            }
-
-            //transação
-            transacao.begin();
-            processamentoComplexoOperacao(operacao);
-            dao.salvarOperacao(operacao);
-            transacao.commit();
-            log.info("Sucesso"); //log
-
-        } catch (e) {
-            //tratamento excepcional
-            log.error("Falha", e); //log
-            transacao.rollback(); 
+const example1 = `class OperationProcessor {
+    processarOperacao(
+        transacao: TransactionManager, 
+        log: LogManager, 
+        seguranca: SecurityManager, 
+        dao: OperacaoDAO, 
+        operacao: Operacao
+    ) {
+        // segurança
+        if (seguranca.usuarioDesconhecido()) {
+            throw new Error('Acesso negado');
         }
+        transacao.begin(); // transação
+        this.processamentoComplexoOperacao(operacao); // domínio
+        dao.salvarOperacao(operacao); // domínio
+        transacao.complete(); // transação
+        log.info("Sucesso"); // log
     }
+    ...
 }`;
 
-const example2 = `class Example {
-    @Inject OperacaoDao // dependências
-    @UsuarioDeveEstarLogado // segurança
-    @Transactional // transação
-    @Logger
-    processarOperacao(operacao: Operacao) {
-        processamentoComplexoOperacao(operacao);
+const example2 = `class OperationProcessor {
+    @Security
+    @Log
+    @Transaction
+    processarOperacao(dao: OperacaoDAO, operacao: Operacao) {
+        this.processamentoComplexoOperacao(operacao);
         dao.salvarOperacao(operacao);
     }
+    ...
 }`;
 
 export {
