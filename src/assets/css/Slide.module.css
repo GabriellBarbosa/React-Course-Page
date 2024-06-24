@@ -156,6 +156,18 @@
     text-align: center;
 }
 
+.cite::before {
+    margin: 32px auto;
+}
+
+.cite {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 32px;
+    font-style: italic;
+    color: var(--gray-7);
+    text-align: center;
+}
+
 .smallSerifText {
     display: block;
     font-family: Georgia, 'Times New Roman', Times, serif;

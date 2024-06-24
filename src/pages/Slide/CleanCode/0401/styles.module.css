@@ -1,15 +1,3 @@
-.cite {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 2rem;
-    font-style: italic;
-    color: var(--gray-7);
-    text-align: center;
-}
-
-.cite::before {
-    margin: 2rem auto;
-}
-
 .rulesList li:nth-child(2)::before,
 .rulesList li:nth-child(2)::after {
     margin: 1.5rem auto;

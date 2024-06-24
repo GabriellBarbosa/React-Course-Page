@@ -31,7 +31,7 @@ function _0401() {
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.grayTitle}>Principal Motivação</h2>
-                    <p className={`${slideStyles.separatorBefore} ${styles.cite}`}>Coragem para limpar o código.</p>
+                    <p className={`${slideStyles.separatorBefore} ${slideStyles.cite}`}>Coragem para limpar o código.</p>
                     <p className={`${slideStyles.infoSource} ${styles.infoSource}`}>Desenvolvimento Ágil Limpo, Capítulo 5.</p>
                 </div>
             </section>

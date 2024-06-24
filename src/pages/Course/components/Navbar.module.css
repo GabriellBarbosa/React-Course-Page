@@ -91,6 +91,7 @@
 .module .title {
     background-color: var(--gray-0);
     font-family: 'PT Serif';
+    font-style: italic;
     font-size: 16px;
     line-height: 21px;
     padding: 10px;
