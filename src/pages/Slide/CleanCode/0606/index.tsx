@@ -10,7 +10,8 @@ import {
     example2,
     example2WithVerification,
     example2WithException,
-    example2Resolved
+    example2Resolved,
+    example3
 } from './Example';
 import { default as logo } from '../../../../assets/BookInVideo-black.svg';
 import CodeComparion from '../../components/CodeComparison';
@@ -108,6 +109,18 @@ function _0606() {
                         code={{
                             description: <></>,
                             value: example2Resolved,
+                        }}
+                    />
+                </div>
+            </section>
+            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
+                <div className={slideStyles.container}>
+                    <PrincipleExplanationComponent 
+                        title="Sem o Special Case Pattern"
+                        description="Sem o Special Case a lógica de aplicar o cupom de desconto mínimo ficaria com o chamador."
+                        code={{
+                            description: <></>,
+                            value: example3,
                         }}
                     />
                 </div>

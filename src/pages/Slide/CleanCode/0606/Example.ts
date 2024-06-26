@@ -43,7 +43,7 @@ function applyMonthlyDiscount(order) {
 function getMonthlyDiscountCoupon() {
     if (monthlyDiscountAlreadyUsed()) 
         return null;
-    return new RandomDiscountCoupon();
+    return new DiscountCoupon();
 }
 /* ... */`;
 
@@ -58,7 +58,7 @@ function applyMonthlyDiscount(order) {
 function getMonthlyDiscountCoupon() {
     if (monthlyDiscountAlreadyUsed()) 
         return null;
-    return new RandomDiscountCoupon();
+    return new DiscountCoupon();
 }
 /* ... */`;
 
@@ -72,7 +72,7 @@ function getMonthlyDiscountCoupon() {
     if (monthlyDiscountAlreadyUsed()) 
         throw new Error('Monthly Coupon already used!');
     
-    return new RandomDiscountCoupon();
+    return new DiscountCoupon();
 }
 /* ... */`;
 
@@ -86,7 +86,25 @@ function getMonthlyDiscountCoupon() {
     if (monthlyDiscountAlreadyUsed()) {
         return new MinimumDiscountCoupon();
     }
-    return new RandomDiscountCoupon();
+    return new DiscountCoupon();
+}
+/* ... */`;
+
+const example3 = `/* ... */
+function applyMonthlyDiscount(order) {
+    const coupon = getMonthlyDiscountCoupon();
+    if (coupon != null) {
+        coupon.applyDiscount(order);
+    } else {
+        // Lógica para aplicar o cupom de desconto mínimo...
+    }
+}
+
+function getMonthlyDiscountCoupon() {
+    if (monthlyDiscountAlreadyUsed()) {
+        return null;
+    }
+    return new DiscountCoupon();
 }
 /* ... */`
 
@@ -96,5 +114,6 @@ export {
     example2,
     example2WithVerification,
     example2WithException,
-    example2Resolved
+    example2Resolved,
+    example3
 }
