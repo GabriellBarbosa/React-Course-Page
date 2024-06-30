@@ -2,6 +2,6 @@
     display: grid;
     grid-template-columns: minmax(300px, 600px) minmax(300px, 600px);
     max-width: 100%;
-    padding: 20px;
+    padding: 40px 20px;
     column-gap: 40px;
 }

@@ -24,6 +24,7 @@ import _0604 from './0604';
 import _0605 from './0605';
 import _0606 from './0606';
 import _0607 from './0607';
+import _0608 from './0608';
 
 function CleanCode() {
     return (
@@ -54,6 +55,7 @@ function CleanCode() {
                 <Route path="0605-projeto-simples" element={<_0605 />} />
                 <Route path="0606-tratamento-de-erro" element={<_0606 />} />
                 <Route path="0607-comentarios" element={<_0607 />} />
+                <Route path="0608-formatacao" element={<_0608 />} />
             </Routes>
             <Outlet />
         </>
