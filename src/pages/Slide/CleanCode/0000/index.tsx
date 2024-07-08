@@ -1,7 +1,7 @@
 import styles from './styles.module.css';
 import slideStyles from '../../../../assets/css/Slide.module.css';
 
-import { default as logo } from './img/logo.svg';
+import { default as logo } from '../../../../assets/BookInVideo-black.svg';
 
 import useSlide from '../../../../hooks/useSlide';
 import React from 'react';
@@ -29,6 +29,7 @@ function _0000() {
                     <h3 className={slideStyles.subtitle}>Habilidades Práticas do Agile Software<span>.</span></h3>
                 </div>
             </section>
+
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>O curso</h2>
@@ -49,6 +50,7 @@ function _0000() {
                     </ul>
                 </div>
             </section>
+
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>A grade</h2>
@@ -68,6 +70,7 @@ function _0000() {
                     </ul>
                 </div>
             </section>
+
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>A grade</h2>
@@ -80,9 +83,14 @@ function _0000() {
                             <p className={styles.listItemTitle}>Classes</p>
                             <p className={styles.itemListDescription}>Responsabilidade única, princípio aberto/fechado, coesão, objetos e estruturas de dados e mais.</p>
                         </li>
+                        <li>
+                            <p className={styles.listItemTitle}>Mais Código Limpo</p>
+                            <p className={styles.itemListDescription}>Limites, sistemas, emergência, tratamento de erro, comentários, formatação, odores e heurísticas.</p>
+                        </li>
                     </ul>
                 </div>
             </section>
+
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.grayTitle}>Capítulo não gravado</h2>
@@ -93,6 +101,7 @@ function _0000() {
                     }>Concorrência.</p>
                 </div>
             </section>
+
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.grayTitle}>Esse curso substitui o livro?</h2>
