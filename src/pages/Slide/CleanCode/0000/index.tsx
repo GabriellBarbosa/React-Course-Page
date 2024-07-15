@@ -6,6 +6,11 @@ import { default as logo } from '../../../../assets/BookInVideo-black.svg';
 import useSlide from '../../../../hooks/useSlide';
 import React from 'react';
 import useScrollbar from '../../../../hooks/useScrollbar';
+import CodeComparion from '../../components/CodeComparison';
+import {
+    example,
+    exampleResolved
+} from './Example';
 
 function _0000() {
     const { slideNumber, addSlide } = useSlide();
@@ -27,6 +32,15 @@ function _0000() {
                     <span className={slideStyles.logo}><img src={logo} alt="BookInVideo" /></span>
                     <h1 className={`${slideStyles.title} ${slideStyles.introTitle}`}>Código Limpo</h1>
                     <h3 className={slideStyles.subtitle}>Habilidades Práticas do Agile Software<span>.</span></h3>
+                </div>
+            </section>
+
+            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
+                <div>
+                    <CodeComparion
+                        before={example}
+                        after={exampleResolved}
+                    />
                 </div>
             </section>
 
