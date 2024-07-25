@@ -2,29 +2,29 @@ import React from 'react';
 import { Course } from '../interfaces/Course';
 
 interface Props {
-    course: Course | null;
-    setCourse: (course: Course) => void;
+    courseContent: Course | null;
+    setCourseContent: (course: Course) => void;
     completeLesson: (lessonSlug: string) => void;
 }
 
 const CourseContentContext = React.createContext<Props>({
-    course: null,
-    setCourse: () => {},
+    courseContent: null,
+    setCourseContent: () => {},
     completeLesson: () => {},
 });
 
 function CourseContentProvider(props: { children: React.ReactNode }) {
-    const [course, setCourse] = React.useState<Course | null>(null);
+    const [courseContent, setCourseContent] = React.useState<Course | null>(null);
 
     function completeLesson(lessonSlug: string) {
-        const updatedCourse = defineLessonAsCompleted(lessonSlug);
-        setCourse(updatedCourse);
+        const updatedContent = defineLessonAsCompleted(lessonSlug);
+        setCourseContent(updatedContent);
     }
 
     function defineLessonAsCompleted(lessonSlug: string): Course | null {
-        if (course == null) return null;
+        if (courseContent == null) return null;
 
-        const courseCopy: Course = JSON.parse(JSON.stringify(course));
+        const courseCopy: Course = JSON.parse(JSON.stringify(courseContent));
         courseCopy.modules.forEach(module => {
             module.lessons.forEach(lesson => {
                 if (lesson.slug == lessonSlug)
@@ -36,8 +36,8 @@ function CourseContentProvider(props: { children: React.ReactNode }) {
 
     return (
         <CourseContentContext.Provider value={{ 
-            course, 
-            setCourse,
+            courseContent, 
+            setCourseContent,
             completeLesson
         }}>
             { props.children }

@@ -4,12 +4,13 @@ import { Course } from '../interfaces/Course';
 
 import Navbar from '../pages/Course/components/Navbar';
 import styles from '../components/Navbar.module.css';
+import { CourseContentContext } from '../context/CourseContentContext';
 
 jest.mock('../constants/enviroment.ts', () => ({
     VITE_API_URL: 'bookinvideo',
 }));
 
-const course: Course = {
+const courseContent: Course = {
     "name": "Código limpo",
     "slug": "codigo-limpo",
     "modules": [
@@ -41,9 +42,17 @@ const course: Course = {
 describe('Navbar', () => {
     beforeEach(() => {
         render(
-            <MemoryRouter>
-                <Navbar course={course} />
-            </MemoryRouter>
+            <CourseContentContext.Provider 
+                value={{ 
+                    courseContent: courseContent, 
+                    setCourseContent: jest.fn(), 
+                    completeLesson: jest.fn() 
+                }}
+            >
+                <MemoryRouter>
+                    <Navbar />
+                </MemoryRouter>
+            </CourseContentContext.Provider>
         );
 
         Object.assign(navigator, {
@@ -99,12 +108,12 @@ describe('Navbar', () => {
 
     it('should render all modules from course', () => {
         const modules = screen.getAllByTestId('module');
-        expect(modules.length).toBe(course.modules.length);
+        expect(modules.length).toBe(courseContent.modules.length);
     });
 
     it('should contain all videos from all modules', () => {
         const videos = screen.getAllByTestId('video');
-        const videosPermodule = course.modules.map((module) => module.lessons.length);
+        const videosPermodule = courseContent.modules.map((module) => module.lessons.length);
         const totalVideos = videosPermodule.reduce((prev, cur) => prev + cur);
         expect(videos.length).toBe(totalVideos);
     });

@@ -2,9 +2,11 @@ import styles from './Navbar.module.css';
 import React from 'react';
 import NavBarLink from './NavBarLink';
 import { Course } from '../../../interfaces/Course';
+import { CourseContentContext } from '../../../context/CourseContentContext';
 
-function Navbar(props: { course: Course }) {
+function Navbar() {
     const [navbarActive, setNavbarActive] = React.useState(true);
+    const courseContentContext = React.useContext(CourseContentContext);
 
     function toggleNavbarActive() {
         setNavbarActive(!navbarActive);
@@ -18,13 +20,13 @@ function Navbar(props: { course: Course }) {
         if (navbarActive) setNavbarActive(false);
     }
 
-    return (
+    return !courseContentContext.courseContent ? null : (
         <>
             <div 
                 data-testid="background" 
                 className={`${styles.background} ${navbarActive ? styles.active : ''}`}
                 onClick={deactiveNavbar} 
-            ></div>
+            />
 
             <div 
                 data-testid="navbar"
@@ -32,7 +34,7 @@ function Navbar(props: { course: Course }) {
                 className={`${styles.navbar} ${navbarActive ? styles.active : ''}`} 
             >
                 <div className={styles.header}>
-                    <p className={styles.title}>{ props.course.name }</p>
+                    <p className={styles.title}>{ courseContentContext.courseContent.name }</p>
                     <span 
                         data-testid="toggleActive"
                         onClick={toggleNavbarActive}
@@ -42,7 +44,7 @@ function Navbar(props: { course: Course }) {
                 </div>
 
                 <div className={styles.modules_wrapper}>
-                    {props.course.modules.map((module) =>(
+                    {courseContentContext.courseContent.modules.map((module) =>(
                         <div 
                             data-testid="module"
                             key={module.sequence} 
@@ -59,7 +61,7 @@ function Navbar(props: { course: Course }) {
                                         className={styles.lesson_wrapper}
                                     >
                                         <NavBarLink
-                                            courseSlug={props.course.slug}
+                                            courseSlug={(courseContentContext.courseContent as Course).slug}
                                             lesson={lesson}
                                             navbarActive={navbarActive}
                                             setNavbarActive={setNavbarActive}

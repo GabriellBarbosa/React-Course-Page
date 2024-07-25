@@ -6,7 +6,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 describe('Complete lesson', () => {
     let mockedLesson: SingleLesson;
-    let mockedCourse: Course;
+    let courseContentMock: Course;
 
     beforeEach(() => {
         mockedLesson = {
@@ -22,7 +22,7 @@ describe('Complete lesson', () => {
             free: '',
             note: ''
         }
-        mockedCourse = {
+        courseContentMock = {
             'name': 'Codigo limpo', 
             'slug': 'codigo-limpo',
             'modules': [
@@ -79,15 +79,14 @@ describe('Complete lesson', () => {
     it('update course context after complete lesson', async () => {
         mockedLesson = { ...mockedLesson, completed: false };
         const completeLesson = jest.fn(() => Promise.resolve(true));
-        const setCourseMock = jest.fn();
-        const completeLessonMock = jest.fn();
+        const mockedCourseContentCompleteLesson = jest.fn();
 
         render(
             <CourseContentContext.Provider 
                 value={{ 
-                    course: mockedCourse, 
-                    setCourse: setCourseMock, 
-                    completeLesson: completeLessonMock 
+                    courseContent: courseContentMock, 
+                    setCourseContent: jest.fn(), 
+                    completeLesson: mockedCourseContentCompleteLesson 
                 }}
             >
                 <Video 
@@ -99,6 +98,6 @@ describe('Complete lesson', () => {
         const completeButton = screen.getByTestId('completeBtn');
         fireEvent.click(completeButton);
 
-        await waitFor(() => expect(completeLessonMock).toHaveBeenCalled());
+        await waitFor(() => expect(mockedCourseContentCompleteLesson).toHaveBeenCalled());
     });
 })

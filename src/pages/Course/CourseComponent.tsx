@@ -11,9 +11,11 @@ import { CourseContentContext } from '../../context/CourseContentContext';
 
 function CourseComponent() {
     const courseContentContext = React.useContext(CourseContentContext);
+
     const [lesson, setLesson] = React.useState<SingleLesson | null>(null);
     const [courseLoading, setCourseLoading] = React.useState<boolean>(false);
     const [lessonLoading, setLessonLoading] = React.useState<boolean>(false);
+    
     const urlParams = useParams();
     const location = useLocation();
 
@@ -27,7 +29,7 @@ function CourseComponent() {
     React.useEffect(() => {
         setCourseLoading(true);
         fetchPromise(`/curso/${urlParams.course}`)
-            .then((course) => courseContentContext.setCourse(course))
+            .then((course) => courseContentContext.setCourseContent(course))
             .finally(() => setCourseLoading(false))
     }, []);
 
@@ -37,13 +39,6 @@ function CourseComponent() {
         } catch {
             return null;
         }
-    }
-
-    function displayNavbar() {
-        if (courseContentContext.course) {
-            return <Navbar course={courseContentContext.course} />;
-        }
-        return null;
     }
 
     function displayLesson() {
@@ -57,8 +52,9 @@ function CourseComponent() {
         <>
             <div>
                 <Header />
-                {courseLoading ?  <Loading /> : displayNavbar() }
+                {courseLoading ?  <Loading /> : <Navbar />}
             </div>
+
             <div className={styles.wrapper}>
                 <div className={styles.container}>
                     {lessonLoading ?  <Loading /> : displayLesson()}
