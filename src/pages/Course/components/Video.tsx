@@ -19,7 +19,7 @@ function Video(props: Props) {
         if (props.lesson.completed) return;
 
         const requestOk = await props.completeLesson(completeLessonEndpoint);
-        if (requestOk && courseContentContext.course) {
+        if (requestOk) {
             courseContentContext.completeLesson(props.lesson.slug);
         }
     }

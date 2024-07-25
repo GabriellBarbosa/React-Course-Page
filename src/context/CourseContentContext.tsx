@@ -21,7 +21,9 @@ function CourseContentProvider(props: { children: React.ReactNode }) {
         setCourse(updatedCourse);
     }
 
-    function defineLessonAsCompleted(lessonSlug: string): Course {
+    function defineLessonAsCompleted(lessonSlug: string): Course | null {
+        if (course == null) return null;
+
         const courseCopy: Course = JSON.parse(JSON.stringify(course));
         courseCopy.modules.forEach(module => {
             module.lessons.forEach(lesson => {
@@ -29,7 +31,6 @@ function CourseContentProvider(props: { children: React.ReactNode }) {
                     lesson.completed = true;
             });
         });
-
         return courseCopy;
     }
 
