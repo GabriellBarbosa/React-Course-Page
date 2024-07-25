@@ -20,28 +20,34 @@ function Lesson(props: Props) {
     const authContext = React.useContext(AuthContext);
     const { completeLesson } = useApi();
 
-    function displayVideoIfLoggedIn() {
-        if (authContext.user || props.lesson.free == 'true') {
-            return displayVideoIfUserIsSubscribed();
-        } else {
-            return <div data-testid="authenticate"><Authenticate /></div>
-        }
-    }
-
-    function displayVideoIfUserIsSubscribed() {
-        if (authContext.activated || props.lesson.free == 'true') {
+    function displayVideoLesson() {
+        if (canAcessVideoLesson()) {
             return (
                 <div data-testid="videoLesson">
                     <Video lesson={props.lesson} completeLesson={completeLesson} />
                 </div>
-                );
-        } else {
+            )
+        } else if (isNotActivated()) {
             return (
                 <div data-testid="notActivated">
                     <NotActivated />
                 </div>
             )
+        } else {
+            return (
+                <div data-testid="authenticate">
+                    <Authenticate />
+                </div>
+            )
         }
+    }
+
+    function canAcessVideoLesson() {
+        return authContext.activated || props.lesson.free == 'true';
+    }
+
+    function isNotActivated() {
+        return authContext.user && !authContext.activated;
     }
 
     return (
@@ -71,7 +77,7 @@ function Lesson(props: Props) {
                 {authContext.loading ? (
                     <div className={styles.loadingWrapper}><Loading /></div>
                 ) : (
-                    displayVideoIfLoggedIn()
+                    displayVideoLesson()
                 )}
             </div>
             <div className={styles.change_video_buttons}>
