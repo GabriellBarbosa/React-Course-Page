@@ -86,10 +86,14 @@ function Lesson(props: Props) {
                         <span>Anterior</span>
                     </Link>
                 )}
-                {props.lesson.next && (
+                {props.lesson.next ? (
                     <Link to={`/curso/${urlParams.course}/${props.lesson.next}`} className={styles.next}>
                         <span>Próximo</span>
                     </Link>
+                ) : (
+                    <a href="/conta" className={`${styles.certificate} ${styles.next}`} data-testid="certificateBtn">
+                        Certificado
+                    </a>
                 )}
             </div>
             {props.lesson.note && (

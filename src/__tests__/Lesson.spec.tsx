@@ -26,9 +26,6 @@ describe('Lesson', () => {
             free: '',
             note: 'me envie um email falando o que você achou do curso'
         }
-    })
-
-    it('lesson note', () => {
         mockUseApi.mockReturnValue({
             completeLesson: jest.fn(),
             getUser: jest.fn(() => Promise.resolve({ 
@@ -36,29 +33,29 @@ describe('Lesson', () => {
                 user: { username: 'Gabriel' }
             }))
         });
+    })
 
-        render(
-            <Lesson lesson={lesson} />
-        );
+    it('lesson note', () => {
+        lesson = { ...lesson, note: 'Esse curso é legal' };
+
+        render(<Lesson lesson={lesson} />);
 
         const noteElement = screen.getByTestId('note');
         expect(noteElement).toBeTruthy();
     });
 
     it('lesson without note', () => {
-        mockUseApi.mockReturnValue({
-            completeLesson: jest.fn(),
-            getUser: jest.fn(() => Promise.resolve({ 
-                activated: true,
-                user: { username: 'Gabriel' }
-            }))
-        });
         lesson = { ...lesson, note: '' };
-
-        render(
-            <Lesson lesson={lesson} />
-        );
-
+        render(<Lesson lesson={lesson} />);
         expect(() => screen.getByTestId('note')).toThrow();
+    });
+
+    it('display certificate button when there is no next lesson', () => {
+        lesson = { ...lesson, next: '' };
+        
+        render(<Lesson lesson={lesson} />);
+
+        const certificateBtn = screen.getByTestId('certificateBtn');
+        expect(certificateBtn).toBeTruthy();
     });
 });
