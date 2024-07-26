@@ -92,7 +92,7 @@ function Lesson(props: Props) {
                     </Link>
                 ) : (
                     <a href="/conta" className={`${styles.certificate} ${styles.next}`} data-testid="certificateBtn">
-                        Certificado
+                        <span>Certificado</span>
                     </a>
                 )}
             </div>
