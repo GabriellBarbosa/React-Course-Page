@@ -20,7 +20,7 @@ function Navbar() {
         if (navbarActive) setNavbarActive(false);
     }
 
-    return !courseContentContext.courseContent ? null : (
+    return courseContentContext.courseContent == null ? null : (
         <>
             <div 
                 data-testid="background" 
