@@ -4,6 +4,7 @@ import VideoPlayer from './VideoPlayer';
 import SingleLesson from '../../../interfaces/SingleLesson';
 import { CourseContentContext } from '../../../context/CourseContentContext';
 import { useParams } from 'react-router-dom';
+import { Course } from '../../../interfaces/Course';
 
 interface Props {
     lesson: SingleLesson;
@@ -19,8 +20,25 @@ function Video(props: Props) {
         if (props.lesson.completed) return;
 
         const requestOk = await props.completeLesson(completeLessonEndpoint);
-        if (requestOk)
-            courseContentContext.completeLesson(props.lesson.slug);
+        if (requestOk && courseContentContext.courseContent) {
+            const updatedContent = defineLessonAsCompleted(
+                courseContentContext.courseContent, 
+                props.lesson.slug
+            );
+            courseContentContext.setCourseContent(updatedContent);
+        }
+    }
+
+    
+    function defineLessonAsCompleted(courseContent: Course, lessonSlug: string) {
+        const contentCopy = {...courseContent};
+        contentCopy.modules.forEach(module => {
+            module.lessons.forEach(lesson => {
+                if (lesson.slug == lessonSlug)
+                    lesson.completed = true;
+            });
+        });
+        return contentCopy;
     }
 
     return (

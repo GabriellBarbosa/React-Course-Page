@@ -46,7 +46,6 @@ describe('Navbar', () => {
                 value={{ 
                     courseContent: courseContent, 
                     setCourseContent: jest.fn(), 
-                    completeLesson: jest.fn() 
                 }}
             >
                 <MemoryRouter>

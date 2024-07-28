@@ -79,14 +79,13 @@ describe('Complete lesson', () => {
     it('update course context after complete lesson', async () => {
         mockedLesson = { ...mockedLesson, completed: false };
         const completeLesson = jest.fn(() => Promise.resolve(true));
-        const mockedCourseContentCompleteLesson = jest.fn();
+        const setCourseContentMock = jest.fn();
 
         render(
             <CourseContentContext.Provider 
                 value={{ 
                     courseContent: courseContentMock, 
-                    setCourseContent: jest.fn(), 
-                    completeLesson: mockedCourseContentCompleteLesson 
+                    setCourseContent: setCourseContentMock, 
                 }}
             >
                 <Video 
@@ -98,6 +97,6 @@ describe('Complete lesson', () => {
         const completeButton = screen.getByTestId('completeBtn');
         fireEvent.click(completeButton);
 
-        await waitFor(() => expect(mockedCourseContentCompleteLesson).toHaveBeenCalled());
+        await waitFor(() => expect(setCourseContentMock).toHaveBeenCalled());
     });
 })

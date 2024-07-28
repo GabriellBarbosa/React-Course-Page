@@ -9,12 +9,14 @@ import { CourseContentProvider } from './context/CourseContentContext';
 function App() {
     return (
         <AuthProvider>
-            <CourseContentProvider>
                 <Routes>
                     <Route path='slide/*' element={<Slide />} />
-                    <Route path='curso/:course/:lesson' element={<Course />} />
+                    <Route path='curso/:course/:lesson' element={(
+                        <CourseContentProvider>
+                            <Course />
+                        </CourseContentProvider>
+                    )} />
                 </Routes>
-            </CourseContentProvider>
         </AuthProvider>
     )
 }
