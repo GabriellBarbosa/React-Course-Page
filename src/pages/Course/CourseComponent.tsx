@@ -13,8 +13,8 @@ function CourseComponent() {
     const courseContentContext = React.useContext(CourseContentContext);
 
     const [lesson, setLesson] = React.useState<SingleLesson | null>(null);
-    const [courseLoading, setCourseLoading] = React.useState<boolean>(false);
-    const [lessonLoading, setLessonLoading] = React.useState<boolean>(false);
+    const [courseLoading, setCourseLoading] = React.useState<boolean>(true);
+    const [lessonLoading, setLessonLoading] = React.useState<boolean>(true);
     
     const urlParams = useParams();
     const location = useLocation();
