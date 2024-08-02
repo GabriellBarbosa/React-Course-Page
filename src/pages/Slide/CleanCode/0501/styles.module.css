@@ -42,7 +42,7 @@
 @media only screen and (max-width: 900px) {
     .codeExamples {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 600px);
         row-gap: 40px;
     }
 }

@@ -20,8 +20,8 @@
 
 .title, .regular_title {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 3rem;
-    line-height: 3rem;
+    font-size: 48px;
+    line-height: 48px;
 }
 
 .regular_title {
@@ -40,7 +40,18 @@
 .introTitle {
     font-weight: bold;
     text-transform: uppercase;
-    margin-top: 3rem;
+    margin-top: 48px;
+}
+
+@media screen and (max-width: 760px) {
+    .title, .regular_title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .introTitle {
+        margin-top: 32px;
+    }
 }
 
 .subtitle {
@@ -50,6 +61,14 @@
     line-height: 2rem;
     margin-top: 0.625rem;
     font-weight: 400;
+}
+
+@media screen and (max-width: 760px) {
+    .subtitle {
+        font-size: 20px;
+        line-height: 28px;
+        margin-top: 10px;
+    }
 }
 
 .subtitle span {
@@ -63,6 +82,14 @@
     font-size: 1.5rem;
     line-height: 3rem;
     color: var(--gray-5);
+}
+
+@media screen and (max-width: 760px) {
+    .list li {
+        font-size: 20px;
+        line-height: 30px;
+        padding: 5px 0;
+    }
 }
 
 .list li::before {
@@ -127,6 +154,19 @@
     line-height: 1.625rem;
     margin-top: 0.625rem;
     color: var(--gray-plus);
+}
+
+@media screen and (max-width: 760px) {
+    .principleTitle {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .principleDescription {
+        font-size: 16px;
+        line-height: 24px;
+        margin-top: 10px;
+    }
 }
 
 .principleCodeDescription {

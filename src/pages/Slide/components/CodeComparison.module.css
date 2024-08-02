@@ -5,3 +5,9 @@
     padding: 40px 20px;
     column-gap: 40px;
 }
+
+@media screen and (max-width: 760px) {
+    .wrapper {
+        grid-template-columns: minmax(0, 600px);
+    }
+}
