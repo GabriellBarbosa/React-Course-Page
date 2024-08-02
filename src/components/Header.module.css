@@ -84,7 +84,7 @@ span.line:nth-child(1) {
 }
 
 span.line:nth-child(2) {
-    width: 16px;
+    width: 12px;
     position: relative;
     align-self: flex-end;
 }
