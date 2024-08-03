@@ -85,6 +85,7 @@ function Header() {
                             <div className={styles.subscription}>
                                 <SubscribeButton text="Inscreva-se" className={styles.link} />
                             </div>
+                            <a href="/contato" className={styles.link}>Contato</a>
                             <a href="/conta" data-testid="myAccountBtn" className={`${styles.link} ${styles.login}`}>
                                 { getMyAccountBtnText() }
                             </a>

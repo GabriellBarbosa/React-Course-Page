@@ -2,8 +2,6 @@ function SubscribeButton(props: { text: string, className: string }) {
     const cleanCodeProductID = (window as any).wp_data?.course;
     const cleanCodeProductLink = (window as any).wp_data?.product;
 
-    if (!cleanCodeProductID || !cleanCodeProductLink) return null;
-
     return (
         <form action={cleanCodeProductLink} method="post" encType="multipart/form-data">
             <input type="hidden" name="quantity" value="1" inputMode="numeric" autoComplete="off" />

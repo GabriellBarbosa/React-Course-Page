@@ -150,12 +150,12 @@ span.line:nth-child(3) {
         display: block;
         width: 100%;
         padding: 15px 5px;
-        border-bottom: 1px solid var(--gray-3);
+        border-top: 1px solid var(--gray-3);
         text-align: left;
     }
 
-    .links_container .link:nth-child(2) {
-        border-bottom: none;
+    .links_container .link:nth-child(1) {
+        border-top: none;
     }
 
     .links_container a.link.login {
