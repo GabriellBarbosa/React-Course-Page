@@ -13,7 +13,7 @@ import {
     example2Resolved,
     example3
 } from './Example';
-import { default as logo } from '../../../../assets/BookInVideo-black.svg';
+import { default as logo } from '../../../../assets/BookInVideo.svg';
 import CodeComparion from '../../components/CodeComparison';
 
 function _0606() {

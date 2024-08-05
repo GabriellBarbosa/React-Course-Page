@@ -14,7 +14,7 @@ import {
     example4
 } from './Example';
 
-import { default as logo } from '../../../../assets/BookInVideo-black.svg';
+import { default as logo } from '../../../../assets/BookInVideo.svg';
 
 function _0608() {
     const { slideNumber, addSlide } = useSlide();

@@ -3,7 +3,7 @@ import styles from './styles.module.css';
 import useSlide from '../../../../hooks/useSlide';
 import useScrollbar from '../../../../hooks/useScrollbar';
 import React from 'react';
-import { default as logo } from '../../../../assets/BookInVideo-black.svg';
+import { default as logo } from '../../../../assets/BookInVideo.svg';
 
 function _0607() {
     const { slideNumber, addSlide } = useSlide();

@@ -1,7 +1,7 @@
 import styles from './styles.module.css';
 import slideStyles from '../../../../assets/css/Slide.module.css';
 
-import { default as logo } from '../../../../assets/BookInVideo-black.svg';
+import { default as logo } from '../../../../assets/BookInVideo.svg';
 
 import useSlide from '../../../../hooks/useSlide';
 import React from 'react';

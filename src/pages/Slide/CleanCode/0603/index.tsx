@@ -5,7 +5,7 @@ import useScrollbar from '../../../../hooks/useScrollbar';
 import React from 'react';
 import { example1,  example2 } from './Example';
 
-import { default as logo } from '../../../../assets/BookInVideo-black.svg';
+import { default as logo } from '../../../../assets/BookInVideo.svg';
 import { default as crossCuttingConcerns } from '../../../../assets/cross-cutting-concerns.png';
 
 import PrincipleExplanationComponent from '../../components/PrincipleExplanationComponent';
