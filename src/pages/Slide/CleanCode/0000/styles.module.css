@@ -85,6 +85,6 @@
     display: block;
     width: 12px;
     height: 4px;
-    background-color: var(--gray-4);
+    background-color: var(--c-0-light);
     margin-right: 12px;
 }

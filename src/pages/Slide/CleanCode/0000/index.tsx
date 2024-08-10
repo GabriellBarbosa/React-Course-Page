@@ -6,11 +6,6 @@ import { default as logo } from '../../../../assets/BookInVideo.svg';
 import useSlide from '../../../../hooks/useSlide';
 import React from 'react';
 import useScrollbar from '../../../../hooks/useScrollbar';
-import CodeComparion from '../../components/CodeComparison';
-import {
-    example,
-    exampleResolved
-} from './Example';
 
 function _0000() {
     const { slideNumber, addSlide } = useSlide();
@@ -31,35 +26,30 @@ function _0000() {
                 <div className={slideStyles.container}>
                     <span className={slideStyles.logo}><img src={logo} alt="BookInVideo" /></span>
                     <h1 className={`${slideStyles.title} ${slideStyles.introTitle}`}>Código Limpo</h1>
-                    <h3 className={slideStyles.subtitle}>Habilidades Práticas do Agile Software<span>.</span></h3>
-                </div>
-            </section>
-
-            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
-                <div>
-                    <CodeComparion
-                        before={example}
-                        after={exampleResolved}
-                    />
+                    <h3 className={slideStyles.subtitle}>Habilidades Práticas do Agile Software.</h3>
                 </div>
             </section>
 
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
-                    <h2 className={slideStyles.regular_title}>O curso</h2>
-                    <h3 className={slideStyles.subtitle}>Baseado no livro Código Limpo de Robert C. Martin<span>.</span></h3>
+                    <h2 className={slideStyles.regular_title}>O Curso</h2>
+                    <h3 className={slideStyles.subtitle}>Inspirado no livro Código Limpo.</h3>
                     <ul className={`${styles.list} ${styles.titleAndDescriptionList}`}>
                         <li>
-                            <p className={styles.listItemTitle}>Esse curso é para iniciantes?</p>
-                            <p className={styles.itemListDescription}>Não ensinarei a programar. Vou apresentar práticas para escrevermos códigos melhores.</p>
+                            <p className={styles.listItemTitle}>Para quem é o curso?</p>
+                            <p className={styles.itemListDescription}>Você que já gastou muito tempo tentando entender um código confuso.</p>
                         </li>
                         <li>
-                            <p className={styles.listItemTitle}>Requisito</p>
+                            <p className={styles.listItemTitle}>Pré-requisito</p>
                             <p className={styles.itemListDescription}>Saber uma linguagem que tenha orientação a objetos.</p>
                         </li>
                         <li>
                             <p className={styles.listItemTitle}>Linguagem do curso</p>
                             <p className={styles.itemListDescription}>JavaScript e TypeScript.</p>
+                        </li>
+
+                        <li>
+                            <p className={styles.listItemTitle}>Certificado de Conclusão</p>
                         </li>
                     </ul>
                 </div>
@@ -79,7 +69,7 @@ function _0000() {
                         </li>
                         <li>
                             <p className={styles.listItemTitle}>Funções</p>
-                            <p className={styles.itemListDescription}>Responsabilidade única, princípio aberto/fechado, parâmetros e mais.</p>
+                            <p className={styles.itemListDescription}>Responsabilidade única, princípio aberto/fechado, comando/consulta, parâmetros e tratamento de erro.</p>
                         </li>
                     </ul>
                 </div>
@@ -91,11 +81,11 @@ function _0000() {
                     <ul className={`${styles.list} ${styles.titleAndDescriptionList}`}>
                         <li>
                             <p className={styles.listItemTitle}>Testes unitários</p>
-                            <p className={styles.itemListDescription}>Uma introdução a testes unitários e a sua importância para um código limpo.</p>
+                            <p className={styles.itemListDescription}>Uma introdução aos testes unitários e a sua importância para um código limpo.</p>
                         </li>
                         <li>
                             <p className={styles.listItemTitle}>Classes</p>
-                            <p className={styles.itemListDescription}>Responsabilidade única, princípio aberto/fechado, coesão, objetos e estruturas de dados e mais.</p>
+                            <p className={styles.itemListDescription}>Responsabilidade única, princípio aberto/fechado, coesão, objetos e estruturas de dados e híbridos.</p>
                         </li>
                         <li>
                             <p className={styles.listItemTitle}>Mais Código Limpo</p>
@@ -105,33 +95,6 @@ function _0000() {
                 </div>
             </section>
 
-            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
-                <div className={slideStyles.container}>
-                    <h2 className={slideStyles.grayTitle}>Capítulo não gravado</h2>
-                    <p className={`
-                        ${styles.smallSerifText} 
-                        ${slideStyles.smallSerifText} 
-                        ${slideStyles.separatorBefore}`
-                    }>Concorrência.</p>
-                </div>
-            </section>
-
-            <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
-                <div className={slideStyles.container}>
-                    <h2 className={slideStyles.grayTitle}>Esse curso substitui o livro?</h2>
-                    <p className={`
-                        ${slideStyles.smallSerifText} 
-                        ${slideStyles.separatorBefore}`
-                    }>NÃO.</p>
-                    <p className={`${slideStyles.infoSource} ${styles.infoSource}`}>
-                        <a 
-                            href="https://www.amazon.com.br/C%C3%B3digo-limpo-Robert-C-Martin/dp/8576082675"
-                            className={slideStyles.externalLink} 
-                            target="_blank"
-                        >Livro na amazon.</a>
-                    </p>
-                </div>
-            </section>
             <section className={slideStyles.slide} data-testid="slide" ref={addSlide}>
                 <div className={slideStyles.container}>
                     <h2 className={slideStyles.regular_title}>Professor</h2>
